@@ -1,0 +1,1 @@
+var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,t),e=null),t.exports),n=e((()=>{})),r=t((()=>{document.addEventListener(`DOMContentLoaded`,()=>{console.log(`Hero component loaded`)})})),i=t((()=>{n(),r(),console.log(`Severina is running !`)}));export default i();
