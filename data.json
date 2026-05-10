@@ -20,13 +20,26 @@
       "components": [
         {
           "component": "Hero",
-
           "data": {
             "class": "hero-default",
             "image": "assets/images/hero.jpg",
             "subtitle": "Bienvenue",
             "title": "Architecture PHP modulaire",
             "text": "Ce contenu provient du JSON.",
+            "button": {
+              "label": "Découvrir",
+              "link": "about"
+            }
+          }
+        },
+        {
+          "component": "Hero",
+          "data": {
+            "class": "hero-default inverted",
+            "image": "https://picsum.photos/600/400",
+            "subtitle": "Léger",
+            "title": "Projet ultra léger",
+            "text": "Ce contenu est side ridé côté PHP.",
             "button": {
               "label": "Découvrir",
               "link": "about"

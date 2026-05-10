@@ -1,21 +1,28 @@
 .hero {
+    @media screen and (min-width: 768px) {
+        align-items: center;
+    }
 
     display: flex;
-    align-items: center;
-    gap: 40px;
+    gap: 48px;
 
-    max-width: 1200px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 64px 24px;
+    max-width: 1200px;
+
+    &.inverted {
+        @media screen and (min-width: 768px) {
+            flex-direction: row-reverse;
+        }
+    }
 
     &-image {
-
         flex: 1;
 
         img {
+            display: block;
             width: 100%;
             border-radius: 20px;
-            display: block;
         }
     }
 
@@ -24,36 +31,31 @@
     }
 
     &-subtitle {
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         color: #777;
     }
 
     h1 {
+        margin-bottom: 24px;
         font-size: 48px;
-        margin-bottom: 20px;
     }
 
     &-text {
+        margin-bottom: 32px;
         line-height: 1.6;
-        margin-bottom: 30px;
     }
 
     &-button {
-
         display: inline-block;
-
         padding: 14px 24px;
-
         background: black;
         color: white;
+        text-decoration: none;
 
         border-radius: 8px;
-
-        text-decoration: none;
     }
 
     @media (max-width: 768px) {
-
         flex-direction: column;
 
         h1 {

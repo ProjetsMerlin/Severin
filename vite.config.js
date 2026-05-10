@@ -18,7 +18,7 @@ export default defineConfig({
         emptyOutDir: true,
         rollupOptions: {
             input: {
-                app: './assets/main.js'
+                app: './main.js'
             },
             output: {
                 entryFileNames: 'app.js',

@@ -85,13 +85,13 @@ Créer un système :
 
 - routing avancé sans query string
 - cache HTML statique
-
 - layouts système
 - CMS JSON admin
 - lazy-loading composants
 - SEO automatique complet
 - build intelligent par page
+- améliorer sécurité htacess
 
-## défaut principal
+## Défaut principal
 
 On se retrouve avec un fichier data.json très long puisqu'il renferme à lui seul le routing, le contenu et la structure des pages

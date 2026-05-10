@@ -9,6 +9,7 @@ function renderHero($data)
     <div class="hero-image">
 
         <img
+            loading="lazy"
             src="<?= htmlspecialchars($data['image']) ?>"
             alt="<?= htmlspecialchars($data['title']) ?>"
         >
@@ -30,6 +31,7 @@ function renderHero($data)
         </p>
 
         <a
+            title="<?= htmlspecialchars($data['title']) ?>"
             href="<?= htmlspecialchars($data['button']['link']) ?>"
             class="hero-button"
         >

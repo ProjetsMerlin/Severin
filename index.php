@@ -1,5 +1,4 @@
 <?php
-
 $data = json_decode(
     file_get_contents('data.json'),
     true
@@ -66,7 +65,7 @@ foreach ($page['components'] as $section) {
 
     if (file_exists($componentPath)) {
 
-        require $componentPath;
+        require_once $componentPath;
 
         $function = 'render' . $componentName;
 
