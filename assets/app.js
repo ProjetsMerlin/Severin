@@ -1,1 +1,1 @@
-var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,t),e=null),t.exports),n=e((()=>{})),r=t((()=>{document.addEventListener(`DOMContentLoaded`,()=>{console.log(`Hero component loaded`)})})),i=t((()=>{n(),r()}));export default i();
+var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||(e((t={exports:{}}).exports,t),e=null),t.exports),n=e((()=>{})),r=e((()=>{})),i=t((()=>{document.addEventListener(`DOMContentLoaded`,()=>{console.log(`Hero component loaded`)})})),a=t((()=>{n(),r(),i()}));export default a();

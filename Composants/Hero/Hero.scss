@@ -1,14 +1,13 @@
 .hero {
-    @media screen and (min-width: 768px) {
-        align-items: center;
-    }
-
     display: flex;
     gap: 48px;
-
     margin: auto;
     padding: 64px 24px;
     max-width: 1200px;
+   
+    @media screen and (min-width: 768px) {
+        align-items: center;
+    }
 
     &.inverted {
         @media screen and (min-width: 768px) {
@@ -35,9 +34,9 @@
         color: #777;
     }
 
-    h1 {
+    &-title {
         margin-bottom: 24px;
-        font-size: 48px;
+        font-size: 32px;
     }
 
     &-text {
@@ -58,8 +57,8 @@
     @media (max-width: 768px) {
         flex-direction: column;
 
-        h1 {
-            font-size: 32px;
+        &-title {
+            font-size: 24px;
         }
     }
 }

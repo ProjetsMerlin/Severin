@@ -22,9 +22,9 @@ function renderHero($data)
             <?= htmlspecialchars($data['subtitle']) ?>
         </p>
 
-        <h1>
+        <h3 class="hero-title">
             <?= htmlspecialchars($data['title']) ?>
-        </h1>
+        </h3>
 
         <p class="hero-text">
             <?= htmlspecialchars($data['text']) ?>

@@ -4,7 +4,7 @@ Options -Indexes
     Require all denied
 </FilesMatch>
 
-<Files "data.json">
+<Files "admin/data.json">
     Require all denied
 </Files>
 
@@ -14,6 +14,5 @@ Options -Indexes
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
-    RewriteRule ^$ index.php?page=bienvenue [L,QSA]
     RewriteRule ^([^/]+)/?$ index.php?page=$1 [L,QSA]
 </IfModule>

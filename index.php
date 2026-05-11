@@ -1,10 +1,7 @@
 <?php
-$data = json_decode(
-    file_get_contents('data.json'),
-    true
-);
+$data = json_decode(file_get_contents('admin/data.json'), true);
 
-$route = $_GET['page'] ?? 'bienvenue';
+$route = (!$_GET['page'] || $_GET['page'] === "/") ? $data['config']['defaultPage'] : $_GET['page'];
 
 if (!isset($data['routes'][$route])) {
     http_response_code(404);
@@ -53,7 +50,7 @@ $config = $data['config'];
     >
 </head>
 
-<body>
+<body class="severin">
 
 <?php
 

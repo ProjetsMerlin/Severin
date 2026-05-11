@@ -1,0 +1,86 @@
+{
+    "config": {
+        "siteName": "Severina",
+        "siteUrl": "http://localhost/projets/lintermediaire/en%20cours/Severina/",
+        "author": "Merlin",
+        "lang": "fr-BE",
+        "charset": "UTF-8",
+        "description": "Site exemple basé sur des composants PHP",
+        "favicon": "assets/images/favicon.ico",
+        "defaultPage": "bienvenue"
+    },
+    "routes": {
+        "bienvenue": {
+            "seo": {
+                "title": "Accueil",
+                "description": "Bienvenue sur notre site"
+            },
+            "components": [
+                {
+                    "component": "Hero",
+                    "data": {
+                        "class": "hero-default",
+                        "image": "assets/images/hero.jpg",
+                        "subtitle": "Severin",
+                        "title": "Architecture PHP modulaire",
+                        "text": "Ce contenu provient du JSON éditable via l'admin du site : /admin.",
+                        "button": {
+                            "label": "Découvrir",
+                            "link": "admin/index.php"
+                        }
+                    }
+                },
+                {
+                    "component": "Hero",
+                    "data": {
+                        "class": "hero-default inverted",
+                        "image": "https://picsum.photos/600/400",
+                        "subtitle": "Léger",
+                        "title": "Projet ultra léger",
+                        "text": "Ce contenu est side ridé côté PHP.",
+                        "button": {
+                            "label": "Découvrir",
+                            "link": "about"
+                        }
+                    }
+                }
+            ]
+        },
+        "about": {
+            "seo": {
+                "title": "À propos",
+                "description": "Page de présentation"
+            },
+            "components": [
+                {
+                    "component": "Hero",
+                    "data": {
+                        "class": "hero-about",
+                        "image": "assets/images/hero.jpg",
+                        "subtitle": "Qui sommes-nous ?",
+                        "title": "À propos du projet",
+                        "text": "Une architecture simple et scalable.",
+                        "button": {
+                            "label": "Retour",
+                            "link": "bienvenue"
+                        }
+                    }
+                },
+                {
+                    "component": "Hero",
+                    "data": {
+                        "class": "hero-about inverted",
+                        "image": "assets/images/hero.jpg",
+                        "subtitle": "Qui sommes-nous",
+                        "title": "À propos du projet",
+                        "text": "Une architecture simple et scalable.",
+                        "button": {
+                            "label": "Retour",
+                            "link": "bienvenue"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
