@@ -14,25 +14,25 @@
             "logo": {
                 "image": "assets/images/favicon.ico",
                 "alt": "Logo",
-                "link": "/"
+                "link": "bienvenue"
             },
             
             "links": [
                 {
-                    "label": "Accueil",
-                    "url": "/"
+                    "label": "Bienvenue",
+                    "url": "bienvenue"
                 },
                 {
                     "label": "À propos",
-                    "url": "/about"
+                    "url": "a-propos"
                 },
                 {
                     "label": "Services",
-                    "url": "/services"
+                    "url": "services"
                 },
                 {
                     "label": "Contact",
-                    "url": "/contact"
+                    "url": "contact"
                 }
             ]
         }
@@ -48,7 +48,7 @@
                     "component": "Hero",
                     "data": {
                         "class": "hero-default",
-                        "image": "assets/images/hero.jpg",
+                        "image": "assets/images/hero-home.jpg",
                         "subtitle": "Severin",
                         "title": "Architecture PHP modulaire",
                         "text": "Ce contenu provient du JSON éditable via l'admin du site : /admin.",
@@ -62,19 +62,19 @@
                     "component": "Hero",
                     "data": {
                         "class": "hero-default inverted",
-                        "image": "https://picsum.photos/600/400",
+                        "image": "assets/images/hero.jpg",
                         "subtitle": "Léger",
                         "title": "Projet ultra léger",
                         "text": "Ce contenu est side ridé côté PHP.",
                         "button": {
                             "label": "Découvrir",
-                            "link": "about"
+                            "link": "a-propos"
                         }
                     }
                 }
             ]
         },
-        "about": {
+        "a-propos": {
             "seo": {
                 "title": "À propos",
                 "description": "Page de présentation"
@@ -84,7 +84,7 @@
                     "component": "Hero",
                     "data": {
                         "class": "hero-about",
-                        "image": "assets/images/hero.jpg",
+                        "image": "assets/images/hero-about.jpg",
                         "subtitle": "Qui sommes-nous ?",
                         "title": "À propos du projet",
                         "text": "Une architecture simple et scalable.",
