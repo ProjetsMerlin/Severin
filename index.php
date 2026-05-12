@@ -20,39 +20,29 @@ $config = $data['config'];
 
     <meta charset="<?= $config['charset'] ?>">
 
-    <meta 
-        name="viewport" 
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($page['seo']['title']) ?> - <?= htmlspecialchars($config['siteName']) ?></title>
+    <title><?= htmlspecialchars($config['siteName']) ?> - <?= htmlspecialchars($page['seo']['title']) ?></title>
 
-    <meta
-        name="description"
-        content="<?= htmlspecialchars($page['seo']['description']) ?>"
-    >
+    <meta name="description" content="<?= htmlspecialchars($page['seo']['description']) ?>">
 
-    <meta
-        name="author"
-        content="<?= htmlspecialchars($config['author']) ?>"
-    >
+    <meta name="author" content="<?= htmlspecialchars($config['author']) ?>">
 
     <base href="<?= htmlspecialchars($config['siteUrl']) ?>">
 
-    <link
-        rel="icon"
-        href="<?= htmlspecialchars($config['favicon']) ?>"
-    >
+    <link rel="icon" href="<?= htmlspecialchars($config['favicon']) ?>">
 
-    <link
-        rel="stylesheet"
-        href="assets/style.css"
-    >
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body class="severin">
 
-<?php
+    <?php
+
+    $Menu = "Composants/Menu/index.php";
+        require_once $Menu;
+        $function = 'renderMenu';
+            $function($config['menu']);
 
 foreach ($page['components'] as $section) {
 
@@ -75,7 +65,8 @@ foreach ($page['components'] as $section) {
 
 ?>
 
-<script type="module" src="assets/app.js"></script>
+    <script type="module" src="assets/app.js"></script>
 
 </body>
+
 </html>

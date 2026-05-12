@@ -6,12 +6,14 @@ Un projet minimaliste mais ultra complet. Ce système est un CMS JSON component-
 
 ## Structure du projet
 
-/assets
+/admin/data.json    => data
+
+/assets             => Style
     app.js  
     style.css  
     /images  
 
-/Composants  
+/Composants         => Composants
     /Hero  
         index.php  
         Hero.scss  
@@ -21,9 +23,8 @@ Un projet minimaliste mais ultra complet. Ce système est un CMS JSON component-
     /Global  
         favicon.ico  
 
-index.php  
-data.json  
-.htaccess  
+index.php           => SEO
+.htaccess           => Sécurité
 
 ---
 
@@ -31,9 +32,9 @@ data.json
 
 - routing PHP simple (index.php + .htaccess)
 - SEO dynamique depuis JSON et url propres
-- sécurité de base via l'htaccess
+- sécurité de base via l'.htaccess (sous Apache)
 - composants isolés et réutilisables (SCSS modulaire par composant & JS modulaire par composant)
-- contenu piloté par JSON (data.json)
+- contenu piloté par JSON (data.json) et un petit admin ajouté à cet effet
 
 ---
 
@@ -43,22 +44,22 @@ Le système repose sur 3 piliers :
 
 ### 1. data.json
 Contient :
-- routes du site
-- contenu des pages
 - configuration globale (SEO, langue, siteName, auteur ...)
+- routes du site
+- Composition des pages
 
 ### 2. Composants PHP
 Chaque composant contient :
 - rendu PHP
-- styles SCSS
-- JS associé
+- styles (SCSS)
+- JS éventuel associé
 - assets propres (toutes les images dans un seul dossiers)
 
 ### 3. Vite
 Compile :
-- SCSS → assets/style.css
-- JS → assets/app.js
-- images → assets/images
+- tous les SCSS → assets/style.css
+- Tous le JS → assets/app.js
+- toutes les images → assets/images
 
 ---
 
@@ -66,10 +67,10 @@ Compile :
 
 En production, seuls ces fichiers sont nécessaires :
 
-/assets  
-/Composants  
-index.php  
-data.json  
+/admin/*
+/assets/* 
+/Composants/*  
+index.php 
 .htaccess  
 
 ---
@@ -79,7 +80,7 @@ data.json
 Créer un système :
 - simple comme PHP natif sans base de données
 - structuré comme un framework moderne
-- rapide et SEO-friendly
+- rapide, sécurisé et SEO-friendly
 
 ## Évolutions possibles
 
@@ -94,4 +95,10 @@ Créer un système :
 
 ## Défaut principal
 
-On se retrouve avec un fichier data.json très long puisqu'il renferme à lui seul le routing, le contenu et la structure des pages
+On se retrouve avec un fichier data.json très long puisqu'il renferme à lui seul le routing, le contenu et la structure des pages.
+Mais il est possible de l'éditer via l'admin. L'idée serait de partager ce type de fichier pour changer d'apparence et de structure.
+
+## idées
+
+utilisation d'un framewok CSS ?
+slugPage-composant pour ne charger que ce dernier ?

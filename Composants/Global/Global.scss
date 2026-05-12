@@ -1,3 +1,12 @@
+*, *::before,
+ *::after {
+     box-sizing: border-box;
+ }
+
+ body {
+    overflow-x: hidden;
+ }
+
 .severin {
     h3 {
         color: red;

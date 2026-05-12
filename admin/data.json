@@ -1,13 +1,41 @@
 {
     "config": {
-        "siteName": "Severina",
+        "siteName": "Severin",
         "siteUrl": "http://localhost/projets/lintermediaire/en%20cours/Severina/",
         "author": "Merlin",
         "lang": "fr-BE",
         "charset": "UTF-8",
         "description": "Site exemple basé sur des composants PHP",
         "favicon": "assets/images/favicon.ico",
-        "defaultPage": "bienvenue"
+        "defaultPage": "bienvenue",
+        "menu" : {
+            "class": "menu-default",
+            
+            "logo": {
+                "image": "assets/images/favicon.ico",
+                "alt": "Logo",
+                "link": "/"
+            },
+            
+            "links": [
+                {
+                    "label": "Accueil",
+                    "url": "/"
+                },
+                {
+                    "label": "À propos",
+                    "url": "/about"
+                },
+                {
+                    "label": "Services",
+                    "url": "/services"
+                },
+                {
+                    "label": "Contact",
+                    "url": "/contact"
+                }
+            ]
+        }
     },
     "routes": {
         "bienvenue": {
