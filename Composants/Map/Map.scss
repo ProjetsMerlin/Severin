@@ -1,6 +1,6 @@
 .map {
     width: 100%;
-    padding: 100px 0px;
+    padding: 100px 0px 0px;
 
     .map-container {
         width: 100%;
@@ -35,7 +35,6 @@
     }
 
     .map-embed {
-        border-radius: 18px;
         box-shadow: 0 10px 40px rgba(0,0,0,0.08);
         overflow: hidden;
 

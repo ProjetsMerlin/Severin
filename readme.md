@@ -115,15 +115,15 @@ Footer ✔️
 FAQ ✔️
 About ✔️
 Map ✔️
+Testimonials ✔️
+CTA ✔️
 
 Features
 Pricing / Stats
-CTA
 Cards / Blog Grid
-Gallery
 
-Testimonials
 Team
 Timeline
+Gallery
 Contact Form
 Newsletter

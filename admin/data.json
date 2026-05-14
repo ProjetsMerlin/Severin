@@ -92,6 +92,24 @@
             },
             "components": [
                 {
+                    "component": "Cta",
+                    "data": {
+                        "class": "cta-default",
+                        
+                        "subtitle": "Commencez maintenant",
+                        "title": "Une architecture moderne et ultra légère",
+                        "text": "Construisez des sites performants grâce à une architecture component-based mêlant PHP, JSON, SCSS et Vite.",
+                        "primaryButton": {
+                            "label": "Découvrir",
+                            "link": "a-propos"
+                        },
+                        "secondaryButton": {
+                            "label": "Nous contacter",
+                            "link": "contact"
+                        }
+                    }
+                },
+                {
                     "component": "Hero",
                     "data": {
                         "class": "hero-default",
@@ -117,6 +135,38 @@
                             "label": "Découvrir",
                             "link": "a-propos"
                         }
+                    }
+                },
+                {
+                    "component": "Testimonial",
+                    "data": {
+                        "class": "testimonials-default",
+                        "subtitle": "Avis clients",
+                        "title": "Ils nous font confiance",
+                        "text": "Découvrez les retours de nos clients et partenaires après leurs collaborations avec notre équipe.",
+                        "items": [
+                            {
+                                "rating": 5,
+                                "content": "Une architecture propre, rapide et extrêmement agréable à maintenir au quotidien.",
+                                "avatar": "assets/images/avatar-1.jpg",
+                                "name": "Xavier Dupontelle",
+                                "role": "CEO — Studio Digital"
+                            },
+                            {
+                                "rating": 5,
+                                "content": "Le système component-based est simple, efficace et parfaitement adapté aux sites vitrines modernes.",
+                                "avatar": "assets/images/avatar-2.jpg",
+                                "name": "Mélanie Laurent",
+                                "role": "Directrice artistique"
+                            },
+                            {
+                                "rating": 5,
+                                "content": "Le chargement est ultra rapide et l'organisation du projet est vraiment exemplaire.",
+                                "avatar": "assets/images/avatar-3.jpg",
+                                "name": "Thomas Dutronc",
+                                "role": "Développeur frontend"
+                            }
+                        ]
                     }
                 }
             ]
