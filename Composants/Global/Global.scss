@@ -1,14 +1,24 @@
-*, *::before,
- *::after {
-     box-sizing: border-box;
- }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
- body {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
     overflow-x: hidden;
- }
+    font-family: sans-serif;
+}
 
 .severin {
-    h3 {
+    h1,h2,h3,h4,h5,h6 {
         color: red;
+        font-family: "Noto Serif", serif;
+
+        span {
+            color: #000;
+        }
     }
 }

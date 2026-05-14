@@ -19,15 +19,15 @@ function renderHero($data)
     <div class="hero-content">
 
         <p class="hero-subtitle">
-            <?= htmlspecialchars($data['subtitle']) ?>
+            <?= html_entity_decode($data['subtitle']) ?>
         </p>
 
         <h3 class="hero-title">
-            <?= htmlspecialchars($data['title']) ?>
+            <?= html_entity_decode($data['title']) ?>
         </h3>
 
         <p class="hero-text">
-            <?= htmlspecialchars($data['text']) ?>
+            <?= html_entity_decode($data['text']) ?>
         </p>
 
         <a
@@ -35,7 +35,7 @@ function renderHero($data)
             href="<?= htmlspecialchars($data['button']['link']) ?>"
             class="hero-button"
         >
-            <?= htmlspecialchars($data['button']['label']) ?>
+            <?= html_entity_decode($data['button']['label']) ?>
         </a>
 
     </div>

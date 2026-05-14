@@ -8,7 +8,7 @@
         "description": "Site exemple basé sur des composants PHP",
         "favicon": "assets/images/favicon.ico",
         "defaultPage": "bienvenue",
-        "menu" : {
+        "Menu" : {
             "class": "menu-default",
             
             "logo": {
@@ -35,13 +35,60 @@
                     "url": "contact"
                 }
             ]
+        },
+        "Footer": {
+            "class": "footer-default",
+            "text": "© 2026 Severin — Tous droits réservés.",
+            "socials": [
+                {
+                    "label": "Facebook",
+                    "url": "https://facebook.com",
+                    "icon": "assets/images/facebook.svg"
+                },
+                {
+                    "label": "Instagram",
+                    "url": "https://instagram.com",
+                    "icon": "assets/images/instagram.svg"
+                },
+                {
+                    "label": "LinkedIn",
+                    "url": "https://linkedin.com",
+                    "icon": "assets/images/linkedin.svg"
+                },
+                {
+                    "label": "GitHub",
+                    "url": "https://github.com",
+                    "icon": "assets/images/github.svg"
+                }
+            ]
         }
     },
     "routes": {
+        "404": {
+            "seo": {
+                "title": "Page non trouvée",
+                "description": "La page que vous recherchez n'existe pas."
+            },
+            "components": [
+                {
+                    "component": "Error404",
+                    "data": {
+                        "class": "error404-default",
+                        "code": "404",
+                        "title": "Page introuvable",
+                        "text": "La page que vous recherchez semble inexistante ou a été déplacée.",
+                        "button": {
+                            "label": "Retour à l'accueil",
+                            "link": "/bienvenue"
+                        }
+                    }
+                }
+            ]
+        },
         "bienvenue": {
             "seo": {
-                "title": "Accueil",
-                "description": "Bienvenue sur notre site"
+                "title": "Bienvenue",
+                "description": "Présentation de Séverin"
             },
             "components": [
                 {
@@ -49,9 +96,9 @@
                     "data": {
                         "class": "hero-default",
                         "image": "assets/images/hero-home.jpg",
-                        "subtitle": "Severin",
-                        "title": "Architecture PHP modulaire",
-                        "text": "Ce contenu provient du JSON éditable via l'admin du site : /admin.",
+                        "subtitle": "Architecture modulaire et éditable",
+                        "title": "<b>Severin</b> <span>le template qui vous convient</span>",
+                        "text": "Ce contenu provient du JSON éditable via l'admin du site : /admin.<br>Modifiez-le à votre guise !",
                         "button": {
                             "label": "Découvrir",
                             "link": "admin/index.php"

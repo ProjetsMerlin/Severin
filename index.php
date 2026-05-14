@@ -4,8 +4,12 @@ $data = json_decode(file_get_contents('admin/data.json'), true);
 $route = (!$_GET['page'] || $_GET['page'] === "/") ? $data['config']['defaultPage'] : $_GET['page'];
 
 if (!isset($data['routes'][$route])) {
+    header('location: 404');
+    exit;
+    /*
     http_response_code(404);
     die('Page introuvable');
+    */
 }
 
 $page = $data['routes'][$route];
@@ -33,7 +37,7 @@ $config = $data['config'];
 <body class="severin">
     <?php
         require_once "Composants/Menu/index.php";
-        renderMenu($config['menu']);
+        renderMenu($config['Menu']);
 
 foreach ($page['components'] as $section) {
     $componentName = $section['component'];
@@ -48,9 +52,12 @@ foreach ($page['components'] as $section) {
         }
     }
 }
+        require_once "Composants/Footer/index.php";
+        renderFooter($config['Footer']);
 ?>
 
     <script type="module" src="assets/app.js"></script>
 
 </body>
+
 </html>

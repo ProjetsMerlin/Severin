@@ -1,6 +1,6 @@
 # Severin
 
-Un projet minimaliste mais ultra complet. Ce système est un CMS JSON component-based hybride entre Twig & Next.js, soit un PHP Component System (Vite + JSON) mais ultra léger pour des sites vitrines performants.
+Severin est un projet minimaliste mais très complet. Ce système est un CMS JSON component-based hybride entre Twig & Next.js, soit un PHP Component System (Vite + JSON) mais ultra léger pour des sites vitrines performants.
 
 ---
 
@@ -15,13 +15,15 @@ Un projet minimaliste mais ultra complet. Ce système est un CMS JSON component-
 
 /Composants         => Composants
     /Hero  
-        index.php  
-        Hero.scss  
-        Hero.js  
-        hero.jpg  
+        index.php
+        Hero.scss
+        Hero.js
+        hero.jpg
 
-    /Global  
+    /Global
         favicon.ico  
+        Global.scss
+        ...
 
 index.php           => SEO
 .htaccess           => Sécurité
@@ -47,6 +49,7 @@ Contient :
 - configuration globale (SEO, langue, siteName, auteur ...)
 - routes du site
 - Composition des pages
+- Ce fichier est éditable deouis l'admin : /
 
 ### 2. Composants PHP
 Chaque composant contient :
@@ -56,7 +59,7 @@ Chaque composant contient :
 - assets propres (toutes les images dans un seul dossiers)
 
 ### 3. Vite
-Compile :
+Compile les assets
 - tous les SCSS → assets/style.css
 - Tous le JS → assets/app.js
 - toutes les images → assets/images
@@ -102,3 +105,27 @@ Mais il est possible de l'éditer via l'admin. L'idée serait de partager ce typ
 
 utilisation d'un framewok CSS ?
 slugPage-composant pour ne charger que ce dernier ?
+
+## composants
+
+Menu ✔️
+Hero ✔️
+Footer ✔️
+404 Section
+
+Features
+Services
+About
+CTA
+Cards
+Gallery
+Testimonials
+FAQ
+Stats
+Pricing
+Team
+Blog Grid
+Contact Form
+Map
+Newsletter
+Timeline
