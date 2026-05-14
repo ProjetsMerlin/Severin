@@ -23,12 +23,12 @@
                     "url": "bienvenue"
                 },
                 {
-                    "label": "À propos",
-                    "url": "a-propos"
+                    "label": "FAQ",
+                    "url": "faq"
                 },
                 {
-                    "label": "Services",
-                    "url": "services"
+                    "label": "À propos",
+                    "url": "a-propos"
                 },
                 {
                     "label": "Contact",
@@ -79,7 +79,7 @@
                         "text": "La page que vous recherchez semble inexistante ou a été déplacée.",
                         "button": {
                             "label": "Retour à l'accueil",
-                            "link": "/bienvenue"
+                            "link": "bienvenue"
                         }
                     }
                 }
@@ -153,6 +153,55 @@
                             "label": "Retour",
                             "link": "bienvenue"
                         }
+                    }
+                }
+            ]
+        },
+        "faq": {
+            "seo": {
+                "title": "FAQ",
+                "description": "Foire aux questions"
+            },
+            "components": [
+                {
+                    "component": "Faq",
+                    "data": {
+                        "class": "faq-default",
+                        "subtitle": "FAQ",
+                        "title": "Questions fréquentes",
+                        "text": "Retrouvez les réponses aux questions les plus courantes concernant notre fonctionnement.",
+                        "items": [
+                            {
+                                "question": "Comment fonctionne le système ?",
+                                "answer": "Le contenu est entièrement piloté par JSON et rendu via des composants PHP."
+                            },
+                            {
+                                "question": "Le projet est-il responsive ?",
+                                "answer": "Oui, tous les composants sont conçus mobile-first et entièrement responsive."
+                            },
+                            {
+                                "question": "Puis-je créer mes propres composants ?",
+                                "answer": "Oui, chaque composant est totalement autonome avec son PHP, SCSS et JS."
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "contact": {
+            "seo": {
+                "title": "Contact",
+                "description": "Page de contact"
+            },
+            "components": [
+                {
+                    "component": "Map",
+                    "data": {
+                        "class": "map-default",
+                        "subtitle": "Localisation",
+                        "title": "Nous trouver",
+                        "text": "Retrouvez-nous directement via Google Maps et venez découvrir nos locaux.",
+                        "embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2525.250566830656!2d4.392409492394866!3d50.733841393822075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3d025d6c2d683%3A0xd7561a18e483f75b!2sAv.%20du%20Manoir%204%2C%201640%20Rhode-Saint-Gen%C3%A8se!5e0!3m2!1sfr!2sbe!4v1778754826364!5m2!1sfr!2sbe"
                     }
                 }
             ]

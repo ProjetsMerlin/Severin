@@ -7,3 +7,8 @@ import './Composants/Footer/Footer.scss';
 
 import './Composants/Hero/Hero.scss';
 import './Composants/Hero/Hero.js';
+
+import './Composants/Faq/Faq.scss';
+import './Composants/Faq/Faq.js';
+
+import './Composants/Map/Map.scss';

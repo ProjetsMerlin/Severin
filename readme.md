@@ -111,21 +111,19 @@ slugPage-composant pour ne charger que ce dernier ?
 Menu ✔️
 Hero ✔️
 Footer ✔️
-404 Section
+404 Section ✔️
+FAQ ✔️
+About ✔️
+Map ✔️
 
 Features
-Services
-About
+Pricing / Stats
 CTA
-Cards
+Cards / Blog Grid
 Gallery
+
 Testimonials
-FAQ
-Stats
-Pricing
 Team
-Blog Grid
-Contact Form
-Map
-Newsletter
 Timeline
+Contact Form
+Newsletter
