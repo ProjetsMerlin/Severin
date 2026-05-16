@@ -27,8 +27,8 @@
                     "url": "blog"
                 },
                 {
-                    "label": "FAQ",
-                    "url": "faq"
+                    "label": "Services",
+                    "url": "services"
                 },
                 {
                     "label": "À propos",
@@ -71,7 +71,8 @@
         "404": {
             "seo": {
                 "title": "Page non trouvée",
-                "description": "La page que vous recherchez n'existe pas."
+                "description": "La page que vous recherchez n'existe pas.",
+                "priority": 0.1
             },
             "components": [
                 {
@@ -92,7 +93,8 @@
         "bienvenue": {
             "seo": {
                 "title": "Bienvenue",
-                "description": "Présentation de Séverin"
+                "description": "Présentation de Séverin",
+                "priority": 0.9
             },
             "components": [
                 {
@@ -177,7 +179,8 @@
         "blog": {
             "seo": {
                 "title": "Blog",
-                "description": "Les derniers articles et actualités"
+                "description": "Les derniers articles et actualités",
+                "priority": 0.7
             },
             "components": [
                 {
@@ -222,10 +225,11 @@
                 }
             ]
         },
-        "a-propos": {
+        "services": {
             "seo": {
                 "title": "À propos",
-                "description": "Page de présentation"
+                "description": "Page de présentation",
+                "priority": 0.6
             },
             "components": [
                 {
@@ -284,10 +288,11 @@
                 }
             ]
         },
-        "faq": {
+        "a-propos": {
             "seo": {
                 "title": "FAQ",
-                "description": "Foire aux questions"
+                "description": "Foire aux questions",
+                "priority": 0.5
             },
             "components": [
                 {
@@ -318,7 +323,8 @@
         "contact": {
             "seo": {
                 "title": "Contact",
-                "description": "Page de contact"
+                "description": "Page de contact",
+                "priority": 0.8
             },
             "components": [
                 {
@@ -332,6 +338,12 @@
                     }
                 }
             ]
+        },
+        "robots.txt": {
+            "hideFolder" : "/admin"
+        },
+        "sitemap.xml": {
+            "cle" : "valeur"
         }
     }
 }

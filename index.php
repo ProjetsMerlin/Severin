@@ -14,6 +14,37 @@ $siteUrl = htmlspecialchars($config['siteUrl']);
 if ($_SERVER['SERVER_NAME'] !== "localhost") {
     $siteUrl = htmlspecialchars($config['siteUrlOnline']);
 }
+
+if($_GET['page'] === "robots.txt") {
+    header('Content-Type: text/plain; charset=utf-8');
+    $robots_txt = "User-agent: *\n";
+    $robots_txt .= "Disallow: " . $page["hideFolder"] . "\n";
+    $robots_txt .= "\n";
+    $robots_txt .= "Sitemap: ";
+    $robots_txt .= $siteUrl;
+    $robots_txt .= "sitemap.xml\n";
+    echo $robots_txt;
+    exit;
+}
+
+if( $_GET['page'] === "sitemap.xml") {
+    header('Content-Type: application/xml; charset=utf-8');
+    $sitemap_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    $sitemap_xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+    foreach ($data['routes'] as $route => $page) {
+        if( $page["seo"] && $page["seo"]["priority"]) {
+        $sitemap_xml .= "  <url>\n";
+        $sitemap_xml .= "    <loc>" . $siteUrl . htmlspecialchars($route) . "</loc>\n";
+        $sitemap_xml .= "    <lastmod>" . date('Y-m-d', filemtime('admin/data.json')) . "</lastmod>\n";
+        $sitemap_xml .= "    <priority>" . $page["seo"]["priority"] . "</priority>\n";
+        $sitemap_xml .= "  </url>\n";
+        }
+    }
+    $sitemap_xml .= "</urlset>";
+    echo $sitemap_xml;
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="<?= $config['lang'] ?>">
@@ -27,7 +58,7 @@ if ($_SERVER['SERVER_NAME'] !== "localhost") {
 
     <meta name="author" content="<?= $siteUrl ?>">
 
-    <base href="<?= htmlspecialchars($config['siteUrl']) ?>">
+    <base href="<?= $siteUrl ?>">
 
     <!-- generate by https://realfavicongenerator.net/  -->
     <link rel="icon" type="image/png" href="assets/images/favicon-96x96.png" sizes="96x96" />
