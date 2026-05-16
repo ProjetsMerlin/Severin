@@ -120,9 +120,9 @@ Map ✔️
 Testimonials ✔️
 CTA ✔️
 Timeline ✔️
+Cards / Blog Grid
 
 Pricing / Stats
-Cards / Blog Grid
 Gallery
 
 Contact Form
