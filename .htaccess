@@ -14,5 +14,6 @@ Options -Indexes
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
+    RewriteRule ^blog/([0-9]+)/?$ index.php?page=blog&id=$1 [L,QSA]
     RewriteRule ^([^/]+)/?$ index.php?page=$1 [L,QSA]
 </IfModule>

@@ -9,6 +9,11 @@ if (!isset($data['routes'][$route])) {
 
 $page = $data['routes'][$route];
 $config = $data['config'];
+
+$siteUrl = htmlspecialchars($config['siteUrl']);
+if ($_SERVER['SERVER_NAME'] !== "localhost") {
+    $siteUrl = htmlspecialchars($config['siteUrlOnline']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?= $config['lang'] ?>">
@@ -18,13 +23,13 @@ $config = $data['config'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars($config['siteName']) ?> - <?= htmlspecialchars($page['seo']['title']) ?></title>
-
     <meta name="description" content="<?= htmlspecialchars($page['seo']['description']) ?>">
-    <meta name="author" content="<?= htmlspecialchars($config['author']) ?>">
+
+    <meta name="author" content="<?= $siteUrl ?>">
 
     <base href="<?= htmlspecialchars($config['siteUrl']) ?>">
 
-    <!-- run favicons on : https://realfavicongenerator.net/  -->
+    <!-- generate by https://realfavicongenerator.net/  -->
     <link rel="icon" type="image/png" href="assets/images/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
@@ -32,7 +37,7 @@ $config = $data['config'];
     <link rel="manifest" href="assets/images/site.webmanifest" />
 
     <link rel="icon" href="<?= htmlspecialchars($config['favicon']) ?>">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css?v=<?= filemtime('assets/style.css') ?>">
 </head>
 
 <body class="severin">
@@ -58,7 +63,7 @@ $config = $data['config'];
         renderFooter($config['Footer']);
 ?>
 
-    <script type="module" src="assets/app.js"></script>
+    <script type="module" src="assets/app.js?v=<?= filemtime('assets/app.js') ?>"></script>
 
 </body>
 

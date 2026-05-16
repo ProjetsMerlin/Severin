@@ -120,7 +120,7 @@ Map ✔️
 Testimonials ✔️
 CTA ✔️
 Timeline ✔️
-Cards / Blog Grid
+Cards / Blog Grid ✔️
 
 Pricing / Stats
 Gallery

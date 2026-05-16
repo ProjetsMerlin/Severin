@@ -23,6 +23,10 @@
                     "url": "bienvenue"
                 },
                 {
+                    "label": "Blog",
+                    "url": "blog"
+                },
+                {
                     "label": "FAQ",
                     "url": "faq"
                 },
@@ -164,6 +168,54 @@
                                 "avatar": "assets/images/avatar-3.jpg",
                                 "name": "Thomas Dutronc",
                                 "role": "Développeur frontend"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "blog": {
+            "seo": {
+                "title": "Blog",
+                "description": "Les derniers articles et actualités"
+            },
+            "components": [
+                {
+                    "component": "Blog",
+                    "data": {
+                        "class": "blog-default",
+                        "subtitle": "Actualités",
+                        "title": "Les derniers articles",
+                        "text": "Découvrez nos derniers contenus autour du développement web, de l’architecture frontend et des systèmes component-based.",
+                        "items": [
+                            {
+                                "id": 1,
+                                "image": "assets/images/blog-1.jpg",
+                                "date": "12 Mai 2026",
+                                "title": "Pourquoi choisir une architecture minimaliste ?",
+                                "description": "Découvrez les avantages d’une stack légère basée sur PHP, JSON et composants modulaires.",
+                                "content": "<p>Une architecture minimaliste permet de construire des sites rapides,maintenables et extrêmement performants.</p><p>En limitant les dépendances inutiles et en gardant un contrôle totalsur la structure du projet, le développement devient plus fluide.</p><h2>Des performances optimales</h2><p>Les projets légers chargent plus rapidement et offrent une meilleureexpérience utilisateur.</p><blockquote>Un bon système est souvent celui qui reste simple.</blockquote><p>Cette approche permet également une maintenance plus facile dans le temps.</p>"
+                            },
+                            {
+                                "id": 2,
+                                "image": "assets/images/blog-2.jpg",
+                                "date": "08 Mai 2026",
+                                "title": "Créer un mini CMS moderne",
+                                "description": "Comment construire un système simple, rapide et maintenable sans framework lourd."
+                            },
+                            {
+                                "id": 3,
+                                "image": "assets/images/blog-3.jpg",
+                                "date": "02 Mai 2026",
+                                "title": "Structurer ses composants SCSS",
+                                "description": "Organisation, conventions et bonnes pratiques pour un frontend scalable."
+                            },
+                            {
+                                "id": 4,
+                                "image": "assets/images/blog-4.jpg",
+                                "date": "28 Avril 2026",
+                                "title": "Optimiser les performances frontend",
+                                "description": "Quelques techniques simples pour améliorer les performances de vos sites vitrines."
                             }
                         ]
                     }
