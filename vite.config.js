@@ -6,7 +6,7 @@ export default defineConfig({
         viteStaticCopy({
             targets: [
                 {
-                    src: 'Composants/*/*.{jpg,png,svg,ico,webp}',
+                    src: 'Composants/*/*.{jpg,png,svg,ico,webp,webmanifest}',
                     dest: 'images',
                     rename: { stripBase: 2 }
                 }

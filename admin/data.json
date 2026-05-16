@@ -1,22 +1,22 @@
 {
     "config": {
+        "siteVersion": 1.0,
         "siteName": "Severin",
         "siteUrl": "http://localhost/projets/lintermediaire/en%20cours/Severina/",
+        "siteUrlOnline": "https://lintermediaire.be/severin/",
         "author": "Merlin",
         "lang": "fr-BE",
         "charset": "UTF-8",
         "description": "Site exemple basé sur des composants PHP",
         "favicon": "assets/images/favicon.ico",
         "defaultPage": "bienvenue",
-        "Menu" : {
+        "Menu": {
             "class": "menu-default",
-            
             "logo": {
                 "image": "assets/images/favicon.ico",
                 "alt": "Logo",
                 "link": "bienvenue"
             },
-            
             "links": [
                 {
                     "label": "Bienvenue",
@@ -95,7 +95,6 @@
                     "component": "Cta",
                     "data": {
                         "class": "cta-default",
-                        
                         "subtitle": "Commencez maintenant",
                         "title": "Une architecture moderne et ultra légère",
                         "text": "Construisez des sites performants grâce à une architecture component-based mêlant PHP, JSON, SCSS et Vite.",
@@ -204,6 +203,32 @@
                             "link": "bienvenue"
                         }
                     }
+                },
+                {
+                    "component": "Timeline",
+                    "data": {
+                        "class": "timeline-default",
+                        "subtitle": "Notre parcours",
+                        "title": "Les grandes étapes du projet",
+                        "text": "Découvrez les principales évolutions de notre architecture et les différentes étapes de développement du projet.",
+                        "items": [
+                            {
+                                "date": "2024",
+                                "title": "Création de l'architecture",
+                                "text": "Début du développement du système component-based en PHP et JSON."
+                            },
+                            {
+                                "date": "2025",
+                                "title": "Ajout du système de build",
+                                "text": "Intégration de Vite, du SCSS modulaire et du JavaScript par composant."
+                            },
+                            {
+                                "date": "2026",
+                                "title": "Développement du mini CMS",
+                                "text": "Création de l'administration JSON avec authentification et édition dynamique."
+                            }
+                        ]
+                    }
                 }
             ]
         },
@@ -226,7 +251,7 @@
                                 "answer": "Le contenu est entièrement piloté par JSON et rendu via des composants PHP."
                             },
                             {
-                                "question": "Le projet est-il responsive ?",
+                                "question": "Le projet est-il visuellement éditable ?",
                                 "answer": "Oui, tous les composants sont conçus mobile-first et entièrement responsive."
                             },
                             {

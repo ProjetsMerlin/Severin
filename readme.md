@@ -1,19 +1,21 @@
 # Severin
 
-Severin est un projet minimaliste mais très complet. Ce système est un CMS JSON component-based hybride entre Twig & Next.js, soit un PHP Component System (Vite + JSON) mais ultra léger pour des sites vitrines performants.
+Severin est un projet minimaliste voulant être le plus complet possible.
+Ce système est un CMS JSON component-based, tournant sous PHP Component et dons les assets sont compilés avec Vite.
+Référencé, sécurisé et très léger pour des sites vitrines performants.
 
 ---
 
-## Structure du projet
+## Structure & concept du projet
 
-/admin/data.json    => data
+/admin/data.json    => Le contenu
 
-/assets             => Style
+/assets             => Le style
     app.js  
     style.css  
     /images  
 
-/Composants         => Composants
+/Composants         => Les composants
     /Hero  
         index.php
         Hero.scss
@@ -25,8 +27,8 @@ Severin est un projet minimaliste mais très complet. Ce système est un CMS JSO
         Global.scss
         ...
 
-index.php           => SEO
-.htaccess           => Sécurité
+index.php           => Le SEO
+.htaccess           => La sécurité
 
 ---
 
@@ -70,7 +72,7 @@ Compile les assets
 
 En production, seuls ces fichiers sont nécessaires :
 
-/admin/*
+/admin/* ou simplement le data.json si vous ne voulez pas d'admin
 /assets/* 
 /Composants/*  
 index.php 
@@ -81,7 +83,7 @@ index.php
 ## Objectif
 
 Créer un système :
-- simple comme PHP natif sans base de données
+- simple comme PHP natif mais sans base de données
 - structuré comme un framework moderne
 - rapide, sécurisé et SEO-friendly
 
@@ -117,13 +119,11 @@ About ✔️
 Map ✔️
 Testimonials ✔️
 CTA ✔️
+Timeline ✔️
 
-Features
 Pricing / Stats
 Cards / Blog Grid
-
-Team
-Timeline
 Gallery
+
 Contact Form
 Newsletter

@@ -1,20 +1,14 @@
 <?php
 $data = json_decode(file_get_contents('admin/data.json'), true);
-
 $route = (!$_GET['page'] || $_GET['page'] === "/") ? $data['config']['defaultPage'] : $_GET['page'];
 
 if (!isset($data['routes'][$route])) {
     header('location: 404');
     exit;
-    /*
-    http_response_code(404);
-    die('Page introuvable');
-    */
 }
 
 $page = $data['routes'][$route];
 $config = $data['config'];
-
 ?>
 <!DOCTYPE html>
 <html lang="<?= $config['lang'] ?>">
@@ -30,6 +24,13 @@ $config = $data['config'];
 
     <base href="<?= htmlspecialchars($config['siteUrl']) ?>">
 
+    <!-- run favicons on : https://realfavicongenerator.net/  -->
+    <link rel="icon" type="image/png" href="assets/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/images/site.webmanifest" />
+
     <link rel="icon" href="<?= htmlspecialchars($config['favicon']) ?>">
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -39,19 +40,20 @@ $config = $data['config'];
         require_once "Composants/Menu/index.php";
         renderMenu($config['Menu']);
 
-foreach ($page['components'] as $section) {
-    $componentName = $section['component'];
-    $componentPath = "Composants/$componentName/index.php";
+        foreach ($page['components'] as $section) {
+            $componentName = $section['component'];
+            $componentPath = "Composants/$componentName/index.php";
 
-    if (file_exists($componentPath)) {
-        require_once $componentPath;
-        $function = 'render' . $componentName;
+            if (file_exists($componentPath)) {
+                require_once $componentPath;
+                $function = 'render' . $componentName;
 
-        if (function_exists($function)) {
-            $function($section['data']);
+                if (function_exists($function)) {
+                    $function($section['data']);
+                }
+            }
         }
-    }
-}
+
         require_once "Composants/Footer/index.php";
         renderFooter($config['Footer']);
 ?>

@@ -2,7 +2,7 @@
 session_start();
 
 $ADMIN_LOGIN = 'admin';
-$ADMIN_PASSWORD = 'superpassword';
+$ADMIN_PASSWORD = '1234';
 
 if (isset($_SESSION['admin'])) {
     header('Location: index.php');
