@@ -1,14 +1,13 @@
 <?php
 $data = json_decode(file_get_contents('admin/data.json'), true);
-$route = (!$_GET['page'] || $_GET['page'] === "/") ? $data['config']['defaultPage'] : $_GET['page'];
+$config = $data['config'];
+$route = isset($_GET['page']) && $_GET['page'] !== "index.php" ? $_GET['page'] : $config['defaultPage'];
+$page = $data['routes'][$route];
 
-if (!isset($data['routes'][$route])) {
+if (!isset($page)) {
     header('location: 404');
     exit;
 }
-
-$page = $data['routes'][$route];
-$config = $data['config'];
 
 $siteUrl = htmlspecialchars($config['siteUrl']);
 if ($_SERVER['SERVER_NAME'] !== "localhost") {

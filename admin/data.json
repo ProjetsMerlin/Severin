@@ -11,6 +11,7 @@
         "favicon": "assets/images/favicon.ico",
         "defaultPage": "bienvenue",
         "Menu": {
+            "id" : "menu-default",
             "class": "menu-default",
             "logo": {
                 "image": "assets/images/favicon.ico",
@@ -41,6 +42,7 @@
             ]
         },
         "Footer": {
+            "id" : "footer-default",
             "class": "footer-default",
             "text": "© 2026 Severin — Tous droits réservés.",
             "socials": [
@@ -78,6 +80,7 @@
                 {
                     "component": "Error404",
                     "data": {
+                        "id" : "error404-default",
                         "class": "error404-default",
                         "code": "404",
                         "title": "Page introuvable",
@@ -100,6 +103,7 @@
                 {
                     "component": "Cta",
                     "data": {
+                        "id" : "cta-default",
                         "class": "cta-default",
                         "subtitle": "Commencez maintenant",
                         "title": "Une architecture moderne et ultra légère",
@@ -117,6 +121,7 @@
                 {
                     "component": "Hero",
                     "data": {
+                        "id" : "hero-default",
                         "class": "hero-default",
                         "image": "assets/images/hero-home.jpg",
                         "subtitle": "Architecture modulaire et éditable",
@@ -131,6 +136,7 @@
                 {
                     "component": "Hero",
                     "data": {
+                        "id" : "hero-default",
                         "class": "hero-default inverted",
                         "image": "assets/images/hero.jpg",
                         "subtitle": "Léger",
@@ -145,6 +151,7 @@
                 {
                     "component": "Testimonial",
                     "data": {
+                        "id" : "testimonials-default",
                         "class": "testimonials-default",
                         "subtitle": "Avis clients",
                         "title": "Ils nous font confiance",
@@ -186,6 +193,7 @@
                 {
                     "component": "Blog",
                     "data": {
+                        "id" : "blog-default",
                         "class": "blog-default",
                         "subtitle": "Actualités",
                         "title": "Les derniers articles",
@@ -235,6 +243,7 @@
                 {
                     "component": "Hero",
                     "data": {
+                        "id" : "hero-about",
                         "class": "hero-about",
                         "image": "assets/images/hero-about.jpg",
                         "subtitle": "Qui sommes-nous ?",
@@ -249,6 +258,7 @@
                 {
                     "component": "Hero",
                     "data": {
+                        "id" : "hero-about",
                         "class": "hero-about inverted",
                         "image": "assets/images/hero.jpg",
                         "subtitle": "Qui sommes-nous",
@@ -263,6 +273,7 @@
                 {
                     "component": "Timeline",
                     "data": {
+                        "id" : "timeline-default",
                         "class": "timeline-default",
                         "subtitle": "Notre parcours",
                         "title": "Les grandes étapes du projet",
@@ -298,6 +309,7 @@
                 {
                     "component": "Faq",
                     "data": {
+                        "id" : "faq-default",
                         "class": "faq-default",
                         "subtitle": "FAQ",
                         "title": "Questions fréquentes",
@@ -330,6 +342,7 @@
                 {
                     "component": "Map",
                     "data": {
+                        "id" : "map-default",
                         "class": "map-default",
                         "subtitle": "Localisation",
                         "title": "Nous trouver",
@@ -343,7 +356,7 @@
             "hideFolder" : "/admin"
         },
         "sitemap.xml": {
-            "cle" : "valeur"
+            "formatDate" : "Y-m-d"
         }
     }
 }

@@ -8,27 +8,29 @@ Référencé, sécurisé et très léger pour des sites vitrines performants.
 
 ## Structure & concept du projet
 
-/admin/data.json    => Le contenu
+/admin/data.json        → Contenu du site
 
-/assets             => Le style
-    app.js  
-    style.css  
-    /images  
+/assets                 → Assets compilés
+    app.js
+    style.css
+    /images
+    ...
 
-/Composants         => Les composants
-    /Hero  
+/Composants            → UI Components
+    /Hero
         index.php
         Hero.scss
         Hero.js
         hero.jpg
 
     /Global
-        favicon.ico  
         Global.scss
+        favicon.ico
         ...
+    ...
 
-index.php           => Le SEO
-.htaccess           => La sécurité
+index.php              → Router + SEO engine
+.htaccess              → Security + routing
 
 ---
 
@@ -40,7 +42,15 @@ index.php           => Le SEO
 - composants isolés et réutilisables (SCSS modulaire par composant & JS modulaire par composant)
 - contenu piloté par JSON (data.json) et un petit admin ajouté à cet effet
 
----
+### Résumé
+
+| SEO           |  Sécurité         | Style             | Dev             | Content
+| ------------- |-------------------|-------------------|-----------------|-------------------|
+| Rewriting URL | HTTPS forcing     | SCS modulable     | Admin           | Content custom    | 
+| Robots.txt    | Dossiers cachés   | Assets compilés   |                 |
+| sitemap.cml   | XSS-Protectio     | Colors custom     |                 |
+| Head balise   |                   |                   |                 |
+
 
 ## Principe
 
