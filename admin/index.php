@@ -15,31 +15,21 @@ if (isset($_GET['page']) && $_GET['page'] === 'logout') {
 $jsonPath = __DIR__ . '/data.json';
 $json = file_get_contents($jsonPath);
 ?>
-
 <!DOCTYPE html>
-
 <html lang="fr-BE">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Severin - Admin JSON Editor</title>
-
     <!-- JSON Editor -->
     <link href="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet">
     <link rel="stylesheet" href="admin.css">
 </head>
-
 <body>
-
     <div class="topbar">
         <h1>
             Severin Data
         </h1>
-
         <div>
             <a class="btn" href="../">
                 Home
@@ -53,20 +43,13 @@ $json = file_get_contents($jsonPath);
             <span class="status" id="status"></span>
         </div>
     </div>
-
     <div id="editor"></div>
-
     <!-- JSON Editor -->
     <script src="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.js"></script>
-
     <script>
     const container = document.getElementById('editor');
-
-    const editor =
-        new JSONEditor(container, {
-
+    const editor = new JSONEditor(container, {
             mode: 'tree',
-
             modes: [
                 'tree',
                 'code',
@@ -76,20 +59,14 @@ $json = file_get_contents($jsonPath);
         });
 
     const data = <?= $json ?>;
-
     editor.set(data);
 
-    document
-        .getElementById('save')
-        .addEventListener('click', async () => {
-
+    document.getElementById('save').addEventListener('click', async () => {
             const status = document.getElementById('status');
-
             status.innerHTML = 'Sauvegarde...';
 
             try {
                 const json = editor.get();
-
                 const response =
                     await fetch('save.php', {
                         method: 'POST',
@@ -102,7 +79,6 @@ $json = file_get_contents($jsonPath);
                     });
 
                 const result = await response.json();
-
                 if (result.success) {
                     status.innerHTML = '✅ Sauvegardé';
                 }
@@ -116,7 +92,5 @@ $json = file_get_contents($jsonPath);
             }
         });
     </script>
-
 </body>
-
 </html>

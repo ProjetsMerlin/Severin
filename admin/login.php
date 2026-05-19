@@ -29,39 +29,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
-
 <html lang="fr-BE">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Severin - Connexion Admin</title>
     <link rel="stylesheet" href="admin.css">
 </head>
-
 <body>
-
 <div class="login">
     <h1>
         Admin
     </h1>
-
     <?php if ($error): ?>
-
         <div class="error">
             Identifiants invalides
         </div>
-
     <?php endif; ?>
-
     <form method="POST">
         <input
             type="text"
@@ -69,22 +54,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             placeholder="Login"
             required
         >
-
         <input
             type="password"
             name="password"
             placeholder="Mot de passe"
             required
         >
-
         <button type="submit">
             Connexion
         </button>
-
     </form>
-
 </div>
-
 </body>
-
 </html>
