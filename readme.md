@@ -4,81 +4,80 @@ Severin est un projet minimaliste voulant être le plus complet possible.
 Ce système est un CMS JSON component-based, tournant sous PHP Component et dons les assets sont compilés avec Vite.
 Référencé, sécurisé et très léger pour des sites vitrines performants.
 
----
 
 ## Structure & concept du projet
 
-/admin/data.json        → Contenu du site
+Le projet s compose comme suit :
 
-/assets                 → Assets compilés
-    app.js
-    style.css
-    /images
-    ...
-
-/Composants            → UI Components
-    /Hero
-        index.php
-        Hero.scss
-        Hero.js
-        hero.jpg
-
-    /Global
-        Global.scss
-        favicon.ico
-        ...
-    ...
-
-index.php              → Router + SEO engine
-.htaccess              → Security + routing
-
----
-
-## Spécificités
-
-- routing PHP simple (index.php + .htaccess)
+- Routing PHP simple (via le fichier index.php et .htaccess)
+- Composants isolés et réutilisables
+- Contenu piloté par JSON (data.json) et un petit admin ajouté à cet effet
 - SEO dynamique depuis JSON et url propres
-- sécurité de base via l'.htaccess (sous Apache)
-- composants isolés et réutilisables (SCSS modulaire par composant & JS modulaire par composant)
-- contenu piloté par JSON (data.json) et un petit admin ajouté à cet effet
+- Sécurité de base via l'.htaccess (avec PHP et sous Apache)
 
-### Résumé
+### En résumé
 
-| SEO           |  Sécurité         | Style             | Dev             | Content
-| ------------- |-------------------|-------------------|-----------------|-------------------|
-| Rewriting URL | HTTPS forcing     | SCS modulable     | Admin           | Content custom    | 
-| Robots.txt    | Dossiers cachés   | Assets compilés   |                 |
-| sitemap.cml   | XSS-Protectio     | Colors custom     |                 |
-| Head balise   |                   |                   |                 |
-
+| Fichiers en ligne | Attribution           |
+| ------------------|---------------------- |
+(/admin/)data.json  |  Contenu & structure du site              |
+/assets             |  Assets compilés & fichiers statiques     |
+/Composants         |  UI Components avec SCSS et JS éditables  |
+index.php           |  Points d'entrées & SEO engine            |
+.htaccess           |  Routing & Security                       |
 
 ## Principe
 
-Le système repose sur 3 piliers :
+Le système repose sur 5 piliers :
 
-### 1. data.json
-Contient :
-- configuration globale (SEO, langue, siteName, auteur ...)
-- routes du site
-- Composition des pages
-- Ce fichier est éditable deouis l'admin : /
+### 1. Le contenu
 
-### 2. Composants PHP
-Chaque composant contient :
-- rendu PHP
-- styles (SCSS)
-- JS éventuel associé
-- assets propres (toutes les images dans un seul dossiers)
+Le contenu est géré par le fichier data.json.\
+Il permet à lui seul :
 
-### 3. Vite
-Compile les assets
-- tous les SCSS → assets/style.css
-- Tous le JS → assets/app.js
-- toutes les images → assets/images
+- La configuration globale (Sa version, son titre, sont URL définitive ou l' auteur par exemple)
+- La structure du site : Construction du menu et du footer ou le contenu et slug des pages 
+- Composition des pages en sépcifiant les composants énumérés par pages
+- Ce fichier est éditable deouis l'admin : /admin
+- Pourquoi pas partager ensuite ce fichier qui composera à lui seul d'autressite web
 
----
+### 2. DEV
 
-## Déploiement
+Ici, cette partie est dédiée aux développeurs qui construiront au fure et à mesure les composants. Chaque composant contient :
+- Le rendu PHP via la fonction renderNomDuComposant($data)
+- Le ou les styles (SCSS)
+- Le JavaSript éventuel associé
+- Des assets propres au composants (images et documents éventuels)
+
+### 3. Design
+
+Le design peut-être modifié via le fichier global/Global.SCSS qui est également coompilé avec le reste des assets : 
+
+- Tous les SCSS sont compilés dans une suel fichier : assets/style.css
+- Tous le JS sont compilés dans une suel fichier : assets/app.js
+- Toutes les images sont déplacer dans le dossiers : assets/images
+- Idem si vous y ajouteriez des ontes ou des vidéos par exemple
+- Enfin, vous pouvez éditer le style des composants via le scss de chaque composants
+
+### 4. SEO
+
+Séverin a déjà tout pour obtenir un score important au niveau d'un SEO naturel.
+Il possède :
+
+- Fichier robots.txt dynamique
+- Fichier sitemap.xml dynamique
+- Rewriting des urls propres (exemple : /, /blog, blog/1)
+- Balises Head dynamiques
+- Balises oggs dynamiques (en cours)
+
+### 5. Sécurité
+
+Séverin a une sécurité de base surtout via le fichier .htacess d'Apacche :
+
+- Dossiers du site cachés
+- XSS-Protection
+- Https forcé une fois en ligne
+
+## Mise en ligne
 
 En production, seuls ces fichiers sont nécessaires :
 
@@ -88,14 +87,12 @@ En production, seuls ces fichiers sont nécessaires :
 index.php 
 .htaccess  
 
----
-
-## Objectif
+## Objectifs
 
 Créer un système :
-- simple comme PHP natif mais sans base de données
-- structuré comme un framework moderne
-- rapide, sécurisé et SEO-friendly
+- Simple comme PHP natif mais sans base de données
+- Structuré comme un framework moderne
+- Rapide, sécurisé et SEO-friendly
 
 ## Évolutions possibles
 
@@ -108,36 +105,37 @@ Créer un système :
 - build intelligent par page
 - améliorer sécurité htacess
 
-## Défaut principal
+### Défaut principal
 
 On se retrouve avec un fichier data.json très long puisqu'il renferme à lui seul le routing, le contenu et la structure des pages.
 Mais il est possible de l'éditer via l'admin. L'idée serait de partager ce type de fichier pour changer d'apparence et de structure.
 
-## idées
+### Idées
 
-utilisation d'un framewok CSS ?
-slugPage-composant pour ne charger que ce dernier ?
+Utilisation d'un framewok CSS ?\
+SlugPage-composant pour ne charger que ce dernier ?
 
-## composants
+### Composants en place
 
-Menu ✔️
-Hero ✔️
-Footer ✔️
-404 Section ✔️
-FAQ ✔️
-About ✔️
-Map ✔️
-Testimonials ✔️
-CTA ✔️
-Timeline ✔️
+Menu ✔️\
+Hero ✔️\
+Footer ✔️\
+404 Section ✔️\
+FAQ ✔️\
+About ✔️\
+Map ✔️\
+Testimonials ✔️\
+CTA ✔️\
+Timeline ✔️\
 Cards / Blog Grid ✔️
 
-Pricing / Stats
-Gallery
+### Très prochainement
 
-Contact Form
+Pricing / Stats\
+Gallery\
+Contact Form\
 Newsletter
 
 ## ToDo
 
-Balises ogg
+Balises OGG
