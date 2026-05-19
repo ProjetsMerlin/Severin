@@ -77,25 +77,34 @@ Séverin a une sécurité de base surtout via le fichier .htacess d'Apacche :
 - XSS-Protection
 - Https forcé une fois en ligne
 
-## Mise en ligne
-
-En production, seuls ces fichiers sont nécessaires :
-
-/admin/* ou simplement le data.json si vous ne voulez pas d'admin
-/assets/* 
-/Composants/*  
-index.php 
-.htaccess  
-
-## Objectifs
+### Objectifs
 
 Créer un système :
 - Simple comme PHP natif mais sans base de données
 - Structuré comme un framework moderne
 - Rapide, sécurisé et SEO-friendly
 
+---
+---
 
-## Composants en place
+## Mise en ligne
+
+1. Ajoutez vos composants, renseignez les dans le fichier /main.js, et compilez-le tout via la commande Vite : npm run build
+
+2. Modifiez à votre guise le fichier data-json manuellement ou via l'/admin
+Pour y accéder, vous trouverez le mot de passe (à changer une fois en ligne !!) et qui se trouve dans le fichier /admin/login.php
+
+3. Passez le tout en ligne. En production, seuls ces fichiers sont nécessaires :
+
+* /admin/* ou simplement le data.json si vous ne voulez pas d'admin
+* /assets/*
+* /Composants/*
+* index.php
+* .htaccess 
+
+## Composants
+
+### Déjà en place
 
 Menu ✔️\
 Hero ✔️\
@@ -109,7 +118,7 @@ CTA ✔️\
 Timeline ✔️\
 Cards / Blog Grid ✔️
 
-## Très prochainement
+### Très prochainement
 
 Pricing / Stats\
 Gallery\
@@ -125,11 +134,8 @@ Balises OGG
 - routing avancé sans query string
 - cache HTML statique
 - layouts système
-- CMS JSON admin
 - lazy-loading composants
-- SEO automatique complet
 - build intelligent par page
-- améliorer sécurité htacess
 
 ### Défaut principal
 
