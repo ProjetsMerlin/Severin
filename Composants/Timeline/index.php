@@ -4,21 +4,6 @@
 ?>
 <section class="timeline <?= $data['class'] ?? '' ?>">
     <div class="timeline-container">
-        <?php if (!empty($data['subtitle'])): ?>
-            <div class="timeline-subtitle">
-                <?= $data['subtitle'] ?>
-            </div>
-        <?php endif; ?>
-        <?php if (!empty($data['title'])): ?>
-            <h2 class="timeline-title">
-                <?= $data['title'] ?>
-            </h2>
-        <?php endif; ?>
-        <?php if (!empty($data['text'])): ?>
-            <div class="timeline-text">
-                <?= $data['text'] ?>
-            </div>
-        <?php endif; ?>
         <div class="timeline-items">
             <?php foreach ($data['items'] as $item): ?>
                 <article class="timeline-item">

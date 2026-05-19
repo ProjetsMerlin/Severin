@@ -1,29 +1,35 @@
 .cta {
-    padding: 100px 20px;
-    width: 100%;
-    background: #111;
+    --color_dark:   #111111;
+    --color_light:  #ffffff;
 
+    width: 100%;
+    background: var(--color_dark);
+    
     .cta-container {
         margin: 0 auto;
-        max-width: 900px;
+        padding: 48px 48px 64px;
+        max-width: 960px;
         width: 100%;
         text-align: center;
     }
 
     .cta-subtitle {
         margin-bottom: 15px;
-        color: rgba(255,255,255,0.7);
+        color: var(--color_light);
+
         font-size: 14px;
         font-weight: 600;
         text-transform: uppercase;
         text-align: center;
-
         letter-spacing: 1px;
+
+        opacity: .7;
     }
 
     .cta-title {
-        margin-bottom: 20px;
-        color: white;
+        margin-bottom: 24px;
+        color: var(--color_light);
+        
         font-size: 52px;
         font-weight: 700;
         line-height: 1.2;
@@ -33,61 +39,67 @@
     .cta-text {
         margin: 0 auto 40px;
         max-width: 680px;
-        color: rgba(255,255,255,0.75);
+        color: var(--color_light);
+
         font-size: 18px;
         line-height: 1.8;
         text-align: center;
+
+        opacity: .7;
     }
 
     .cta-buttons {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 24px;
     }
 
     .cta-button {
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        padding: 16px 28px;
-        border: 1px solid transparent;
-        border-radius: 12px;
+        padding: 16px 24px;
+
         font-size: 15px;
         font-weight: 600;
         text-decoration: none;
-
+        
+        border: 1px solid transparent;
+        border-radius: 12px;
         transition: 0.3s;
     }
 
     .cta-button-primary {
-        background: white;
-        color: #111;
+        background: var(--color_light);
+        color: var(--color_dark);
 
-        &:hover {
+        &:hover,
+        &:active {
             opacity: 0.85;
         }
     }
 
     .cta-button-secondary {
         background: transparent;
-        color: white;
+        color: var(--color_light);
         border-color: rgba(255,255,255,0.2);
 
-        &:hover {
+        &:hover,
+        &:active {
             background: rgba(255,255,255,0.08);
         }
     }
 
     @media (max-width: 768px) {
-        padding: 70px 20px;
+        padding: 70px 24px;
 
         .cta-title {
             font-size: 36px;
         }
 
         .cta-text {
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             font-size: 16px;
         }
 

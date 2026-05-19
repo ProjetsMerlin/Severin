@@ -1,0 +1,46 @@
+.introduction-default {
+    margin: 0 auto;
+    padding: 24px;
+    max-width: 1280px;
+    width: 100%;
+    
+    .introduction-subtitle {
+        margin-bottom: 15px;
+        color: #666;
+        
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+    
+    .introduction-title {
+        margin-bottom: 20px;
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 1.2;
+        text-align: center;
+    }
+    
+    .introduction-text {
+        margin: 0 auto 60px;
+        max-width: 700px;
+        color: #666;
+        
+        font-size: 18px;
+        text-align: center;
+        line-height: 1.7;
+    }
+    
+    @media (max-width: 768px) {
+        .introduction-title {
+            font-size: 32px;
+        }
+        
+        .introduction-text {
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+    }
+}

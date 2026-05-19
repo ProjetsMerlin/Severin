@@ -11,7 +11,7 @@
         "favicon": "assets/images/favicon.ico",
         "defaultPage": "bienvenue",
         "Menu": {
-            "id" : "menu-default",
+            "anchor" : "",
             "class": "menu-default",
             "logo": {
                 "image": "assets/images/favicon.ico",
@@ -42,7 +42,7 @@
             ]
         },
         "Footer": {
-            "id" : "footer-default",
+            "anchor" : "",
             "class": "footer-default",
             "text": "© 2026 Severin — Tous droits réservés.",
             "socials": [
@@ -80,7 +80,7 @@
                 {
                     "component": "Error404",
                     "data": {
-                        "id" : "error404-default",
+                        "anchor" : "",
                         "class": "error404-default",
                         "code": "404",
                         "title": "Page introuvable",
@@ -103,7 +103,7 @@
                 {
                     "component": "Cta",
                     "data": {
-                        "id" : "cta-default",
+                        "anchor" : "",
                         "class": "cta-default",
                         "subtitle": "Commencez maintenant",
                         "title": "Une architecture moderne et ultra légère",
@@ -121,7 +121,7 @@
                 {
                     "component": "Hero",
                     "data": {
-                        "id" : "hero-default",
+                        "anchor" : "",
                         "class": "hero-default",
                         "image": "assets/images/hero-home.jpg",
                         "subtitle": "Architecture modulaire et éditable",
@@ -136,7 +136,7 @@
                 {
                     "component": "Hero",
                     "data": {
-                        "id" : "hero-default",
+                        "anchor" : "",
                         "class": "hero-default inverted",
                         "image": "assets/images/hero.jpg",
                         "subtitle": "Léger",
@@ -149,13 +149,20 @@
                     }
                 },
                 {
-                    "component": "Testimonial",
-                    "data": {
-                        "id" : "testimonials-default",
-                        "class": "testimonials-default",
+                    "component": "Introduction",
+                    "data" : {
+                        "anchor": "",
+                        "class" : "introduction-default",
                         "subtitle": "Avis clients",
                         "title": "Ils nous font confiance",
-                        "text": "Découvrez les retours de nos clients et partenaires après leurs collaborations avec notre équipe.",
+                        "text": "Découvrez les retours de nos clients et partenaires après leurs collaborations avec notre équipe."
+                    }
+                },
+                {
+                    "component": "Testimonial",
+                    "data": {
+                        "anchor" : "",
+                        "class": "testimonials-default",
                         "items": [
                             {
                                 "rating": 5,
@@ -191,13 +198,20 @@
             },
             "components": [
                 {
-                    "component": "Blog",
-                    "data": {
-                        "id" : "blog-default",
-                        "class": "blog-default",
+                    "component": "Introduction",
+                    "data" : {
+                        "anchor": "",
+                        "class" : "introduction-default",
                         "subtitle": "Actualités",
                         "title": "Les derniers articles",
-                        "text": "Découvrez nos derniers contenus autour du développement web, de l’architecture frontend et des systèmes component-based.",
+                        "text": "Découvrez nos derniers contenus autour du développement web, de l’architecture frontend et des systèmes component-based."
+                    }
+                },
+                {
+                    "component": "Blog",
+                    "data": {
+                        "anchor" : "",
+                        "class": "blog-default",
                         "items": [
                             {
                                 "id": 1,
@@ -243,7 +257,7 @@
                 {
                     "component": "Hero",
                     "data": {
-                        "id" : "hero-about",
+                        "anchor" : "",
                         "class": "hero-about",
                         "image": "assets/images/hero-about.jpg",
                         "subtitle": "Qui sommes-nous ?",
@@ -258,7 +272,7 @@
                 {
                     "component": "Hero",
                     "data": {
-                        "id" : "hero-about",
+                        "anchor" : "",
                         "class": "hero-about inverted",
                         "image": "assets/images/hero.jpg",
                         "subtitle": "Qui sommes-nous",
@@ -273,7 +287,7 @@
                 {
                     "component": "Timeline",
                     "data": {
-                        "id" : "timeline-default",
+                        "anchor" : "",
                         "class": "timeline-default",
                         "subtitle": "Notre parcours",
                         "title": "Les grandes étapes du projet",
@@ -307,13 +321,20 @@
             },
             "components": [
                 {
-                    "component": "Faq",
-                    "data": {
-                        "id" : "faq-default",
-                        "class": "faq-default",
+                    "component": "Introduction",
+                    "data" : {
+                        "anchor": "",
+                        "class" : "introduction-default",
                         "subtitle": "FAQ",
                         "title": "Questions fréquentes",
-                        "text": "Retrouvez les réponses aux questions les plus courantes concernant notre fonctionnement.",
+                        "text": "Retrouvez les réponses aux questions les plus courantes concernant notre fonctionnement."
+                    }
+                },
+                {
+                    "component": "Faq",
+                    "data": {
+                        "anchor" : "",
+                        "class": "faq-default",
                         "items": [
                             {
                                 "question": "Comment fonctionne le système ?",
@@ -340,13 +361,20 @@
             },
             "components": [
                 {
-                    "component": "Map",
-                    "data": {
-                        "id" : "map-default",
-                        "class": "map-default",
+                    "component": "Introduction",
+                    "data" : {
+                        "anchor": "",
+                        "class" : "introduction-default",
                         "subtitle": "Localisation",
                         "title": "Nous trouver",
-                        "text": "Retrouvez-nous directement via Google Maps et venez découvrir nos locaux.",
+                        "text": "Retrouvez-nous directement via Google Maps et venez découvrir nos locaux."
+                    }
+                },
+                {
+                    "component": "Map",
+                    "data": {
+                        "anchor" : "",
+                        "class": "map-default",
                         "embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2525.250566830656!2d4.392409492394866!3d50.733841393822075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3d025d6c2d683%3A0xd7561a18e483f75b!2sAv.%20du%20Manoir%204%2C%201640%20Rhode-Saint-Gen%C3%A8se!5e0!3m2!1sfr!2sbe!4v1778754826364!5m2!1sfr!2sbe"
                     }
                 }
