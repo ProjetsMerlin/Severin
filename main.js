@@ -13,5 +13,6 @@ import './Composants/Faq/Faq.js';
 import './Composants/Hero/Hero.scss';
 import './Composants/Introduction/Introduction.scss';
 import './Composants/Map/Map.scss';
+import './Composants/Newsletter/Newsletter.scss';
 import './Composants/Testimonial/Testimonial.scss';
 import './Composants/Timeline/Timeline.scss';

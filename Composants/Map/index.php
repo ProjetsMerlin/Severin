@@ -2,7 +2,7 @@
 function renderMap($data)
     {
 ?>
-<section class="map <?= $data['class'] ?? '' ?>">
+<section data-anchor="<?=  $data["anchor"] ?? ""; ?>"class="map <?= $data['class'] ?? '' ?>">
     <div class="map-container">
         <div class="map-embed">
             <iframe

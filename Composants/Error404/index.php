@@ -28,7 +28,7 @@ function renderError404($data)
     {
 ?>
 
-<section class="error404 <?= $data['class'] ?? '' ?>">
+<section data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="error404 <?= $data['class'] ?? '' ?>">
     <div class="error404-container">
         <h1 class="error404-code">
             <?= $data['code'] ?? '404' ?>

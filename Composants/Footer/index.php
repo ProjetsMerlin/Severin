@@ -3,7 +3,7 @@ function renderFooter($data)
     {
 ?>
 
-<footer class="footer <?= $data['class'] ?? '' ?>">
+<footer data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="footer <?= $data['class'] ?? '' ?>">
     <div class="footer-container">
         <!-- Texte -->
         <p class="footer-text">

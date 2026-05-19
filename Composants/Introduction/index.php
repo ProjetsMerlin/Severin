@@ -1,7 +1,7 @@
 <?php
 function renderIntroduction($data) {
     ?>
-<section class="introduction-default <?= $data['class'] ?? '' ?>">
+<section data-anchor="<?=  $data["anchor"] ?? ""; ?>"class="introduction <?= $data['class'] ?? '' ?>">
      <?php if (!empty($data['subtitle'])): ?>
         <div class="introduction-subtitle">
             <?= $data['subtitle'] ?>

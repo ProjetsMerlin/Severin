@@ -1,0 +1,66 @@
+.newsletter {
+    padding: 100px 20px;
+    width: 100%;
+    background: var(--color_dark);
+    
+    .newsletter-container {
+        margin: 0 auto;
+        max-width: 760px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    label {
+        display: none;
+    }
+    
+    input {
+        padding: 18px 22px;
+        width: 100%;
+        color: var(--color_dark);
+        background: var(--color_light);
+        font-size: 15px;
+        
+        border: 0;
+        border-radius: 12px;
+        outline: none;
+    }
+    
+    button {
+        padding: 18px 28px;
+        border: 0;
+        background: var(--color_light);
+        color: var(--color_dark);
+        
+        font-size: 15px;
+        font-weight: 600;
+        white-space: nowrap;
+        
+        border-radius: 12px;
+        transition: 0.3s;
+        cursor: pointer;
+        
+        &:hover,
+        &:active {
+            opacity: 0.85;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        padding: 70px 20px;
+        
+        .newsletter-form {
+            flex-direction: column;
+        }
+        
+        button {
+            width: 100%;
+        }
+    }
+}

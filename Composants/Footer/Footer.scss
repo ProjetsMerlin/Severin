@@ -1,8 +1,8 @@
 .footer {
     padding: 56px 20px;
     width: 100%;
-    background: #111;
-    color: white;
+    background: var(--color_dark);
+    color: var(--color_light);
 
     .footer-container {
         display: flex;

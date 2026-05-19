@@ -1,9 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+    --color_title:  red;
+    --color_text:   #666666;
+    --color_dark:   #000000;
+    --color_light:  #f7f7f7;
+}
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+.color_light {
+    color: var(--color_light);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -18,11 +33,11 @@ figure {
 
 .severin {
     h1,h2,h3,h4,h5,h6 {
-        color: red;
+        color: var(--color_title);
         font-family: "Noto Serif", serif;
-
+        
         span {
-            color: #000;
+            color: var(--color_dark);
         }
     }
 }

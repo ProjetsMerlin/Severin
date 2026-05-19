@@ -1,7 +1,7 @@
 .faq {
     padding: 100px 20px;
     width: 100%;
-    background: #f7f7f7;
+    background: var(--color_light);
 
     .faq-container {
         margin: 0 auto;
@@ -12,11 +12,11 @@
     .faq-items {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 24px;
     }
 
     .faq-item {
-        background: white;
+        background: var(--color_light);
         border-radius: 14px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.04);
         overflow: hidden;
@@ -30,7 +30,7 @@
         width: 100%;
 
         background: transparent;
-        color: #111;
+        color: var(--color_dark);
         font-size: 18px;
         font-weight: 600;
         text-align: left;
@@ -53,7 +53,7 @@
             width: 18px;
             height: 2px;
 
-            background: #111;
+            background: var(--color_dark);
             transform: translate(-50%, -50%);
             transition: 0.3s;
         }
@@ -73,7 +73,7 @@
 
     .faq-answer-content {
         padding: 0 30px 30px;
-        color: #666;
+        color: var(--color_text);
         font-size: 16px;
         line-height: 1.8;
     }

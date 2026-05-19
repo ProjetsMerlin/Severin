@@ -1,7 +1,4 @@
-.blog {
-    --color_title:  black;
-    --color_text:   #666;
-    
+.blog {    
     .blog-container {
         margin: 0 auto;
         padding: 24px;
@@ -61,7 +58,7 @@
         line-height: 1.3;
         
         a {
-            color: var(--color_title);
+            color: var(--color_dark);
             text-decoration: none;
             transition: 0.3s;
             

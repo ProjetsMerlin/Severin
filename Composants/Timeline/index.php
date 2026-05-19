@@ -2,7 +2,7 @@
  function renderTimeline($data)
     {
 ?>
-<section class="timeline <?= $data['class'] ?? '' ?>">
+<section data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="timeline <?= $data['class'] ?? '' ?>">
     <div class="timeline-container">
         <div class="timeline-items">
             <?php foreach ($data['items'] as $item): ?>

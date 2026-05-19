@@ -187,6 +187,16 @@
                             }
                         ]
                     }
+                },
+                {
+                    "component": "Newsletter",
+                    "data": {
+                        "anchor" : "",
+                        "class": "newsletter-default",
+                        "placeholder": "Votre adresse email",
+                        "button": "S’inscrire",
+                        "action": "/newsletter"
+                    }
                 }
             ]
         },

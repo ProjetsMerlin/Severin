@@ -2,11 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 20px;
+    padding: 80px 24px;
 
     width: 100%;
     min-height: 100vh;
-    background: #f7f7f7;
+    background: var(--color_light);
     text-align: center;
 
     .error404-container {
@@ -16,15 +16,15 @@
     }
 
     .error404-code {
-        margin-bottom: 20px;
+        margin-bottom: 24px;
         font-size: 120px;
         font-weight: 700;
         line-height: 1;
     }
 
     .error404-title {
-        margin-bottom: 20px;
-        color: #111;
+        margin-bottom: 24px;
+        color: var(--color_title);
         font-size: 42px;
         font-weight: 700;
         line-height: 1.2;
@@ -32,7 +32,7 @@
 
     .error404-text {
         margin-bottom: 35px;
-        color: #666;
+        color: var(--color_text);
         font-size: 18px;
         line-height: 1.7;
     }
@@ -43,8 +43,8 @@
         justify-content: center;
         padding: 16px 28px;
 
-        background: #111;
-        color: white;
+        background: var(--color_dark);
+        color: var(--color_light);
         font-size: 15px;
         font-weight: 600;
         text-decoration: none;
@@ -54,7 +54,6 @@
 
         &:hover,
         &:active {
-
             opacity: 0.85;
         }
     }

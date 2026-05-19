@@ -1,7 +1,7 @@
 <?php
 function renderFaq($data) {
 ?>
-<section class="faq <?= $data['class'] ?? '' ?>">
+<section data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="faq <?= $data['class'] ?? '' ?>">
     <div class="faq-container">
         <div class="faq-items">
             <?php foreach ($data['items'] as $item): ?>

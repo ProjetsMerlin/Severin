@@ -2,7 +2,7 @@
     function renderMenu($data) {
 ?>
 
-<header class="menu <?= $data['class'] ?? '' ?>">
+<header data-anchor="<?=  $data["anchor"] ?? ""; ?>"class="menu <?= $data['class'] ?? '' ?>">
     <div class="menu-container">
         <!-- Logo -->
         <a

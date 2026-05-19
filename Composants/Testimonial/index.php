@@ -2,23 +2,8 @@
 function renderTestimonial($data)
     {
 ?>
-<section class="testimonials <?= $data['class'] ?? '' ?>">
+<section data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="testimonials <?= $data['class'] ?? '' ?>">
     <div class="testimonials-container">
-        <?php if (!empty($data['subtitle'])): ?>
-            <div class="testimonials-subtitle">
-                <?= $data['subtitle'] ?>
-            </div>
-        <?php endif; ?>
-        <?php if (!empty($data['title'])): ?>
-            <h2 class="testimonials-title">
-                <?= $data['title'] ?>
-            </h2>
-        <?php endif; ?>
-        <?php if (!empty($data['text'])): ?>
-            <p class="testimonials-text">
-                <?= $data['text'] ?>
-            </p>
-        <?php endif; ?>
         <div class="testimonials-grid">
             <?php foreach ($data['items'] as $item): ?>
                 <article class="testimonials-card">

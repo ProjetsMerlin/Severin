@@ -3,15 +3,10 @@ function renderBlog($data)
     {
 ?>
 <?php if( isset($_GET["id"])) : ?>
-<?php
-    $data = array_filter(
-            $data['items'],
-            fn($item) =>
-                $item['id'] == htmlspecialchars($_GET["id"])
-        ) ?? null;
-?>
+<?php  $data = array_filter( $data['items'], fn($item) => $item['id'] == htmlspecialchars($_GET["id"]) ) ?? null; ?>
+<section data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="single <?= $data['class'] ?? '' ?>">
 <?php foreach ($data as $data) : ?>
-<article class="single <?= $data['class'] ?? '' ?>">
+<article>
     <div class="single-container">
         <figure class="single-image">
             <img src="<?= $data['image'] ?>" alt="<?= $data['title'] ?>" lazy="loading" title="<?= $data['title'] ?>">
@@ -30,8 +25,9 @@ function renderBlog($data)
     </div>
 </article>
 <?php endforeach; ?>
+</section>
 <?php else : ?>
-<section class="blog <?= $data['class'] ?? '' ?>">
+<section data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="blog <?= $data['class'] ?? '' ?>">
     <div class="blog-container">
         <div class="blog-grid">
             <?php foreach ($data['items'] as $item): ?>
