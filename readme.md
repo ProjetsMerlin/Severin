@@ -94,6 +94,32 @@ Créer un système :
 - Structuré comme un framework moderne
 - Rapide, sécurisé et SEO-friendly
 
+
+## Composants en place
+
+Menu ✔️\
+Hero ✔️\
+Footer ✔️\
+404 Section ✔️\
+FAQ ✔️\
+About ✔️\
+Map ✔️\
+Testimonials ✔️\
+CTA ✔️\
+Timeline ✔️\
+Cards / Blog Grid ✔️
+
+## Très prochainement
+
+Pricing / Stats\
+Gallery\
+Contact Form\
+Newsletter
+
+## ToDo
+
+Balises OGG
+
 ## Évolutions possibles
 
 - routing avancé sans query string
@@ -114,28 +140,3 @@ Mais il est possible de l'éditer via l'admin. L'idée serait de partager ce typ
 
 Utilisation d'un framewok CSS ?\
 SlugPage-composant pour ne charger que ce dernier ?
-
-### Composants en place
-
-Menu ✔️\
-Hero ✔️\
-Footer ✔️\
-404 Section ✔️\
-FAQ ✔️\
-About ✔️\
-Map ✔️\
-Testimonials ✔️\
-CTA ✔️\
-Timeline ✔️\
-Cards / Blog Grid ✔️
-
-### Très prochainement
-
-Pricing / Stats\
-Gallery\
-Contact Form\
-Newsletter
-
-## ToDo
-
-Balises OGG
