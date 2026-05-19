@@ -2,7 +2,7 @@
     function renderMenu($data) {
 ?>
 
-<header data-anchor="<?=  $data["anchor"] ?? ""; ?>"class="menu <?= $data['class'] ?? '' ?>">
+<header data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>"class="menu <?= $data['class'] ?? '' ?>">
     <div class="menu-container">
         <!-- Logo -->
         <a

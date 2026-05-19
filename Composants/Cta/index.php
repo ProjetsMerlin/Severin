@@ -2,7 +2,7 @@
 function renderCta($data)
     {
 ?>
-<section data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="cta <?= $data['class'] ?? '' ?>">
+<section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="cta <?= $data['class'] ?? '' ?>">
     <div class="cta-container">
         <?php if (!empty($data['subtitle'])): ?>
             <div class="cta-subtitle">

@@ -2,7 +2,7 @@
 function renderTestimonial($data)
     {
 ?>
-<section data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="testimonials <?= $data['class'] ?? '' ?>">
+<section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="testimonials <?= $data['class'] ?? '' ?>">
     <div class="testimonials-container">
         <div class="testimonials-grid">
             <?php foreach ($data['items'] as $item): ?>

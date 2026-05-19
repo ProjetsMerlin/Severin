@@ -1,4 +1,5 @@
 import './Composants/Global/Global.scss';
+import './Composants/Global/Global.js';
 import './Composants/Error404/Error404.scss';
 
 import './Composants/Menu/Menu.scss';

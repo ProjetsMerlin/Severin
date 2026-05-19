@@ -2,7 +2,7 @@
 function renderHero($data)
 {
 ?>
-<section data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="hero <?= $data['class'] ?>">
+<section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="hero <?= $data['class'] ?>">
     <div class="hero-image">
         <img
             loading="lazy"

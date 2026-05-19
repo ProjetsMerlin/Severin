@@ -36,7 +36,7 @@ figure {
         color: var(--color_title);
         font-family: "Noto Serif", serif;
         
-        span {
+        span:not(.color_light) {
             color: var(--color_dark);
         }
     }

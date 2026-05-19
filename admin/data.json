@@ -110,7 +110,7 @@
                         "text": "Construisez des sites performants grâce à une architecture component-based mêlant PHP, JSON, SCSS et Vite.",
                         "primaryButton": {
                             "label": "Découvrir",
-                            "link": "a-propos"
+                            "link": "#decouvrir"
                         },
                         "secondaryButton": {
                             "label": "Nous contacter",
@@ -121,7 +121,7 @@
                 {
                     "component": "Hero",
                     "data": {
-                        "anchor" : "",
+                        "anchor" : "decouvrir",
                         "class": "hero-default",
                         "image": "assets/images/hero-home.jpg",
                         "subtitle": "Architecture modulaire et éditable",

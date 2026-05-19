@@ -4,7 +4,7 @@ function renderBlog($data)
 ?>
 <?php if( isset($_GET["id"])) : ?>
 <?php  $data = array_filter( $data['items'], fn($item) => $item['id'] == htmlspecialchars($_GET["id"]) ) ?? null; ?>
-<section data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="single <?= $data['class'] ?? '' ?>">
+<section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="single <?= $data['class'] ?? '' ?>">
 <?php foreach ($data as $data) : ?>
 <article>
     <div class="single-container">
@@ -27,7 +27,7 @@ function renderBlog($data)
 <?php endforeach; ?>
 </section>
 <?php else : ?>
-<section data-anchor="<?=  $data["anchor"] ?? ""; ?>" class="blog <?= $data['class'] ?? '' ?>">
+<section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="blog <?= $data['class'] ?? '' ?>">
     <div class="blog-container">
         <div class="blog-grid">
             <?php foreach ($data['items'] as $item): ?>

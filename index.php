@@ -44,6 +44,23 @@ if( $_GET['page'] === "sitemap.xml") {
     exit;
 }
 
+function slugify($string){
+    $string = trim($string);
+    $string = iconv(
+            'UTF-8',
+            'ASCII//TRANSLIT',
+            $string
+        );
+
+    $string = strtolower($string);
+    $string = preg_replace(
+            '/[^a-z0-9]+/',
+            '-',
+            $string
+        );
+    $string = trim($string, '-');
+    return $string;
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?= $config['lang'] ?>">
