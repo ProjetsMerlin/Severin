@@ -10,8 +10,10 @@
             class="menu-logo"
         >
             <img
+                loading="lazy"
                 src="<?= $data['logo']['image'] ?>"
                 alt="<?= $data['logo']['alt'] ?? 'Logo' ?>"
+                title="<?= $data['logo']['alt'] ?? 'Logo' ?>"
             >
         </a>
 

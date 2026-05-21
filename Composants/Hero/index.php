@@ -8,6 +8,7 @@ function renderHero($data)
             loading="lazy"
             src="<?= htmlspecialchars($data['image']) ?>"
             alt="<?= htmlspecialchars($data['title']) ?>"
+            title="<?= htmlspecialchars($data['title']) ?>"
         >
     </div>
     <div class="hero-content">

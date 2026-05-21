@@ -9,7 +9,11 @@ function renderBlog($data)
 <article>
     <div class="single-container">
         <figure class="single-image">
-            <img src="<?= $data['image'] ?>" alt="<?= $data['title'] ?>" lazy="loading" title="<?= $data['title'] ?>">
+            <img 
+            lazy="loading" 
+            src="<?= $data['image'] ?>" 
+            alt="<?= $data['title'] ?>"
+            title="<?= $data['title'] ?>">
         </figure>
         <div class="single-content">
             <date class="single-date">
@@ -33,7 +37,12 @@ function renderBlog($data)
             <?php foreach ($data['items'] as $item): ?>
             <article class="blog-card">
                 <a href="blog/<?= $item['id'] ?>" class="blog-image">
-                    <img src="<?= $item['image'] ?>" alt="<?= $item['title'] ?>">
+                    <img
+                    loading="lazy"
+                    src="<?= $item['image'] ?>"
+                    alt="<?= $item['title'] ?>"
+                    title="<?= $item['title'] ?>"
+                    >
                 </a>
                 <div class="blog-content">
                     <div class="blog-date">

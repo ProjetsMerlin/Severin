@@ -67,17 +67,17 @@ if( $_GET['page'] === "sitemap.xml") {
     <meta name="apple-mobile-web-app-title" content="' . $titleSeo. '">
     <meta property="og:title" content="' . $titleSeo. '" />
     <meta property="og:description" content="' . htmlspecialchars($page['seo']['description']) . '" />
-    <meta property="og:image" content=" ' . htmlspecialchars($config['siteImageShare']) . '" />
+    <meta property="og:image" content="' . htmlspecialchars($config['siteImageShare']) . '" />
     <meta property="og:url" content="' . $siteUrl . '" />
     <meta property="og:type" content="website">
     <meta property="og:locale" content="' . $config['lang'] . '" />
     <meta name="twitter:title" content="' . $titleSeo. '" />
     <meta name="twitter:description" content="' . htmlspecialchars($page['seo']['description']) . '" />
-    <meta name="twitter:image" content=" ' . htmlspecialchars($config['siteImageShare']) . '" />
+    <meta name="twitter:image" content="' . htmlspecialchars($config['siteImageShare']) . '" />
     <meta name="twitter:url" content="' . $siteUrl . '" />
     <meta property="og:title" content="' . $titleSeo. '" />
     <meta property="og:description" content="' . htmlspecialchars($page['seo']['description']) . '" />
-    <meta property="og:image" content=" ' . htmlspecialchars($config['siteImageShare']) . '" />
+    <meta property="og:image" content="' . htmlspecialchars($config['siteImageShare']) . '" />
     <meta property="og:url" content="' . $siteUrl . '" />';
     echo $balisesOgg;
     ?>

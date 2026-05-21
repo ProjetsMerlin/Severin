@@ -6,8 +6,8 @@ function renderMap($data)
     <div class="map-container">
         <div class="map-embed">
             <iframe
-                src="<?= $data['embed'] ?>"
                 loading="lazy"
+                src="<?= $data['embed'] ?>"
                 allowfullscreen
                 referrerpolicy="no-referrer-when-downgrade"
             ></iframe>

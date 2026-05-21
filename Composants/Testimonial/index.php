@@ -17,8 +17,10 @@ function renderTestimonial($data)
                     </div>
                     <div class="testimonials-author">
                         <img
+                            loading="lazy"
                             src="<?= $item['avatar'] ?>"
                             alt="<?= $item['name'] ?>"
+                            title="<?= $item['name'] ?>"
                         >
                         <div class="testimonials-infos">
                             <div class="testimonials-name">

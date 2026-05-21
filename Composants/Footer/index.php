@@ -20,8 +20,10 @@ function renderFooter($data)
                     aria-label="<?= $social['label'] ?>"
                 >
                     <img
+                        loading="lazy"
                         src="<?= $social['icon'] ?>"
                         alt="<?= $social['label'] ?>"
+                        title="<?= $social['label'] ?>"
                     >
                 </a>
             <?php endforeach; ?>
