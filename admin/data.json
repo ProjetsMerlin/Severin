@@ -9,6 +9,7 @@
         "charset": "UTF-8",
         "description": "Site exemple basé sur des composants PHP",
         "favicon": "assets/images/favicon.ico",
+        "siteImageShare": "assets/images/share.png",
         "defaultPage": "bienvenue",
         "Menu": {
             "anchor" : "",

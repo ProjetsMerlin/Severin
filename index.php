@@ -5,12 +5,14 @@ $route = isset($_GET['page']) && $_GET['page'] !== "index.php" ? $_GET['page'] :
 $page = $data['routes'][$route];
 
 function slugify($string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
+function custom_error_handler($errno, $errstr, $errfile, $errline) { $error_message = "[" . date("Y-m-d H:i:s") . "] "; $error_message .= "Erreur : [$errno] $errstr - Fichier : $errfile - Ligne : $errline\n"; $log_file = __DIR__ . '/error_log.txt'; error_log($error_message, 3, $log_file); if (ini_get("display_errors")) { echo $error_message; } return false; } set_error_handler("custom_error_handler"); register_shutdown_function(function () { $error = error_get_last(); if ($error !== null && ($error['type'] === E_ERROR || $error['type'] === E_PARSE)) { custom_error_handler($error['type'], $error['message'], $error['file'], $error['line']); } }); error_reporting(E_ALL);
 
 if (!isset($page)) {
     header('location: 404');
     exit;
 }
 
+$titleSeo = htmlspecialchars($config['siteName']) . " - " . htmlspecialchars($page['seo']['title']);
 $siteUrl = htmlspecialchars($config['siteUrl']);
 if ($_SERVER['SERVER_NAME'] !== "localhost") {
     $siteUrl = htmlspecialchars($config['siteUrlOnline']);
@@ -19,7 +21,7 @@ if ($_SERVER['SERVER_NAME'] !== "localhost") {
 if($_GET['page'] === "robots.txt") {
     header('Content-Type: text/plain; charset=utf-8');
     $robots_txt = "User-agent: *\n";
-    $robots_txt .= "Disallow: " . $page["hideFolder"] . "\n";
+    $robots_txt .= "Disallow: " . $page["hideFolder"] ?? "" . "\n";
     $robots_txt .= "\n";
     $robots_txt .= "Sitemap: ";
     $robots_txt .= $siteUrl;
@@ -52,7 +54,7 @@ if( $_GET['page'] === "sitemap.xml") {
     <meta charset="<?= $config['charset'] ?>">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($config['siteName']) ?> - <?= htmlspecialchars($page['seo']['title']) ?></title>
+    <title><?= $titleSeo ?></title>
     <meta name="description" content="<?= htmlspecialchars($page['seo']['description']) ?>">
     <meta name="author" content="<?= $siteUrl ?>">
     <base href="<?= $siteUrl ?>">
@@ -62,20 +64,20 @@ if( $_GET['page'] === "sitemap.xml") {
     $balisesOgg = '
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="' . htmlspecialchars($config['siteName']) . "-"  . htmlspecialchars($page['seo']['title']) . '">
-    <meta property="og:title" content="' . htmlspecialchars($config['siteName']) . "-"  . htmlspecialchars($page['seo']['title']) . '" />
+    <meta name="apple-mobile-web-app-title" content="' . $titleSeo. '">
+    <meta property="og:title" content="' . $titleSeo. '" />
     <meta property="og:description" content="' . htmlspecialchars($page['seo']['description']) . '" />
-    <meta property="og:image" content="' . $siteUrl . 'assets/img/seo/share.png" />
+    <meta property="og:image" content=" ' . htmlspecialchars($config['siteImageShare']) . '" />
     <meta property="og:url" content="' . $siteUrl . '" />
     <meta property="og:type" content="website">
     <meta property="og:locale" content="' . $config['lang'] . '" />
-    <meta name="twitter:title" content="' . htmlspecialchars($config['siteName']) . "-"  . htmlspecialchars($page['seo']['title']) . '" />
+    <meta name="twitter:title" content="' . $titleSeo. '" />
     <meta name="twitter:description" content="' . htmlspecialchars($page['seo']['description']) . '" />
-    <meta name="twitter:image" content="' . $siteUrl . 'assets/img/seo/share.png" />
+    <meta name="twitter:image" content=" ' . htmlspecialchars($config['siteImageShare']) . '" />
     <meta name="twitter:url" content="' . $siteUrl . '" />
-    <meta property="og:title" content="' . htmlspecialchars($config['siteName']) . "-"  . htmlspecialchars($page['seo']['title']) . '" />
+    <meta property="og:title" content="' . $titleSeo. '" />
     <meta property="og:description" content="' . htmlspecialchars($page['seo']['description']) . '" />
-    <meta property="og:image" content="' . $siteUrl . 'assets/img/seo/share.png" />
+    <meta property="og:image" content=" ' . htmlspecialchars($config['siteImageShare']) . '" />
     <meta property="og:url" content="' . $siteUrl . '" />';
     echo $balisesOgg;
     ?>
