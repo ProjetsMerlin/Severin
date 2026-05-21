@@ -125,10 +125,6 @@ Gallery\
 Contact Form\
 Newsletter
 
-## ToDo
-
-Balises OGG
-
 ## Évolutions possibles
 
 - routing avancé sans query string
