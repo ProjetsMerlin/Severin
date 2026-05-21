@@ -4,6 +4,8 @@ $config = $data['config'];
 $route = isset($_GET['page']) && $_GET['page'] !== "index.php" ? $_GET['page'] : $config['defaultPage'];
 $page = $data['routes'][$route];
 
+function slugify($string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
+
 if (!isset($page)) {
     header('location: 404');
     exit;
