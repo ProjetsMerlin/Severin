@@ -39,7 +39,7 @@ function renderBlog($data)
             <?php foreach ($data['items'] as $item): ?>
             <article class="blog-card">
                 <?php if ( $item['image'] ) : ?>
-                <a href="blog/<?= $item['id'] ?>" class="blog-image">
+                <a href="blog/<?= $item['id'] ?>/<?= slugify($item['title']) ?>" class="blog-image">
                     <img
                     loading="lazy"
                     src="<?= $item['image'] ?>"
