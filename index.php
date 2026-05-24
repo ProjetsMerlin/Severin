@@ -1,17 +1,23 @@
 <?php
-$data = json_decode(file_get_contents('admin/data.json'), true);
-$config = $data['config'];
-$route = isset($_GET['page']) && $_GET['page'] !== "index.php" ? $_GET['page'] : $config['defaultPage'];
-$page = $data['routes'][$route];
-
 function slugify($string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
 function custom_error_handler($errno, $errstr, $errfile, $errline) { $error_message = "[" . date("Y-m-d H:i:s") . "] "; $error_message .= "Erreur : [$errno] $errstr - Fichier : $errfile - Ligne : $errline\n"; $log_file = __DIR__ . '/error_log.txt'; error_log($error_message, 3, $log_file); if (ini_get("display_errors")) { echo $error_message; } return false; } set_error_handler("custom_error_handler"); register_shutdown_function(function () { $error = error_get_last(); if ($error !== null && ($error['type'] === E_ERROR || $error['type'] === E_PARSE)) { custom_error_handler($error['type'], $error['message'], $error['file'], $error['line']); } }); error_reporting(E_ALL);
 
-if (!isset($page)) {
+$data = json_decode(file_get_contents('admin/data.json'), true);
+if ($data === null) {
+    http_response_code(500);
+    die('Erreur : le fichier de configuration est invalide ou corrompu. (JSON malformé)');
+}
+
+$config = $data['config'];
+$routes = array_keys($data['routes']);
+$route = isset($_GET['page']) && $_GET['page'] !== "index.php" ? $_GET['page'] : $config['defaultPage'];
+
+if (!in_array($route, $routes)) {
     header('location: 404');
     exit;
 }
 
+$page = $data['routes'][$route];
 $titleSeo = htmlspecialchars($config['siteName']) . " - " . htmlspecialchars($page['seo']['title']);
 $siteUrl = htmlspecialchars($config['siteUrl']);
 if ($_SERVER['SERVER_NAME'] !== "localhost") {
@@ -98,7 +104,6 @@ if( $_GET['page'] === "sitemap.xml") {
     <?php
         require_once "Composants/Menu/index.php";
         renderMenu($config['Menu']);
-
         foreach ($page['components'] as $section) {
             $componentName = $section['component'];
             $componentPath = "Composants/$componentName/index.php";
@@ -112,7 +117,6 @@ if( $_GET['page'] === "sitemap.xml") {
                 }
             }
         }
-
         require_once "Composants/Footer/index.php";
         renderFooter($config['Footer']);
 ?>

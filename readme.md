@@ -4,7 +4,6 @@ Severin est un projet minimaliste voulant être le plus complet possible.
 Ce système est un CMS JSON component-based, tournant sous PHP Component et dons les assets sont compilés avec Vite.
 Référencé, sécurisé et très léger pour des sites vitrines performants.
 
-
 ## Structure & concept du projet
 
 Le projet s compose comme suit :
@@ -14,16 +13,6 @@ Le projet s compose comme suit :
 - Contenu piloté par JSON (data.json) et un petit admin ajouté à cet effet
 - SEO dynamique depuis JSON et url propres
 - Sécurité de base via l'.htaccess (avec PHP et sous Apache)
-
-### En résumé
-
-| Fichiers en ligne | Attribution           |
-| ------------------|---------------------- |
-(/admin/)data.json  |  Contenu & structure du site              |
-/assets             |  Assets compilés & fichiers statiques     |
-/Composants         |  UI Components avec SCSS et JS éditables  |
-index.php           |  Points d'entrées & SEO engine            |
-.htaccess           |  Routing & Security                       |
 
 ## Principe
 
@@ -81,7 +70,7 @@ Séverin a une sécurité de base surtout via le fichier .htacess d'Apacche :
 
 Créer un système :
 - Simple comme PHP natif mais sans base de données
-- Structuré comme un framework moderne
+- Structuré comme un framework moderne (Composants)
 - Rapide, sécurisé et SEO-friendly
 
 ---
@@ -96,15 +85,17 @@ Pour y accéder, vous trouverez le mot de passe (à changer une fois en ligne !!
 
 3. Passez le tout en ligne. En production, seuls ces fichiers sont nécessaires :
 
-* /admin/* ou simplement le data.json si vous ne voulez pas d'admin
-* /assets/*
-* /Composants/*
-* index.php
-* .htaccess 
+| Fichiers en ligne | Attribution           |
+| ------------------|---------------------- |
+(/admin/)data.json  |  Contenu & structure du site              |
+/assets             |  Assets compilés & fichiers statiques     |
+/Composants         |  UI Components avec SCSS et JS éditables  |
+index.php           |  Points d'entrées & SEO engine            |
+.htaccess           |  Routing & Security                       |
 
 ## Composants
 
-### Déjà en place
+### Déjà en place comme exemmple
 
 Menu ✔️\
 Hero ✔️\
@@ -125,24 +116,8 @@ Gallery\
 Contact Form\
 Newsletter
 
-## Évolutions possibles
-
-- routing avancé sans query string
-- cache HTML statique
-- layouts système
-- lazy-loading composants
-- build intelligent par page
-
-### Défaut principal
+## Défaut principal
 
 On se retrouve avec un fichier data.json très long puisqu'il renferme à lui seul le routing, le contenu et la structure des pages.
-Mais il est possible de l'éditer via l'admin. L'idée serait de partager ce type de fichier pour changer d'apparence et de structure.
-
-### Idées
-
-Utilisation d'un framewok CSS ?
-SlugPage-composant pour ne charger que ce dernier ?
-
-share image par page
-langue
-partager le json ; cleaner le json
+Mais il est possible de l'éditer via l'admin.
+L'idée serait de partager ce type de fichier pour changer d'apparence, de contenu ou de structure.
