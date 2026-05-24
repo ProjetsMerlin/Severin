@@ -2,28 +2,30 @@
 function renderBlog($data)
     {
 ?>
+<section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="single <?= $data['class'] ?? '' ?>">
 <?php if( isset($_GET["id"])) : ?>
 <?php  $data = array_filter( $data['items'], fn($item) => $item['id'] == htmlspecialchars($_GET["id"]) ) ?? null; ?>
-<section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="single <?= $data['class'] ?? '' ?>">
-<?php foreach ($data as $data) : ?>
+<?php foreach ($data as $post) : ?>
 <article>
     <div class="single-container">
+        <?php if ( $post['image'] ) : ?>
         <figure class="single-image">
             <img 
             lazy="loading" 
-            src="<?= $data['image'] ?>" 
-            alt="<?= $data['title'] ?>"
-            title="<?= $data['title'] ?>">
+            src="<?= $post['image'] ?>" 
+            alt="<?= $post['title'] ?>"
+            title="<?= $post['title'] ?>">
         </figure>
+        <?php endif; ?>
         <div class="single-content">
             <date class="single-date">
-                <?= $data['date'] ?>
+                <?= $post['date'] ?? ""; ?>
             </date>
             <h1 class="single-title">
-                <?= $data['title'] ?>
+                <?= $post['title'] ?? ""; ?>
             </h1>
             <div class="single-text">
-                <?= $data['content'] ?>
+                <?= $post['content'] ?? ""; ?>
             </div>
         </div>
     </div>
@@ -36,6 +38,7 @@ function renderBlog($data)
         <div class="blog-grid">
             <?php foreach ($data['items'] as $item): ?>
             <article class="blog-card">
+                <?php if ( $item['image'] ) : ?>
                 <a href="blog/<?= $item['id'] ?>" class="blog-image">
                     <img
                     loading="lazy"
@@ -44,17 +47,18 @@ function renderBlog($data)
                     title="<?= $item['title'] ?>"
                     >
                 </a>
+                <?php endif; ?>
                 <div class="blog-content">
                     <div class="blog-date">
-                        <?= $item['date'] ?>
+                        <?= $item['date'] ?? ""; ?>
                     </div>
                     <h3 class="blog-card-title">
                         <a href="/article?id=<?= $item['id'] ?>">
-                            <?= $item['title'] ?>
+                            <?= $item['title'] ?? ""; ?>
                         </a>
                     </h3>
                     <div class="blog-description">
-                        <?= $item['description'] ?>
+                        <?= $item['description'] ?? ""; ?>
                     </div>
                 </div>
             </article>

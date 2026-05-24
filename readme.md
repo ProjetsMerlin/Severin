@@ -140,5 +140,9 @@ Mais il est possible de l'éditer via l'admin. L'idée serait de partager ce typ
 
 ### Idées
 
-Utilisation d'un framewok CSS ?\
+Utilisation d'un framewok CSS ?
 SlugPage-composant pour ne charger que ce dernier ?
+
+share image par page
+langue
+partager le json ; cleaner le json

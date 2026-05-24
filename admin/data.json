@@ -8,7 +8,6 @@
         "lang": "fr-BE",
         "charset": "UTF-8",
         "description": "Site exemple basé sur des composants PHP",
-        "favicon": "assets/images/favicon.ico",
         "siteImageShare": "assets/images/share.png",
         "defaultPage": "bienvenue",
         "Menu": {
@@ -166,7 +165,7 @@
                         "class": "testimonials-default",
                         "items": [
                             {
-                                "rating": 5,
+                                "rating": 4,
                                 "content": "Une architecture propre, rapide et extrêmement agréable à maintenir au quotidien.",
                                 "avatar": "assets/images/avatar-1.jpg",
                                 "name": "Xavier Dupontelle",
@@ -180,7 +179,7 @@
                                 "role": "Directrice artistique"
                             },
                             {
-                                "rating": 5,
+                                "rating": 3,
                                 "content": "Le chargement est ultra rapide et l'organisation du projet est vraiment exemplaire.",
                                 "avatar": "assets/images/avatar-3.jpg",
                                 "name": "Thomas Dutronc",
@@ -194,6 +193,7 @@
                     "data": {
                         "anchor" : "",
                         "class": "newsletter-default",
+                        "title" : "<span class='color_light'>Inscription à notre </span>Newsletter",
                         "placeholder": "Votre adresse email",
                         "button": "S’inscrire",
                         "action": "/newsletter"
@@ -237,21 +237,24 @@
                                 "image": "assets/images/blog-2.jpg",
                                 "date": "08 Mai 2026",
                                 "title": "Créer un mini CMS moderne",
-                                "description": "Comment construire un système simple, rapide et maintenable sans framework lourd."
+                                "description": "Comment construire un système simple, rapide et maintenable sans framework lourd.",
+                                "content": "<p>Une architecture minimaliste permet de construire des sites rapides,maintenables et extrêmement performants.</p><p>En limitant les dépendances inutiles et en gardant un contrôle totalsur la structure du projet, le développement devient plus fluide.</p><h2>Des performances optimales</h2><p>Les projets légers chargent plus rapidement et offrent une meilleureexpérience utilisateur.</p><blockquote>Un bon système est souvent celui qui reste simple.</blockquote><p>Cette approche permet également une maintenance plus facile dans le temps.</p>"
                             },
                             {
                                 "id": 3,
                                 "image": "assets/images/blog-3.jpg",
                                 "date": "02 Mai 2026",
                                 "title": "Structurer ses composants SCSS",
-                                "description": "Organisation, conventions et bonnes pratiques pour un frontend scalable."
+                                "description": "Organisation, conventions et bonnes pratiques pour un frontend scalable.",
+                                "content": "<p>Une architecture minimaliste permet de construire des sites rapides,maintenables et extrêmement performants.</p><p>En limitant les dépendances inutiles et en gardant un contrôle totalsur la structure du projet, le développement devient plus fluide.</p><h2>Des performances optimales</h2><p>Les projets légers chargent plus rapidement et offrent une meilleureexpérience utilisateur.</p><blockquote>Un bon système est souvent celui qui reste simple.</blockquote><p>Cette approche permet également une maintenance plus facile dans le temps.</p>"
                             },
                             {
                                 "id": 4,
                                 "image": "assets/images/blog-4.jpg",
                                 "date": "28 Avril 2026",
                                 "title": "Optimiser les performances frontend",
-                                "description": "Quelques techniques simples pour améliorer les performances de vos sites vitrines."
+                                "description": "Quelques techniques simples pour améliorer les performances de vos sites vitrines.",
+                                "content": "<p>Une architecture minimaliste permet de construire des sites rapides,maintenables et extrêmement performants.</p><p>En limitant les dépendances inutiles et en gardant un contrôle totalsur la structure du projet, le développement devient plus fluide.</p><h2>Des performances optimales</h2><p>Les projets légers chargent plus rapidement et offrent une meilleureexpérience utilisateur.</p><blockquote>Un bon système est souvent celui qui reste simple.</blockquote><p>Cette approche permet également une maintenance plus facile dans le temps.</p>"
                             }
                         ]
                     }

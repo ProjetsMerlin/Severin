@@ -5,7 +5,7 @@ function renderNewsletter($data)
 <section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="newsletter <?= $data['class'] ?? '' ?>">
     <div class="newsletter-container">
         <h3>
-            <span class="color_light">Inscription à notre </span>Newsletter
+            <?= $data['title'] ?? "" ?>
         </h3>
         <form
             class="newsletter-form"

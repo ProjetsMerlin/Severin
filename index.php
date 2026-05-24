@@ -57,6 +57,7 @@ if( $_GET['page'] === "sitemap.xml") {
     <title><?= $titleSeo ?></title>
     <meta name="description" content="<?= htmlspecialchars($page['seo']['description']) ?>">
     <meta name="author" content="<?= $siteUrl ?>">
+    
     <base href="<?= $siteUrl ?>">
 
     <!-- Open Graph -->
@@ -88,7 +89,7 @@ if( $_GET['page'] === "sitemap.xml") {
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
     <link rel="manifest" href="assets/images/site.webmanifest" />
-    <link rel="icon" href="<?= htmlspecialchars($config['favicon']) ?>">
+    <link rel="icon" href="assets/images/favicon.ico">
     
     <!-- Style -->
     <link rel="stylesheet" href="assets/style.css?v=<?= filemtime('assets/style.css') ?>">

@@ -2,7 +2,8 @@
 function renderHero($data)
 {
 ?>
-<section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="hero <?= $data['class'] ?>">
+<section data-anchor="<?= $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="hero <?= $data['class'] ?>">
+    <?php if ( $data['image'] ) : ?>
     <div class="hero-image">
         <img
             loading="lazy"
@@ -11,23 +12,26 @@ function renderHero($data)
             title="<?= htmlspecialchars($data['title']) ?>"
         >
     </div>
+    <?php endif; ?>
     <div class="hero-content">
         <p class="hero-subtitle">
             <?= html_entity_decode($data['subtitle']) ?>
         </p>
         <h3 class="hero-title">
-            <?= html_entity_decode($data['title']) ?>
+            <?= html_entity_decode($data['title']) ?? "" ?>
         </h3>
         <p class="hero-text">
-            <?= html_entity_decode($data['text']) ?>
+            <?= html_entity_decode($data['text']) ?? ""?>
         </p>
+        <?php if ( $data['button']['link'] ) : ?>
         <a
             title="<?= htmlspecialchars($data['title']) ?>"
             href="<?= htmlspecialchars($data['button']['link']) ?>"
             class="hero-button"
-        >
+            >
             <?= html_entity_decode($data['button']['label']) ?>
         </a>
+        <?php endif; ?>
     </div>
 </section>
 <?php
