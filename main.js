@@ -17,3 +17,4 @@ import './Composants/Map/Map.scss';
 import './Composants/Newsletter/Newsletter.scss';
 import './Composants/Testimonial/Testimonial.scss';
 import './Composants/Timeline/Timeline.scss';
+import './Composants/Pricing/Pricing.scss';

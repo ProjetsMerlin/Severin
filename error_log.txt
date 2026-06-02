@@ -1,0 +1,8 @@
+[2026-06-02 14:18:47] Erreur : [2] Undefined array key "seo" - Fichier : C:\MAMP\htdocs\projets\lintermediaire\en cours\Severina\index.php - Ligne : 21
+[2026-06-02 14:18:47] Erreur : [2] Trying to access array offset on null - Fichier : C:\MAMP\htdocs\projets\lintermediaire\en cours\Severina\index.php - Ligne : 21
+[2026-06-02 14:18:47] Erreur : [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated - Fichier : C:\MAMP\htdocs\projets\lintermediaire\en cours\Severina\index.php - Ligne : 21
+[2026-06-02 14:18:47] Erreur : [2] Undefined array key "seo" - Fichier : C:\MAMP\htdocs\projets\lintermediaire\en cours\Severina\index.php - Ligne : 44
+[2026-06-02 14:18:47] Erreur : [2] Undefined array key "seo" - Fichier : C:\MAMP\htdocs\projets\lintermediaire\en cours\Severina\index.php - Ligne : 44
+[2026-06-02 14:21:31] Erreur : [2] Undefined array key "seo" - Fichier : C:\MAMP\htdocs\projets\lintermediaire\en cours\Severina\index.php - Ligne : 21
+[2026-06-02 14:21:31] Erreur : [2] Trying to access array offset on null - Fichier : C:\MAMP\htdocs\projets\lintermediaire\en cours\Severina\index.php - Ligne : 21
+[2026-06-02 14:21:31] Erreur : [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated - Fichier : C:\MAMP\htdocs\projets\lintermediaire\en cours\Severina\index.php - Ligne : 21

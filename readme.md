@@ -55,13 +55,13 @@ Il possède :
 
 - Fichier `robots.txt` dynamique
 - Fichier `sitemap.xml` dynamique
-- Réécriture des URLs propres (exemple : `/`, `/blog`, `/blog/1`)
+- Réécriture des URLs propres (exemple : `/`, `/blog`, `/blog/1/slug-de-l-article`)
 - Balises `<head>` dynamiques
-- Balises Open Graph dynamiques (en cours)
+- Balises Open Graph dynamiques
 
 ### 5. Sécurité
 
-Severin dispose d'une sécurité de base, principalement via le fichier `.htaccess` Apache :
+Severin dispose d'une sécurité de base, principalement via le fichier `.htaccess` sous Apache :
 
 - Listage des répertoires désactivé
 - Protection XSS
@@ -72,8 +72,16 @@ Severin dispose d'une sécurité de base, principalement via le fichier `.htacce
 Créer un système :
 
 - Simple comme PHP natif, mais sans base de données
-- Structuré comme un framework moderne (composants)
+- Structuré comme un framework moderne (Composants)
 - Rapide, sécurisé et SEO-friendly
+
+---
+
+## Dépendance
+
+| Label               | Description                                | URL                                           | Required       |
+| ------------------- | -------------------------------------------|---------------------------------------------- | -------------- |
+| JSON Editor         |  Pour éditer le data.json depuis l'admin   | https://cdn.jsdelivr.net/npm/jsoneditor/      | Non requis     |
 
 ---
 
@@ -82,7 +90,7 @@ Créer un système :
 1. Ajoutez vos composants, renseignez-les dans le fichier `/main.js`, et compilez le tout via la commande Vite : `npm run build`
 
 2. Modifiez à votre guise le fichier `data.json` manuellement ou via l'admin `/admin`.
-Pour y accéder, le mot de passe se trouve dans le fichier `/admin/login.php` — **pensez à le changer une fois en ligne !**
+Pour y accéder, le mot de passe se trouve dans le fichier `/admin/login.php` — **pensez à le changer une fois votre projet en ligne !**
 
 3. Mettez le tout en ligne. En production, seuls ces fichiers sont nécessaires :
 
@@ -109,16 +117,17 @@ Testimonials ✔️
 CTA ✔️  
 Timeline ✔️  
 Cards / Blog Grid ✔️  
+Pricing ✔️
 
 ### Très prochainement
 
-Pricing / Stats  
-Gallery  
-Contact Form  
+Gallery\
+slider\
+Contact Form\  
 Newsletter  
 
 ## Défaut principal
 
-On se retrouve avec un fichier `data.json` très long puisqu'il renferme à lui seul le routing, le contenu et la structure des pages.
-Il est toutefois possible de l'éditer via l'admin.
+On se retrouve avec un fichier `data.json` très long puisqu'il renferme à lui seul le routing, le contenu et la structure des pages.\
+Il est toutefois possible de l'éditer via l'admin.\
 L'idée serait de partager ce type de fichier pour changer d'apparence, de contenu ou de structure d'un site à l'autre.

@@ -2,31 +2,29 @@
 function renderBlog($data)
     {
 ?>
-<section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="single <?= $data['class'] ?? '' ?>">
 <?php if( isset($_GET["id"])) : ?>
-<?php  $data = array_filter( $data['items'], fn($item) => $item['id'] == htmlspecialchars($_GET["id"]) ) ?? null; ?>
+<section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="single <?= $data['class'] ?? '' ?>">
+<?php $data = array_filter( $data['items'], fn($item) => $item['id'] == htmlspecialchars($_GET["id"]) ) ?? null; ?>
 <?php foreach ($data as $post) : ?>
-<article>
-    <div class="single-container">
-        <?php if ( $post['image'] ) : ?>
-        <figure class="single-image">
-            <img 
-            lazy="loading" 
-            src="<?= $post['image'] ?>" 
-            alt="<?= $post['title'] ?>"
-            title="<?= $post['title'] ?>">
-        </figure>
-        <?php endif; ?>
-        <div class="single-content">
-            <date class="single-date">
-                <?= $post['date'] ?? ""; ?>
-            </date>
-            <h1 class="single-title">
-                <?= $post['title'] ?? ""; ?>
-            </h1>
-            <div class="single-text">
-                <?= $post['content'] ?? ""; ?>
-            </div>
+<article class="single-container">
+    <?php if ( $post['image'] ) : ?>
+    <figure class="single-image">
+        <img 
+        lazy="loading" 
+        src="<?= $post['image'] ?>" 
+        alt="<?= $post['title'] ?>"
+        title="<?= $post['title'] ?>">
+    </figure>
+    <?php endif; ?>
+    <div class="single-content">
+        <date class="single-date">
+            <?= $post['date'] ?? ""; ?>
+        </date>
+        <h1 class="single-title">
+            <?= $post['title'] ?? ""; ?>
+        </h1>
+        <div class="single-text">
+            <?= $post['content'] ?? ""; ?>
         </div>
     </div>
 </article>

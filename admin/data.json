@@ -105,16 +105,18 @@
                     "data": {
                         "anchor" : "",
                         "class": "cta-default",
-                        "subtitle": "Commencez maintenant",
+                        "subtitle": "Severin",
                         "title": "Une architecture moderne et ultra légère",
                         "text": "Construisez des sites performants grâce à une architecture component-based mêlant PHP, JSON, SCSS et Vite.",
                         "primaryButton": {
                             "label": "Découvrir",
-                            "link": "#decouvrir"
+                            "link": "#decouvrir",
+                            "target": ""
                         },
                         "secondaryButton": {
-                            "label": "Nous contacter",
-                            "link": "contact"
+                            "label": "Télécharger",
+                            "link": "https://github.com/ProjetsMerlin/Severin",
+                            "target": "_blank"
                         }
                     }
                 },
@@ -324,7 +326,63 @@
                             }
                         ]
                     }
+                },
+                {
+                    "component": "Pricing",
+                    "data": {
+                        "class": "pricing-default",
+                        "anchor": "",
+                        "plans": [
+                            {
+                                "title": "Starter",
+                                "price": "29€",
+                                "description": "Idéal pour démarrer.",
+                                "features": [
+                                    "1 page",
+                                    "Responsive",
+                                    "Support email"
+                                ],
+                                "button": {
+                                    "label": "Choisir",
+                                    "link": "#contact"
+                                }
+                            },
+                            {
+                                "title": "Business",
+                                "price": "79€",
+                                "badge": "Populaire",
+                                "featured": true,
+                                "description": "La formule la plus choisie.",
+                                "features": [
+                                    "5 pages",
+                                    "SEO",
+                                    "Blog",
+                                    "Support prioritaire"
+                                ],
+                                "button": {
+                                    "label": "Choisir",
+                                    "link": "#contact"
+                                }
+                            },
+                            {
+                                "title": "Premium",
+                                "price": "149€",
+                                "description": "Pour les projets ambitieux.",
+                                "features": [
+                                    "Pages illimitées",
+                                    "SEO avancé",
+                                    "Blog",
+                                    "Support premium"
+                                ],
+                                "button": {
+                                    "label": "Choisir",
+                                    "link": "#contact"
+                                }
+                            }
+                        ]
+                    }
                 }
+                
             ]
         },
         "a-propos": {

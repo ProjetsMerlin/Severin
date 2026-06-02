@@ -22,6 +22,7 @@ function renderCta($data)
         <div class="cta-buttons">
             <?php if (!empty($data['primaryButton'])): ?>
                 <a
+                    target="<?php $data['primaryButton']['target'] !== "_self" ? print($data['primaryButton']['target']) : print("_self") ?>"
                     href="<?= $data['primaryButton']['link'] ?>"
                     class="cta-button cta-button-primary"
                 >
@@ -30,6 +31,7 @@ function renderCta($data)
             <?php endif; ?>
             <?php if (!empty($data['secondaryButton'])): ?>
                 <a
+                    target="<?php $data['secondaryButton']['target'] !== "_self" ? print($data['secondaryButton']['target']) : print("_self") ?>"
                     href="<?= $data['secondaryButton']['link'] ?>"
                     class="cta-button cta-button-secondary"
                 >

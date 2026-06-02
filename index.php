@@ -104,6 +104,9 @@ if( $_GET['page'] === "sitemap.xml") {
     <?php
         require_once "Composants/Menu/index.php";
         renderMenu($config['Menu']);
+        ?>
+        <main>
+        <?php
         foreach ($page['components'] as $section) {
             $componentName = $section['component'];
             $componentPath = "Composants/$componentName/index.php";
@@ -117,6 +120,9 @@ if( $_GET['page'] === "sitemap.xml") {
                 }
             }
         }
+        ?>
+        </main>
+        <?php
         require_once "Composants/Footer/index.php";
         renderFooter($config['Footer']);
 ?>
