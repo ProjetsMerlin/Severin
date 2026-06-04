@@ -104,27 +104,23 @@ Pour y accéder, le mot de passe se trouve dans le fichier `/admin/login.php` �
 
 ## Composants
 
-### Déjà en place
+15 composants sont Déjà en place
 
-Menu ✔️  
-Hero ✔️  
-Footer ✔️  
-Section 404 ✔️  
-FAQ ✔️  
-About ✔️  
-Map ✔️  
-Testimonials ✔️  
+Blog ✔️  
 CTA ✔️  
+Error 404 ✔️  
+FAQ ✔️  
+Footer ✔️  
+Gallery ✔️  
+Hero ✔️  
+Introduction ✔️  
+Map ✔️  
+Menu ✔️  
+Newsletter ✔️  
+Pricing ✔️  
+Slider ✔️  
+Testimonial ✔️  
 Timeline ✔️  
-Cards / Blog Grid ✔️  
-Pricing ✔️\
-Gallery ✔️\
-Slider ✔️
-
-### Très prochainement
-
-Contact Form\
-Newsletter
 
 ## Défaut principal
 

@@ -15,6 +15,7 @@ import './Composants/Hero/Hero.scss';
 import './Composants/Introduction/Introduction.scss';
 import './Composants/Map/Map.scss';
 import './Composants/Newsletter/Newsletter.scss';
+import './Composants/Newsletter/Newsletter.js';
 import './Composants/Testimonial/Testimonial.scss';
 import './Composants/Timeline/Timeline.scss';
 import './Composants/Pricing/Pricing.scss';

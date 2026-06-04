@@ -198,7 +198,7 @@
                         "title" : "<span class='color_light'>Inscription à notre </span>Newsletter",
                         "placeholder": "Votre adresse email",
                         "button": "S’inscrire",
-                        "action": "/newsletter"
+                        "action": "Composants/Newsletter/Newsletter.php"
                     }
                 }
             ]

@@ -1,19 +1,16 @@
 <?php
-function renderNewsletter($data)
-    {
+function renderNewsletter($data) {
 ?>
 <section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="newsletter <?= $data['class'] ?? '' ?>">
     <div class="newsletter-container">
         <h3>
             <?= $data['title'] ?? "" ?>
         </h3>
-        <form
-            class="newsletter-form"
-            method="POST"
-            action="<?= $data['action'] ?? '#' ?>"
-        >
-        <label for="email">Adresse email</label>
+        <form class="newsletter-form" action="<?= $data['action'] ?? '#' ?>">
+            <input type="text" name="website" style="display:none;">
+            <label for="email">Adresse email</label>
             <input
+                id="email"
                 type="email"
                 name="email"
                 placeholder="<?= $data['placeholder'] ?? 'Votre adresse email' ?>"
@@ -27,4 +24,4 @@ function renderNewsletter($data)
     </div>
 </section>
 <?php
-    }
+}

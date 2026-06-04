@@ -9,6 +9,10 @@ ServerSignature Off
     Require all denied
 </Files>
 
+<Files "newsletter.json">
+    Require all denied
+</Files>
+
 <Files ~ "\.(htaccess|htpasswd)$">
     Require all denied
 </Files>
