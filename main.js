@@ -20,3 +20,5 @@ import './Composants/Timeline/Timeline.scss';
 import './Composants/Pricing/Pricing.scss';
 import './Composants/Gallery/Gallery.scss';
 import './Composants/Gallery/Gallery.js';
+import './Composants/Slider/Slider.scss';
+import './Composants/Slider/Slider.js';

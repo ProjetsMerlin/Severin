@@ -430,8 +430,26 @@
                             }
                         ]
                     }
+                },
+                {
+                    "component": "Slider",
+                    "data": {
+                        "class": "slider-default",
+                        "anchor": "",
+                        "items": [
+                            { "image": "https://picsum.photos/id/1015/1200/800" },
+                            { "image": "https://picsum.photos/id/1025/1200/800" },
+                            { "image": "https://picsum.photos/id/1035/1200/800" },
+                            { "image": "https://picsum.photos/id/1040/1200/800" },
+                            { "image": "https://picsum.photos/id/1050/1200/800" },
+                            { "image": "https://picsum.photos/id/1035/1200/800" },
+                            { "image": "https://picsum.photos/id/1060/1200/800" },
+                            { "image": "https://picsum.photos/id/1070/1200/800" },
+                            { "image": "https://picsum.photos/id/1050/1200/800" },
+                            { "image": "https://picsum.photos/id/1080/1200/800" }
+                        ]
+                    }
                 }
-                
             ]
         },
         "a-propos": {

@@ -117,12 +117,12 @@ Testimonials ✔️
 CTA ✔️  
 Timeline ✔️  
 Cards / Blog Grid ✔️  
-Pricing ✔️
-Gallery ✔️
+Pricing ✔️\
+Gallery ✔️\
+Slider ✔️
 
 ### Très prochainement
 
-Slider\
 Contact Form\
 Newsletter
 
