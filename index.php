@@ -1,6 +1,6 @@
 <?php
-function slugify($string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
 function custom_error_handler($errno, $errstr, $errfile, $errline) { $error_message = "[" . date("Y-m-d H:i:s") . "] "; $error_message .= "Erreur : [$errno] $errstr - Fichier : $errfile - Ligne : $errline\n"; $log_file = __DIR__ . '/error_log.txt'; error_log($error_message, 3, $log_file); if (ini_get("display_errors")) { echo $error_message; } return false; } set_error_handler("custom_error_handler"); register_shutdown_function(function () { $error = error_get_last(); if ($error !== null && ($error['type'] === E_ERROR || $error['type'] === E_PARSE)) { custom_error_handler($error['type'], $error['message'], $error['file'], $error['line']); } }); error_reporting(E_ALL);
+function slugify($string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
 
 $data = json_decode(file_get_contents('admin/data.json'), true);
 if ($data === null) {
@@ -18,14 +18,14 @@ if (!in_array($route, $routes)) {
 }
 
 $page = $data['routes'][$route];
-$titleSeo = htmlspecialchars($config['siteName']) . " - " . htmlspecialchars($page['seo']['title']);
 $siteUrl = htmlspecialchars($config['siteUrl']);
+$titleSeo = htmlspecialchars($config['siteName']) . " - " . htmlspecialchars($page['seo']['title']);
 if ($_SERVER['SERVER_NAME'] !== "localhost") {
     $siteUrl = htmlspecialchars($config['siteUrlOnline']);
 }
 
 if($_GET['page'] === "robots.txt") {
-    header('Content-Type: text/plain; charset=utf-8');
+    header('Content-Type: text/plain;charset=utf-8');
     $robots_txt = "User-agent: *\n";
     $robots_txt .= "Disallow: " . $page["hideFolder"] ?? "" . "\n";
     $robots_txt .= "\n";
@@ -41,21 +41,35 @@ if( $_GET['page'] === "sitemap.xml") {
     $sitemap_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
     $sitemap_xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
     foreach ($data['routes'] as $route => $page) {
-        if( $page["seo"] && $page["seo"]["priority"]) {
-        $sitemap_xml .= "  <url>\n";
-        $sitemap_xml .= "    <loc>" . $siteUrl . htmlspecialchars($route) . "</loc>\n";
-        $sitemap_xml .= "    <lastmod>" . date('Y-m-d', filemtime('admin/data.json')) . "</lastmod>\n";
-        $sitemap_xml .= "    <priority>" . $page["seo"]["priority"] . "</priority>\n";
-        $sitemap_xml .= "  </url>\n";
-        }
+    if( $page["seo"] && $page["seo"]["priority"]) {
+    $sitemap_xml .= " <url>\n";
+        $sitemap_xml .= " <loc>" . $siteUrl . htmlspecialchars($route) . "</loc>\n";
+        $sitemap_xml .= " <lastmod>" . date('Y-m-d', filemtime('admin/data.json')) . "</lastmod>\n";
+        $sitemap_xml .= " <priority>" . $page["seo"]["priority"] . "</priority>\n";
+        $sitemap_xml .= " </url>\n";
+    }
     }
     $sitemap_xml .= "</urlset>";
     echo $sitemap_xml;
     exit;
 }
+
+$assets = [ 'scripts' => [], 'styles' => [] ];
+foreach ($page['components'] as $component) {
+    $dependenciesPath = __DIR__ . '/Composants/' . $component['component'] . '/dependencies.php';
+    if (!file_exists($dependenciesPath)) {
+        continue;
+    }
+    $dependencies = require $dependenciesPath;
+    $assets['scripts'] = array_merge($assets['scripts'], $dependencies['scripts'] ?? []);
+    $assets['styles'] = array_merge($assets['styles'], $dependencies['styles'] ?? []);
+}
+$assets['scripts'] = array_unique($assets['scripts']);
+$assets['styles'] = array_unique($assets['styles']);
 ?>
 <!DOCTYPE html>
 <html lang="<?= $config['lang'] ?>">
+
 <head>
     <meta charset="<?= $config['charset'] ?>">
 
@@ -63,7 +77,7 @@ if( $_GET['page'] === "sitemap.xml") {
     <title><?= $titleSeo ?></title>
     <meta name="description" content="<?= htmlspecialchars($page['seo']['description']) ?>">
     <meta name="author" content="<?= $siteUrl ?>">
-    
+
     <base href="<?= $siteUrl ?>">
 
     <!-- Open Graph -->
@@ -96,16 +110,20 @@ if( $_GET['page'] === "sitemap.xml") {
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
     <link rel="manifest" href="assets/images/site.webmanifest" />
     <link rel="icon" href="assets/images/favicon.ico">
-    
-    <!-- Style -->
+
+    <!-- Styles -->
+    <?php foreach ($assets['styles'] as $style) : ?>
+        <link rel="stylesheet" href="<?= $style ?>">
+    <?php endforeach; ?>
     <link rel="stylesheet" href="assets/style.css?v=<?= filemtime('assets/style.css') ?>">
 </head>
+
 <body class="severin">
     <?php
         require_once "Composants/Menu/index.php";
         renderMenu($config['Menu']);
         ?>
-        <main>
+    <main>
         <?php
         foreach ($page['components'] as $section) {
             $componentName = $section['component'];
@@ -121,11 +139,15 @@ if( $_GET['page'] === "sitemap.xml") {
             }
         }
         ?>
-        </main>
-        <?php
+    </main>
+    <?php
         require_once "Composants/Footer/index.php";
         renderFooter($config['Footer']);
 ?>
+   <?php foreach ($assets['scripts'] as $script) : ?>
+        <script src="<?= $script ?>"></script>
+    <?php endforeach; ?>
     <script type="module" src="assets/app.js?v=<?= filemtime('assets/app.js') ?>"></script>
 </body>
+
 </html>

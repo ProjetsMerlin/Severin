@@ -118,13 +118,13 @@ CTA ✔️
 Timeline ✔️  
 Cards / Blog Grid ✔️  
 Pricing ✔️
+Gallery ✔️
 
 ### Très prochainement
 
-Gallery\
-slider\
-Contact Form\  
-Newsletter  
+Slider\
+Contact Form\
+Newsletter
 
 ## Défaut principal
 

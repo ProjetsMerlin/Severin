@@ -18,3 +18,5 @@ import './Composants/Newsletter/Newsletter.scss';
 import './Composants/Testimonial/Testimonial.scss';
 import './Composants/Timeline/Timeline.scss';
 import './Composants/Pricing/Pricing.scss';
+import './Composants/Gallery/Gallery.scss';
+import './Composants/Gallery/Gallery.js';

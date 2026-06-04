@@ -381,6 +381,55 @@
                             }
                         ]
                     }
+                },
+                {
+                    "component": "Gallery",
+                    "data": {
+                        "class": "gallery-default",
+                        "anchor": "galerie",
+                        "items": [
+                            {
+                                "title": "Projet 01",
+                                "image": "assets/images/blog-1.jpg"
+                            },
+                            {
+                                "title": "Projet 02",
+                                "image": "assets/images/blog-2.jpg"
+                            },
+                            {
+                                "title": "Projet 03",
+                                "image": "assets/images/blog-3.jpg"
+                            },
+                            {
+                                "title": "Projet 04",
+                                "image": "assets/images/blog-4.jpg"
+                            },
+                            {
+                                "title": "Projet 05",
+                                "image": "assets/images/hero-about.jpg"
+                            },
+                            {
+                                "title": "Projet 06",
+                                "image": "assets/images/hero-home.jpg"
+                            },
+                            {
+                                "title": "Projet 07",
+                                "image": "assets/images/hero-about.jpg"
+                            },
+                            {
+                                "title": "Projet 08",
+                                "image": "assets/images/blog-4.jpg"
+                            },
+                            {
+                                "title": "Projet 09",
+                                "image": "assets/images/blog-1.jpg"
+                            },
+                            {
+                                "title": "Projet 10",
+                                "image": "assets/images/blog-2.jpg"
+                            }
+                        ]
+                    }
                 }
                 
             ]
