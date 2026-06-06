@@ -9,14 +9,14 @@ if ($data === null) : http_response_code(500); die('Erreur : le fichier de confi
 /* ROUTING */
 $config = $data['config'];
 $routes = array_keys($data['routes']);
-$route = isset($_GET['page']) && $_GET['page'] !== "index.php" ? $_GET['page'] : $config['defaultPage'];
-if (!in_array($route, $routes)) : header('location: 404'); exit; endif;
-$page = $data['routes'][$route];
+$route = isset( $_GET['page'] ) && $_GET['page'] !== "index.php" ? $_GET['page'] : $config['defaultPage'];
+$page = $data['routes'][$route] ?? null;
+if (!in_array($route, $routes) || empty($page)) : header('location: 404'); exit; endif;
 $siteUrl = htmlspecialchars($config['siteUrl']);
 $titleSeo = htmlspecialchars($config['siteName']) . " - " . htmlspecialchars($page['seo']['title']);
 if ($_SERVER['SERVER_NAME'] !== "localhost") : $siteUrl = htmlspecialchars($config['siteUrlOnline']); endif;
 /* ROBOTS.TXT*/
-if($_GET['page'] === "robots.txt") {
+if( isset($_GET['page']) && $_GET['page'] === "robots.txt") {
     header('Content-Type: text/plain;charset=utf-8');
     $robots_txt = "User-agent: *\n";
     $robots_txt .= "Disallow: " . $page["hideFolder"] ?? "" . "\n";
@@ -28,7 +28,7 @@ if($_GET['page'] === "robots.txt") {
     exit;
 }
 /* SITEMAP.XML*/
-if( $_GET['page'] === "sitemap.xml") {
+if( isset($_GET['page']) && $_GET['page'] === "sitemap.xml") {
     header('Content-Type: application/xml; charset=utf-8');
     $sitemap_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
     $sitemap_xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
@@ -83,11 +83,7 @@ $assets['styles'] = array_unique($assets['styles']);
     <meta name="twitter:title" content="' . $titleSeo. '" />
     <meta name="twitter:description" content="' . htmlspecialchars($page['seo']['description']) . '" />
     <meta name="twitter:image" content="' . htmlspecialchars($config['siteImageShare']) . '" />
-    <meta name="twitter:url" content="' . $siteUrl . '" />
-    <meta property="og:title" content="' . $titleSeo. '" />
-    <meta property="og:description" content="' . htmlspecialchars($page['seo']['description']) . '" />
-    <meta property="og:image" content="' . htmlspecialchars($config['siteImageShare']) . '" />
-    <meta property="og:url" content="' . $siteUrl . '" />';
+    <meta name="twitter:url" content="' . $siteUrl . '" />';
     echo $balisesOgg;
     ?>
     <!-- favicons | generate by https://realfavicongenerator.net/  -->

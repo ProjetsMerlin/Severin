@@ -13,6 +13,10 @@ ServerSignature Off
     Require all denied
 </Files>
 
+<Files "error_log.txt">
+    Require all denied
+</Files>
+
 <Files ~ "\.(htaccess|htpasswd)$">
     Require all denied
 </Files>
