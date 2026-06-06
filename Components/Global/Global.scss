@@ -4,8 +4,8 @@
     --color_title:  red;
     --color_text:   #666666;
     --color_dark:   #000000;
-    --color_light:  #f7f7f7;
-    --color-background: #f7f7f7;
+    --color_light:  white;
+    --color_background: #f7f7f7;
     --color-text-light: #777777;
     --radius-md: 12px;
     --radius-lg: 18px;
@@ -23,6 +23,14 @@
     color: var(--color_light);
 }
 
+.color_primary {
+    color: var(--color_title);
+}
+
+.bg_background {
+    background-color: var(--color_background);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -37,7 +45,6 @@ figure {
     margin: 0;
 }
 
-.severin {
     h1,h2,h3,h4,h5,h6 {
         color: var(--color_title);
         font-family: "Noto Serif", serif;
@@ -45,5 +52,4 @@ figure {
         span:not(.color_light) {
             color: var(--color_dark);
         }
-    }
 }

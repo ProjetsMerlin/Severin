@@ -27,6 +27,7 @@ function renderHero($data)
         <a
             title="<?= htmlspecialchars($data['title']) ?>"
             href="<?= htmlspecialchars($data['button']['link']) ?>"
+            target="<?= htmlspecialchars($data['button']['target'] ?? "_self"); ?>"
             class="hero-button"
             >
             <?= html_entity_decode($data['button']['label']) ?>

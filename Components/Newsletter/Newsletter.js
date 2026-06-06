@@ -12,7 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: formData
                 });
             const result = await response.json();
-            alert(result.message);
+            console.log(result);
+            if( true === result.success) {
+                form.reset();
+                window.location.href = document.body.getAttribute('data-baseurl') + 'merci';
+            }
+            else {
+                alert(result.message);
+            }
         });
     });
 });

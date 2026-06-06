@@ -3,7 +3,7 @@
 .gallery {
     padding: 100px 20px;
     width: 100%;
-    background: var(--color-background);
+    background: var(--color_background);
 
     .gallery-container {
         margin: 0 auto;
@@ -18,12 +18,12 @@
     }
 
     .gallery-item {
-        display: block;
-        overflow: hidden;
         position: relative;
-
+        display: block;
+        background: var(--color_light);
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-md);
+        overflow: hidden;
 
         img {
             display: block;

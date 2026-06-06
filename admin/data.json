@@ -10,6 +10,9 @@
         "description": "Site exemple basé sur des composants PHP",
         "siteImageShare": "assets/images/share.png",
         "defaultPage": "bienvenue",
+        "fixedContent" : [
+            "Menu", "Footer"
+        ],
         "Menu": {
             "anchor" : "",
             "class": "menu-default",
@@ -21,23 +24,28 @@
             "links": [
                 {
                     "label": "Bienvenue",
-                    "url": "bienvenue"
+                    "url": "bienvenue",
+                    "target": "_self"
                 },
                 {
                     "label": "Blog",
-                    "url": "blog"
+                    "url": "blog",
+                    "target": "_self"
                 },
                 {
-                    "label": "Services",
-                    "url": "services"
+                    "label": "Composants",
+                    "url": "composants",
+                    "target": "_self"
                 },
                 {
                     "label": "À propos",
-                    "url": "a-propos"
+                    "url": "a-propos",
+                    "target": "_self"
                 },
                 {
                     "label": "Contact",
-                    "url": "contact"
+                    "url": "contact",
+                    "target": "_self"
                 }
             ]
         },
@@ -106,7 +114,7 @@
                         "anchor" : "",
                         "class": "cta-default",
                         "subtitle": "Severin",
-                        "title": "Une architecture moderne et ultra légère",
+                        "title": "Une <b class='color_primary'>architecture moderne</b> et ultra <b class='color_primary'>performante</b>",
                         "text": "Construisez des sites performants grâce à une architecture component-based mêlant PHP, JSON, SCSS et Vite.",
                         "primaryButton": {
                             "label": "Découvrir",
@@ -127,11 +135,12 @@
                         "class": "hero-default",
                         "image": "assets/images/hero-home.jpg",
                         "subtitle": "Architecture modulaire et éditable",
-                        "title": "<b>Severin</b> <span>le template qui vous convient</span>",
-                        "text": "Ce contenu provient du JSON éditable via l'admin du site : /admin.<br>Modifiez-le à votre guise !",
+                        "title": "<b>Severin,</b> <span>le template qui vous convient</span>",
+                        "text": "Le contenu du projet est issu d'un fichier .JSON éditable via l'admin du site : <a class='color_primary' target='_blank' href='admin/index.php'>/admin</a>. Ce fichier est également ouvert à d'autres projets si le contenu devait être exploité par un outils externe",
                         "button": {
-                            "label": "Découvrir",
-                            "link": "admin/index.php"
+                            "label": "Voir le fichier",
+                            "link": "admin/data.json",
+                            "target": "_blank"
                         }
                     }
                 },
@@ -141,12 +150,12 @@
                         "anchor" : "",
                         "class": "hero-default inverted",
                         "image": "assets/images/hero.jpg",
-                        "subtitle": "Léger",
-                        "title": "Projet ultra léger",
-                        "text": "Ce contenu est side ridé côté PHP.",
+                        "subtitle": "Components based",
+                        "title": "Basé sur vos composants",
+                        "text": "Le site est construit par vos composants que vous placerez dans le dossier 'Composants' avec son style, ses assets et éventuellement son JS ou ses dépendances qui lui sont propres.",
                         "button": {
                             "label": "Découvrir",
-                            "link": "a-propos"
+                            "link": "composants"
                         }
                     }
                 },
@@ -154,7 +163,7 @@
                     "component": "Introduction",
                     "data" : {
                         "anchor": "",
-                        "class" : "introduction-default",
+                        "class" : "introduction-default bg_background" ,
                         "subtitle": "Avis clients",
                         "title": "Ils nous font confiance",
                         "text": "Découvrez les retours de nos clients et partenaires après leurs collaborations avec notre équipe."
@@ -198,7 +207,7 @@
                         "title" : "<span class='color_light'>Inscription à notre </span>Newsletter",
                         "placeholder": "Votre adresse email",
                         "button": "S’inscrire",
-                        "action": "Composants/Newsletter/Newsletter.php"
+                        "action": "Components/Newsletter/Newsletter.php"
                     }
                 }
             ]
@@ -215,9 +224,9 @@
                     "data" : {
                         "anchor": "",
                         "class" : "introduction-default",
-                        "subtitle": "Actualités",
-                        "title": "Les derniers articles",
-                        "text": "Découvrez nos derniers contenus autour du développement web, de l’architecture frontend et des systèmes component-based."
+                        "subtitle": "Un système de Blog",
+                        "title": "Publiez vos articles avec le composant 'Blog'",
+                        "text": "Le projet prévoit un système de blog et ses urls dynamiques et optimisés pour le référençement. Chaque articles à sont url propre pour afficher la page de son contenu."
                     }
                 },
                 {
@@ -231,7 +240,7 @@
                                 "image": "assets/images/blog-1.jpg",
                                 "date": "12 Mai 2026",
                                 "title": "Pourquoi choisir une architecture minimaliste ?",
-                                "description": "Découvrez les avantages d’une stack légère basée sur PHP, JSON et composants modulaires.",
+                                "description": "Découvrez les avantages d’une stack légère basée sur PHP, JSON et composantss modulaires.",
                                 "content": "<p>Une architecture minimaliste permet de construire des sites rapides,maintenables et extrêmement performants.</p><p>En limitant les dépendances inutiles et en gardant un contrôle totalsur la structure du projet, le développement devient plus fluide.</p><h2>Des performances optimales</h2><p>Les projets légers chargent plus rapidement et offrent une meilleureexpérience utilisateur.</p><blockquote>Un bon système est souvent celui qui reste simple.</blockquote><p>Cette approche permet également une maintenance plus facile dans le temps.</p>"
                             },
                             {
@@ -246,7 +255,7 @@
                                 "id": 3,
                                 "image": "assets/images/blog-3.jpg",
                                 "date": "02 Mai 2026",
-                                "title": "Structurer ses composants SCSS",
+                                "title": "Structurer ses composantss SCSS",
                                 "description": "Organisation, conventions et bonnes pratiques pour un frontend scalable.",
                                 "content": "<p>Une architecture minimaliste permet de construire des sites rapides,maintenables et extrêmement performants.</p><p>En limitant les dépendances inutiles et en gardant un contrôle totalsur la structure du projet, le développement devient plus fluide.</p><h2>Des performances optimales</h2><p>Les projets légers chargent plus rapidement et offrent une meilleureexpérience utilisateur.</p><blockquote>Un bon système est souvent celui qui reste simple.</blockquote><p>Cette approche permet également une maintenance plus facile dans le temps.</p>"
                             },
@@ -263,7 +272,7 @@
                 }
             ]
         },
-        "services": {
+        "composants": {
             "seo": {
                 "title": "À propos",
                 "description": "Page de présentation",
@@ -463,7 +472,7 @@
                     "component": "Introduction",
                     "data" : {
                         "anchor": "",
-                        "class" : "introduction-default",
+                        "class" : "introduction-default bg_background",
                         "subtitle": "FAQ",
                         "title": "Questions fréquentes",
                         "text": "Retrouvez les réponses aux questions les plus courantes concernant notre fonctionnement."
@@ -515,6 +524,30 @@
                         "anchor" : "",
                         "class": "map-default",
                         "embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2525.250566830656!2d4.392409492394866!3d50.733841393822075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3d025d6c2d683%3A0xd7561a18e483f75b!2sAv.%20du%20Manoir%204%2C%201640%20Rhode-Saint-Gen%C3%A8se!5e0!3m2!1sfr!2sbe!4v1778754826364!5m2!1sfr!2sbe"
+                    }
+                }
+            ]
+        },
+        "merci" : {
+            "seo": {
+                "title": "Merci",
+                "description": "Page de remerciement",
+                "priority": 0.2
+            },
+            "components": [
+                {
+                    "component": "Cta",
+                    "data": {
+                        "anchor" : "",
+                        "class": "cta-default",
+                        "subtitle": "Merci !",
+                        "title": "Votre message a été envoyé avec succès.",
+                        "text": "Nous vous répondrons dans les plus brefs délais.",
+                        "primaryButton": {
+                            "label": "Retour à l'accueil",
+                            "link": "bienvenue",
+                            "target": ""
+                        }
                     }
                 }
             ]

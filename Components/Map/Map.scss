@@ -1,6 +1,6 @@
 .map {
     width: 100%;
-    padding: 100px 0px 0px;
+    padding: 24px 0px 0px;
 
     .map-container {
         width: 100%;
@@ -19,8 +19,6 @@
     }
 
     @media (max-width: 768px) {
-        padding: 64px 24px;
-
         .map-embed {
             iframe {
                 height: 360px;

@@ -1,29 +1,21 @@
 <?php
+/* LOGS ERREUR */
 function custom_error_handler($errno, $errstr, $errfile, $errline) { $error_message = "[" . date("Y-m-d H:i:s") . "] "; $error_message .= "Erreur : [$errno] $errstr - Fichier : $errfile - Ligne : $errline\n"; $log_file = __DIR__ . '/error_log.txt'; error_log($error_message, 3, $log_file); if (ini_get("display_errors")) { echo $error_message; } return false; } set_error_handler("custom_error_handler"); register_shutdown_function(function () { $error = error_get_last(); if ($error !== null && ($error['type'] === E_ERROR || $error['type'] === E_PARSE)) { custom_error_handler($error['type'], $error['message'], $error['file'], $error['line']); } }); error_reporting(E_ALL);
+/* SLUG FONCTION */
 function slugify($string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
-
+/* READ DATA JSON */
 $data = json_decode(file_get_contents('admin/data.json'), true);
-if ($data === null) {
-    http_response_code(500);
-    die('Erreur : le fichier de configuration est invalide ou corrompu. (JSON malformé)');
-}
-
+if ($data === null) : http_response_code(500); die('Erreur : le fichier de configuration est invalide ou corrompu. (JSON malformé)'); endif;
+/* ROUTING */
 $config = $data['config'];
 $routes = array_keys($data['routes']);
 $route = isset($_GET['page']) && $_GET['page'] !== "index.php" ? $_GET['page'] : $config['defaultPage'];
-
-if (!in_array($route, $routes)) {
-    header('location: 404');
-    exit;
-}
-
+if (!in_array($route, $routes)) : header('location: 404'); exit; endif;
 $page = $data['routes'][$route];
 $siteUrl = htmlspecialchars($config['siteUrl']);
 $titleSeo = htmlspecialchars($config['siteName']) . " - " . htmlspecialchars($page['seo']['title']);
-if ($_SERVER['SERVER_NAME'] !== "localhost") {
-    $siteUrl = htmlspecialchars($config['siteUrlOnline']);
-}
-
+if ($_SERVER['SERVER_NAME'] !== "localhost") : $siteUrl = htmlspecialchars($config['siteUrlOnline']); endif;
+/* ROBOTS.TXT*/
 if($_GET['page'] === "robots.txt") {
     header('Content-Type: text/plain;charset=utf-8');
     $robots_txt = "User-agent: *\n";
@@ -35,7 +27,7 @@ if($_GET['page'] === "robots.txt") {
     echo $robots_txt;
     exit;
 }
-
+/* SITEMAP.XML*/
 if( $_GET['page'] === "sitemap.xml") {
     header('Content-Type: application/xml; charset=utf-8');
     $sitemap_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
@@ -53,10 +45,10 @@ if( $_GET['page'] === "sitemap.xml") {
     echo $sitemap_xml;
     exit;
 }
-
+/* ASSETS */
 $assets = [ 'scripts' => [], 'styles' => [] ];
 foreach ($page['components'] as $component) {
-    $dependenciesPath = __DIR__ . '/Composants/' . $component['component'] . '/dependencies.php';
+    $dependenciesPath = __DIR__ . '/Components/' . $component['component'] . '/dependencies.php';
     if (!file_exists($dependenciesPath)) {
         continue;
     }
@@ -69,17 +61,13 @@ $assets['styles'] = array_unique($assets['styles']);
 ?>
 <!DOCTYPE html>
 <html lang="<?= $config['lang'] ?>">
-
 <head>
     <meta charset="<?= $config['charset'] ?>">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $titleSeo ?></title>
     <meta name="description" content="<?= htmlspecialchars($page['seo']['description']) ?>">
     <meta name="author" content="<?= $siteUrl ?>">
-
     <base href="<?= $siteUrl ?>">
-
     <!-- Open Graph -->
     <?php
     $balisesOgg = '
@@ -102,7 +90,6 @@ $assets['styles'] = array_unique($assets['styles']);
     <meta property="og:url" content="' . $siteUrl . '" />';
     echo $balisesOgg;
     ?>
-
     <!-- favicons | generate by https://realfavicongenerator.net/  -->
     <link rel="icon" type="image/png" href="assets/images/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
@@ -110,24 +97,23 @@ $assets['styles'] = array_unique($assets['styles']);
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
     <link rel="manifest" href="assets/images/site.webmanifest" />
     <link rel="icon" href="assets/images/favicon.ico">
-
     <!-- Styles -->
     <?php foreach ($assets['styles'] as $style) : ?>
-        <link rel="stylesheet" href="<?= $style ?>">
+    <link rel="stylesheet" href="<?= $style ?>">
     <?php endforeach; ?>
     <link rel="stylesheet" href="assets/style.css?v=<?= filemtime('assets/style.css') ?>">
 </head>
-
-<body class="severin">
-    <?php
-        require_once "Composants/Menu/index.php";
-        renderMenu($config['Menu']);
-        ?>
+<body data-baseurl="<?= $siteUrl ?? "" ?>" class="severin">
+   <?php
+        require_once "Components/".$config["fixedContent"][0]."/index.php";
+        $function = 'render' . $config["fixedContent"][0];
+        $function($config[ $config["fixedContent"][0] ]);
+    ?>
     <main>
         <?php
         foreach ($page['components'] as $section) {
             $componentName = $section['component'];
-            $componentPath = "Composants/$componentName/index.php";
+            $componentPath = "Components/$componentName/index.php";
 
             if (file_exists($componentPath)) {
                 require_once $componentPath;
@@ -141,11 +127,12 @@ $assets['styles'] = array_unique($assets['styles']);
         ?>
     </main>
     <?php
-        require_once "Composants/Footer/index.php";
-        renderFooter($config['Footer']);
-?>
-   <?php foreach ($assets['scripts'] as $script) : ?>
-        <script src="<?= $script ?>"></script>
+        require_once "Components/".$config["fixedContent"][1]."/index.php";
+        $function = 'render' . $config["fixedContent"][1];
+        $function($config[ $config["fixedContent"][1] ]);
+    ?>
+    <?php foreach ($assets['scripts'] as $script) : ?>
+    <script src="<?= $script ?>"></script>
     <?php endforeach; ?>
     <script type="module" src="assets/app.js?v=<?= filemtime('assets/app.js') ?>"></script>
 </body>

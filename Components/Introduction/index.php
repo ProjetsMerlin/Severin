@@ -2,6 +2,7 @@
 function renderIntroduction($data) {
     ?>
 <section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>"class="introduction <?= $data['class'] ?? '' ?>">
+    <div class="introduction-container">
      <?php if (!empty($data['subtitle'])): ?>
         <div class="introduction-subtitle">
             <?= $data['subtitle'] ?>
@@ -17,6 +18,7 @@ function renderIntroduction($data) {
             <?= $data['text'] ?>
         </p>
         <?php endif; ?>
+    </div>
 </section>
     <?php
 } 

@@ -32,7 +32,7 @@
             <ul>
                 <?php foreach ($data['links'] as $link): ?>
                     <li>
-                        <a href="<?= $link['url'] ?>">
+                        <a title="<?= $link['label'] ?>" href="<?= $link['url'] ?>" target="<?= $link["target"] ?>">
                             <?= $link['label'] ?>
                         </a>
                     </li>
