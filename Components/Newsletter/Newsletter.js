@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: formData
                 });
             const result = await response.json();
-            console.log(result);
             if( true === result.success) {
                 form.reset();
                 window.location.href = document.body.getAttribute('data-baseurl') + 'merci';

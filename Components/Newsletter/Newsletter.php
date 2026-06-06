@@ -49,7 +49,7 @@ foreach ($subscribers as $subscriber) {
 
 if ($exists) {
     echo json_encode([
-        'success' => true,
+        'success' => false,
         'message' => 'Cette adresse est déjà inscrite.'
     ]);
 

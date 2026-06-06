@@ -4,10 +4,7 @@ function renderFooter($data)
 ?>
 <footer data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="footer <?= $data['class'] ?? '' ?>">
     <div class="footer-container">
-        <p class="footer-text">
-            <?= $data['text'] ?? ""; ?>
-        </p>
-        <div class="footer-socials">
+        <nav class="footer-socials">
             <?php foreach ($data['socials'] as $social): ?>
                 <a
                     href="<?= $social['url'] ?>"
@@ -23,7 +20,10 @@ function renderFooter($data)
                     >
                 </a>
             <?php endforeach; ?>
-        </div>
+        </nav>
+        <p class="footer-text">
+            <?= $data['text'] ?? ""; ?>
+        </p>
     </div>
 </footer>
 <?php

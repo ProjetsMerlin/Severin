@@ -136,7 +136,7 @@
                         "image": "assets/images/hero-home.jpg",
                         "subtitle": "Architecture modulaire et éditable",
                         "title": "<b>Severin,</b> <span>le template qui vous convient</span>",
-                        "text": "Le contenu du projet est issu d'un fichier .JSON éditable via l'admin du site : <a class='color_primary' target='_blank' href='admin/index.php'>/admin</a>. Ce fichier est également ouvert à d'autres projets si le contenu devait être exploité par un outils externe",
+                        "text": "Le contenu du projet est issu d'un fichier .JSON éditable via l'admin du site : <a class='color_primary' target='_blank' href='admin/index.php'>/admin</a>. Ce fichier est également ouvert à d'autres projets si le contenu devait être exploité par un outil externe.",
                         "button": {
                             "label": "Voir le fichier",
                             "link": "admin/data.json",
@@ -152,7 +152,7 @@
                         "image": "assets/images/hero.jpg",
                         "subtitle": "Components based",
                         "title": "Basé sur vos composants",
-                        "text": "Le site est construit par vos composants que vous placerez dans le dossier 'Composants' avec son style, ses assets et éventuellement son JS ou ses dépendances qui lui sont propres.",
+                        "text": "Le site est construit par vos composants que vous placerez dans le dossier <b>Compenents</b> avec son style, ses assets et éventuellement son JS ou ses dépendances qui lui sont propres.",
                         "button": {
                             "label": "Découvrir",
                             "link": "composants"
