@@ -21,6 +21,7 @@ if (!$page) : http_response_code(404); $page = $data['routes'][$lang . '/404'] ?
 /* SEO */
 $siteUrl  = ($_SERVER['SERVER_NAME'] !== 'localhost') ? htmlspecialchars($config['siteUrlOnline']) : htmlspecialchars($config['siteUrl']);
 $titleSeo = htmlspecialchars($meta['siteName']) . ' - ' . htmlspecialchars($page['seo']['title']);
+$canonical = !empty($page['seo']['canonical']) ? $siteUrl . $page['seo']['canonical'] : $siteUrl . $route;
 /* ROBOTS.TXT */
 if ($route === 'robots.txt') {
     header('Content-Type: text/plain; charset=utf-8');
@@ -104,6 +105,7 @@ function fixedContent($name) {
     <meta name="twitter:url" content="' . $siteUrl . '" />';
     echo $balisesOgg;
     ?>
+    <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
     <!-- favicons | generate by https://realfavicongenerator.net/  -->
     <link rel="icon" type="image/png" href="assets/images/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />

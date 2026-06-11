@@ -121,6 +121,7 @@
                 "title": "Page non trouvée",
                 "description": "La page que vous recherchez n'existe pas.",
                 "priority": 0.1,
+                "canonical" : "fr/404",
                 "siteImageShare": "assets/images/share.png"
             },
             "components": [
@@ -145,6 +146,7 @@
                 "title": "Bienvenue",
                 "description": "Présentation de Séverin",
                 "priority": 0.9,
+                "canonical" : "fr/bienvenue",
                 "siteImageShare": "assets/images/share.png"
             },
             "components": [
@@ -246,6 +248,7 @@
                 "title": "Bienvenue",
                 "description": "Présentation de Séverin",
                 "priority": 0.9,
+                "canonical" : "nl/welkom",
                 "siteImageShare": "assets/images/share.png"
             },
             "components": [
@@ -292,6 +295,7 @@
                 "title": "Blog",
                 "description": "Les derniers articles et actualités",
                 "priority": 0.7,
+                "canonical" : "fr/blog",
                 "siteImageShare": "assets/images/share.png"
             },
             "components": [
@@ -353,6 +357,7 @@
                 "title": "À propos",
                 "description": "Page de présentation",
                 "priority": 0.6,
+                "canonical" : "fr/composants",
                 "siteImageShare": "assets/images/share.png"
             },
             "components": [
@@ -543,6 +548,7 @@
                 "title": "FAQ",
                 "description": "Foire aux questions",
                 "priority": 0.5,
+                "canonical" : "fr/a-propos",
                 "siteImageShare": "assets/images/share.png"
             },
             "components": [
@@ -584,6 +590,7 @@
                 "title": "Contact",
                 "description": "Page de contact",
                 "priority": 0.8,
+                "canonical" : "fr/contact",
                 "siteImageShare": "assets/images/share.png"
             },
             "components": [
@@ -612,6 +619,7 @@
                 "title": "Merci",
                 "description": "Page de remerciement",
                 "priority": 0.2,
+                "canonical" : "fr/merci",
                 "siteImageShare": "assets/images/share.png"
             },
             "components": [
