@@ -37,7 +37,7 @@ function renderBlog($data)
             <?php foreach ($data['items'] as $item): ?>
             <article class="blog-card">
                 <?php if ( $item['image'] ) : ?>
-                <a href="blog/<?= $item['id'] ?>/<?= slugify($item['title']) ?>" class="blog-image">
+                <a href="<?= htmlspecialchars($_GET["lang"]); ?>/<?= htmlspecialchars($_GET["page"]); ?>/<?= $item['id'] ?>/<?= slugify($item['title']) ?>" class="blog-image">
                     <img
                     loading="lazy"
                     src="<?= $item['image'] ?>"
@@ -51,7 +51,7 @@ function renderBlog($data)
                         <?= $item['date'] ?? ""; ?>
                     </div>
                     <h3 class="blog-card-title">
-                        <a href="/article?id=<?= $item['id'] ?>">
+                        <a href="<?= htmlspecialchars($_GET["page"]); ?>/<?= $item['id'] ?>/<?= slugify($item['title']) ?>">
                             <?= $item['title'] ?? ""; ?>
                         </a>
                     </h3>

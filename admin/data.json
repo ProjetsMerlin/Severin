@@ -1,50 +1,65 @@
 {
     "config": {
         "siteVersion": 1.0,
-        "siteName": "Severin",
         "siteUrl": "http://localhost/projets/lintermediaire/en%20cours/Severina/",
         "siteUrlOnline": "https://lintermediaire.be/severin/",
-        "author": "Merlin",
-        "lang": "fr-BE",
-        "charset": "UTF-8",
-        "description": "Site exemple basé sur des composants PHP",
-        "siteImageShare": "assets/images/share.png",
-        "defaultPage": "bienvenue",
-        "fixedContent" : [
-            "Menu", "Footer"
-        ],
+        "defaultPage": "fr/bienvenue",
+        "theme": {
+            "color_title" : "#ff0057",
+            "color_text" : "#666666",
+            "color_dark" : "#000000",
+            "color_light": "#ffffff",
+            "color_background" : "#f7f7f7",
+            "radius-md" : "12px",
+            "radius-lg" : "18px",
+            "shadow-md" : "0px 30px rgba(0,0,0,0.04)",
+            "transition-base" : ".3s"
+        },
+        "fixedContent" : {
+            "header_fr" : "Menu",
+            "aside_fr" : "Newsletter",
+            "footer_fr" : "Footer",
+            "header_nl" : "Menu",
+            "aside_nl" : "Newsletter",
+            "footer_nl" : "Footer"
+        },
         "Menu": {
             "anchor" : "",
             "class": "menu-default",
             "logo": {
                 "image": "assets/images/favicon.ico",
                 "alt": "Logo",
-                "link": "bienvenue"
+                "link": "fr/bienvenue"  
             },
             "links": [
                 {
                     "label": "Bienvenue",
-                    "url": "bienvenue",
+                    "url": "fr/bienvenue",
                     "target": "_self"
                 },
                 {
                     "label": "Blog",
-                    "url": "blog",
+                    "url": "fr/blog",
                     "target": "_self"
                 },
                 {
                     "label": "Composants",
-                    "url": "composants",
+                    "url": "fr/composants",
                     "target": "_self"
                 },
                 {
                     "label": "À propos",
-                    "url": "a-propos",
+                    "url": "fr/a-propos",
                     "target": "_self"
                 },
                 {
                     "label": "Contact",
-                    "url": "contact",
+                    "url": "fr/contact",
+                    "target": "_self"
+                },
+                 {
+                    "label": "nl",
+                    "url": "nl/welkom",
                     "target": "_self"
                 }
             ]
@@ -75,14 +90,38 @@
                     "icon": "assets/images/github.svg"
                 }
             ]
+        },
+        "Newsletter" : {
+            "anchor" : "",
+            "class": "newsletter-default",
+            "title" : "<span class='color_light'>Inscription à notre </span>Newsletter",
+            "placeholder": "Votre adresse email",
+            "button": "S’inscrire",
+            "action": "Components/Newsletter/Newsletter.php"
         }
     },
+    "locale" : {
+        "languages": ["fr", "nl"],
+        "langDefault": "fr",
+        "langCode": {
+            "fr": "fr-FR",
+            "nl": "nl-NL"
+        }
+    },
+    "meta" : {
+        "siteName": "Severin",
+        "description": "Site exemple basé sur des composants PHP",
+        "author": "Merlin",
+        "siteImageShare": "assets/images/share.png",
+        "charset": "UTF-8"
+    },
     "routes": {
-        "404": {
+        "fr/404": {
             "seo": {
                 "title": "Page non trouvée",
                 "description": "La page que vous recherchez n'existe pas.",
-                "priority": 0.1
+                "priority": 0.1,
+                "siteImageShare": "assets/images/share.png"
             },
             "components": [
                 {
@@ -95,17 +134,18 @@
                         "text": "La page que vous recherchez semble inexistante ou a été déplacée.",
                         "button": {
                             "label": "Retour à l'accueil",
-                            "link": "bienvenue"
+                            "link": "fr/bienvenue"
                         }
                     }
                 }
             ]
         },
-        "bienvenue": {
+        "fr/bienvenue": {
             "seo": {
                 "title": "Bienvenue",
                 "description": "Présentation de Séverin",
-                "priority": 0.9
+                "priority": 0.9,
+                "siteImageShare": "assets/images/share.png"
             },
             "components": [
                 {
@@ -155,7 +195,7 @@
                         "text": "Le site est construit par vos composants que vous placerez dans le dossier <b>Compenents</b> avec son style, ses assets et éventuellement son JS ou ses dépendances qui lui sont propres.",
                         "button": {
                             "label": "Découvrir",
-                            "link": "composants"
+                            "link": "fr/bienvenue"
                         }
                     }
                 },
@@ -198,25 +238,61 @@
                             }
                         ]
                     }
-                },
+                }
+            ]
+        },
+        "nl/welkom": {
+            "seo": {
+                "title": "Bienvenue",
+                "description": "Présentation de Séverin",
+                "priority": 0.9,
+                "siteImageShare": "assets/images/share.png"
+            },
+            "components": [
                 {
-                    "component": "Newsletter",
+                    "component": "Cta",
                     "data": {
                         "anchor" : "",
-                        "class": "newsletter-default",
-                        "title" : "<span class='color_light'>Inscription à notre </span>Newsletter",
-                        "placeholder": "Votre adresse email",
-                        "button": "S’inscrire",
-                        "action": "Components/Newsletter/Newsletter.php"
+                        "class": "cta-default",
+                        "subtitle": "Severin",
+                        "title": "Een <b class='color_primary'>architectuur moderne</b> et ultra <b class='color_primary'>performante</b>",
+                        "text": "Construisez des sites performants grâce à une architecture component-based mêlant PHP, JSON, SCSS et Vite.",
+                        "primaryButton": {
+                            "label": "Découvrir",
+                            "link": "#decouvrir",
+                            "target": ""
+                        },
+                        "secondaryButton": {
+                            "label": "Télécharger",
+                            "link": "https://github.com/ProjetsMerlin/Severin",
+                            "target": "_blank"
+                        }
+                    }
+                },
+                {
+                    "component": "Hero",
+                    "data": {
+                        "anchor" : "decouvrir",
+                        "class": "hero-default",
+                        "image": "assets/images/hero-home.jpg",
+                        "subtitle": "Architecture modulaire et éditable",
+                        "title": "<b>Severin,</b> <span>le template qui vous convient</span>",
+                        "text": "Le contenu du projet est issu d'un fichier .JSON éditable via l'admin du site : <a class='color_primary' target='_blank' href='admin/index.php'>/admin</a>. Ce fichier est également ouvert à d'autres projets si le contenu devait être exploité par un outil externe.",
+                        "button": {
+                            "label": "Voir le fichier",
+                            "link": "admin/data.json",
+                            "target": "_blank"
+                        }
                     }
                 }
             ]
         },
-        "blog": {
+        "fr/blog": {
             "seo": {
                 "title": "Blog",
                 "description": "Les derniers articles et actualités",
-                "priority": 0.7
+                "priority": 0.7,
+                "siteImageShare": "assets/images/share.png"
             },
             "components": [
                 {
@@ -272,11 +348,12 @@
                 }
             ]
         },
-        "composants": {
+        "fr/composants": {
             "seo": {
                 "title": "À propos",
                 "description": "Page de présentation",
-                "priority": 0.6
+                "priority": 0.6,
+                "siteImageShare": "assets/images/share.png"
             },
             "components": [
                 {
@@ -290,7 +367,7 @@
                         "text": "Une architecture simple et scalable.",
                         "button": {
                             "label": "Retour",
-                            "link": "bienvenue"
+                            "link": "fr/bienvenue"
                         }
                     }
                 },
@@ -305,7 +382,7 @@
                         "text": "Une architecture simple et scalable.",
                         "button": {
                             "label": "Retour",
-                            "link": "bienvenue"
+                            "link": "fr/bienvenue"
                         }
                     }
                 },
@@ -461,11 +538,12 @@
                 }
             ]
         },
-        "a-propos": {
+        "fr/a-propos": {
             "seo": {
                 "title": "FAQ",
                 "description": "Foire aux questions",
-                "priority": 0.5
+                "priority": 0.5,
+                "siteImageShare": "assets/images/share.png"
             },
             "components": [
                 {
@@ -501,11 +579,12 @@
                 }
             ]
         },
-        "contact": {
+        "fr/contact": {
             "seo": {
                 "title": "Contact",
                 "description": "Page de contact",
-                "priority": 0.8
+                "priority": 0.8,
+                "siteImageShare": "assets/images/share.png"
             },
             "components": [
                 {
@@ -528,11 +607,12 @@
                 }
             ]
         },
-        "merci" : {
+        "fr/merci" : {
             "seo": {
                 "title": "Merci",
                 "description": "Page de remerciement",
-                "priority": 0.2
+                "priority": 0.2,
+                "siteImageShare": "assets/images/share.png"
             },
             "components": [
                 {
@@ -545,7 +625,7 @@
                         "text": "Nous vous répondrons dans les plus brefs délais.",
                         "primaryButton": {
                             "label": "Retour à l'accueil",
-                            "link": "bienvenue",
+                            "link": "fr/bienvenue",
                             "target": ""
                         }
                     }

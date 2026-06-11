@@ -32,7 +32,7 @@
             <ul>
                 <?php foreach ($data['links'] as $link): ?>
                     <li>
-                        <a title="<?= $link['label'] ?>" href="<?= $link['url'] ?>" target="<?= $link["target"] ?>">
+                        <a class="<?php if (isset($_GET['page']) && htmlspecialchars($_GET['lang']) . "/" . htmlspecialchars($_GET['page']) === $link['url']): ?>active<?php endif; ?>" title="<?= $link['label'] ?>" href="<?= $link['url'] ?>" target="<?= $link["target"] ?>">
                             <?= $link['label'] ?>
                         </a>
                     </li>

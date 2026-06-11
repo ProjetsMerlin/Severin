@@ -1,9 +1,9 @@
 <?php
 return [
     'scripts' => [
-        'Composants/Gallery/glightbox.min.js'
+        'Components/Gallery/glightbox.min.js'
     ],
     'styles' => [
-        'Composants/Gallery/glightbox.min.css'
+        'Components/Gallery/glightbox.min.css'
     ]
 ];

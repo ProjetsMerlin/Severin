@@ -41,8 +41,10 @@
             font-weight: 500;
             transition: 0.3s;
             
+            &.active,
             &:hover,
             &:active {
+                color: var(--color_title);
                 opacity: 0.7;
             }
         }

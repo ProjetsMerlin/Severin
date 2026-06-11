@@ -4,17 +4,25 @@ Severin est un projet minimaliste voulant être le plus complet possible.
 Ce système est un CMS JSON component-based, tournant sous PHP natif et dont les assets sont compilés avec Vite.
 Référencé, sécurisé et très léger pour des sites vitrines performants.
 
-## Structure & concept du projet
+## Objectifs
+
+Créer un micro-CMS PHP piloté par JSON, basé sur des composants autonomes, sans base de données ni dépendance serveur complexe.
+
+- Simple comme PHP natif, mais sans base de données
+- Structuré comme un framework moderne (Composants)
+- Rapide, sécurisé et SEO-friendly
+
+---
+
+## Concept & Strucutre
 
 Le projet se compose comme suit :
 
-- Routing PHP simple (via le fichier `index.php` et `.htaccess`)
-- Composants isolés et réutilisables
 - Contenu piloté par JSON (`data.json`) et un petit admin ajouté à cet effet
+- Composants isolés et réutilisables
+- Routing PHP simple (via le fichier `index.php` et `.htaccess`)
 - SEO dynamique depuis le JSON et URLs propres
 - Sécurité de base via le `.htaccess` (avec PHP et sous Apache)
-
-## Principe
 
 Le système repose sur 5 piliers :
 
@@ -67,25 +75,11 @@ Severin dispose d'une sécurité de base, principalement via le fichier `.htacce
 - Protection XSS
 - HTTPS forcé une fois en ligne
 
-### Objectifs
-
-Créer un système :
-
-- Simple comme PHP natif, mais sans base de données
-- Structuré comme un framework moderne (Composants)
-- Rapide, sécurisé et SEO-friendly
-
 ---
 
-## Dépendance
+## Manuel d'utilisation
 
-| Label               | Description                                | URL                                           | Required       |
-| ------------------- | -------------------------------------------|---------------------------------------------- | -------------- |
-| JSON Editor         |  Pour éditer le data.json depuis l'admin   | https://cdn.jsdelivr.net/npm/jsoneditor/      | Non requis     |
-
----
-
-## Mise en ligne
+### Mise en ligne
 
 1. Ajoutez vos composants, renseignez-les dans le fichier `/main.js`, et compilez le tout via la commande Vite : `npm run build`
 
@@ -102,9 +96,20 @@ Pour y accéder, le mot de passe se trouve dans le fichier `/admin/login.php` �
 | `index.php`         | Point d'entrée & moteur SEO               |
 | `.htaccess`         | Routing & sécurité                        |
 
-## Composants
+### Layout system
 
-15 composants sont Déjà en place
+Vous pouvez inclure des composants "fixes", soit qui se répètent sur chaque page en utilisant la fonction **fixedContent($layout)** que vous pouvez placer dans le fichier index.php.
+
+Exemple :
+
+```php
+<aside><?php fixedContent("aside"); ?></aside>
+<?php fixedContent("footer"); ?>
+```
+
+### Composants
+
+15 composants sont déjà en place pour vous et à titre d'exemple :
 
 Blog ✔️  
 CTA ✔️  
@@ -122,8 +127,16 @@ Slider ✔️
 Testimonial ✔️  
 Timeline ✔️  
 
-## Défaut principal
+### Dépendance(s)
+
+| Label               | Description                                | URL                                           | Required       |
+| ------------------- | -------------------------------------------|---------------------------------------------- | -------------- |
+| JSON Editor         |  Pour éditer le data.json depuis l'admin   | https://cdn.jsdelivr.net/npm/jsoneditor/      | Non requis     |
+
+---
+
+## Features & améliorations
 
 On se retrouve avec un fichier `data.json` très long puisqu'il renferme à lui seul le routing, le contenu et la structure des pages.\
-Il est toutefois possible de l'éditer via l'admin.\
-L'idée serait de partager ce type de fichier pour changer d'apparence, de contenu ou de structure d'un site à l'autre.
+Il est toutefois possible de l'éditer via l'admin du projet.\
+L'idée serait de partager ce type de fichier pour changer d'apparence, de contenu ou de structure d'un site à l'autre en partageant des fichiers .json ayant la même strucure.

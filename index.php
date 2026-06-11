@@ -4,45 +4,52 @@ function custom_error_handler($errno, $errstr, $errfile, $errline) { $error_mess
 /* SLUG FONCTION */
 function slugify($string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
 /* READ DATA JSON */
-$data = json_decode(file_get_contents('admin/data.json'), true);
-if ($data === null) : http_response_code(500); die('Erreur : le fichier de configuration est invalide ou corrompu. (JSON malformé)'); endif;
-/* ROUTING */
+$jsonFile = __DIR__ . '/admin/data.json';
+if (!file_exists($jsonFile)) : http_response_code(500); exit('data.json introuvable'); endif;
+$data = json_decode(file_get_contents($jsonFile), true);
 $config = $data['config'];
-$routes = array_keys($data['routes']);
-$route = isset( $_GET['page'] ) && $_GET['page'] !== "index.php" ? $_GET['page'] : $config['defaultPage'];
+$locale = $data['locale'];
+$meta = $data['meta'];
+/* ROUTING */
+$lang = isset($_GET['lang']) ? htmlspecialchars($_GET['lang']) : $locale['langDefault'];
+$lang = in_array($lang, $locale['languages']) ? $lang : $locale['langDefault'];
+$route = empty($_GET['page']) ? $config['defaultPage'] : $lang . '/' . htmlspecialchars($_GET['page']);
+$route = preg_match('/^[a-zA-Z0-9\-_.\/]+$/', $route) ? $route : $config['defaultPage'][$lang];
+$route === 'index.php' && $route = $config['defaultPage'];
 $page = $data['routes'][$route] ?? null;
-if (!in_array($route, $routes) || empty($page)) : header('location: 404'); exit; endif;
-$siteUrl = htmlspecialchars($config['siteUrl']);
-$titleSeo = htmlspecialchars($config['siteName']) . " - " . htmlspecialchars($page['seo']['title']);
-if ($_SERVER['SERVER_NAME'] !== "localhost") : $siteUrl = htmlspecialchars($config['siteUrlOnline']); endif;
-/* ROBOTS.TXT*/
-if( isset($_GET['page']) && $_GET['page'] === "robots.txt") {
-    header('Content-Type: text/plain;charset=utf-8');
-    $robots_txt = "User-agent: *\n";
-    $robots_txt .= "Disallow: " . $page["hideFolder"] ?? "" . "\n";
-    $robots_txt .= "\n";
-    $robots_txt .= "Sitemap: ";
-    $robots_txt .= $siteUrl;
-    $robots_txt .= "sitemap.xml\n";
-    echo $robots_txt;
+if (!$page) : http_response_code(404); $page = $data['routes'][$lang . '/404'] ?? $data['routes'][$locale['langDefault'] . '/404'] ?? null;endif;
+/* SEO */
+$siteUrl  = ($_SERVER['SERVER_NAME'] !== 'localhost') ? htmlspecialchars($config['siteUrlOnline']) : htmlspecialchars($config['siteUrl']);
+$titleSeo = htmlspecialchars($meta['siteName']) . ' - ' . htmlspecialchars($page['seo']['title']);
+/* ROBOTS.TXT */
+if ($route === 'robots.txt') {
+    header('Content-Type: text/plain; charset=utf-8');
+    $disallow = !empty($page['hideFolder']) ? $page['hideFolder'] : '';
+    echo implode("\n", [
+        "User-agent: *",
+        "Disallow: $disallow",
+        "",
+        "Sitemap: {$siteUrl}sitemap.xml",
+    ]);
     exit;
 }
-/* SITEMAP.XML*/
-if( isset($_GET['page']) && $_GET['page'] === "sitemap.xml") {
+/* SITEMAP.XML */
+if ($route === 'sitemap.xml') {
     header('Content-Type: application/xml; charset=utf-8');
-    $sitemap_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-    $sitemap_xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
-    foreach ($data['routes'] as $route => $page) {
-    if( $page["seo"] && $page["seo"]["priority"]) {
-    $sitemap_xml .= " <url>\n";
-        $sitemap_xml .= " <loc>" . $siteUrl . htmlspecialchars($route) . "</loc>\n";
-        $sitemap_xml .= " <lastmod>" . date('Y-m-d', filemtime('admin/data.json')) . "</lastmod>\n";
-        $sitemap_xml .= " <priority>" . $page["seo"]["priority"] . "</priority>\n";
-        $sitemap_xml .= " </url>\n";
+    $lastmod = date('Y-m-d', filemtime('admin/data.json'));
+    $items = '';
+    foreach ($data['routes'] as $slug => $routeData) {
+        $priority = $routeData['seo']['priority'] ?? 0.5;
+        $items .= "  <url>\n";
+        $items .= "    <loc>" . $siteUrl . htmlspecialchars($slug) . "</loc>\n";
+        $items .= "    <lastmod>{$lastmod}</lastmod>\n";
+        $items .= "    <priority>{$priority}</priority>\n";
+        $items .= "  </url>\n";
     }
-    }
-    $sitemap_xml .= "</urlset>";
-    echo $sitemap_xml;
+    echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+    echo $items;
+    echo "</urlset>";
     exit;
 }
 /* ASSETS */
@@ -58,15 +65,26 @@ foreach ($page['components'] as $component) {
 }
 $assets['scripts'] = array_unique($assets['scripts']);
 $assets['styles'] = array_unique($assets['styles']);
+/* FIXED CONTENT */
+function fixedContent($name) {
+    global $config, $lang;
+    $name = $name . "_" . $lang;
+    if ( empty($config['fixedContent'][$name])) {
+        return;
+    }
+    require_once "Components/".$config["fixedContent"][$name]."/index.php";
+    $function = 'render' . $config["fixedContent"][$name];
+    $function($config[ $config["fixedContent"][$name] ]);
+}
 ?>
 <!DOCTYPE html>
-<html lang="<?= $config['lang'] ?>">
+<html lang="<?= $locale['langCode'][$locale['langDefault']] ?? $locale['langDefault'] ?>">
 <head>
-    <meta charset="<?= $config['charset'] ?>">
+    <meta charset="<?= $meta['charset'] ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $titleSeo ?></title>
-    <meta name="description" content="<?= htmlspecialchars($page['seo']['description']) ?>">
-    <meta name="author" content="<?= $siteUrl ?>">
+    <meta name="description" content="<?= htmlspecialchars($page['seo']['description']) ?? htmlspecialchars($meta['description']) ?>">
+    <meta name="author" content="<?= htmlspecialchars($meta['author']) ?>">
     <base href="<?= $siteUrl ?>">
     <!-- Open Graph -->
     <?php
@@ -75,14 +93,14 @@ $assets['styles'] = array_unique($assets['styles']);
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="' . $titleSeo. '">
     <meta property="og:title" content="' . $titleSeo. '" />
-    <meta property="og:description" content="' . htmlspecialchars($page['seo']['description']) . '" />
-    <meta property="og:image" content="' . htmlspecialchars($config['siteImageShare']) . '" />
+    <meta property="og:description" content="' . htmlspecialchars($page['seo']['description']) ?? htmlspecialchars($meta['description']) . '" />
+    <meta property="og:image" content="' . htmlspecialchars($page['seo']['siteImageShare']) ?? htmlspecialchars($meta['siteImageShare']) . '" />
     <meta property="og:url" content="' . $siteUrl . '" />
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="' . $config['lang'] . '" />
+    <meta property="og:locale" content="' . $locale['langCode'][$locale['langDefault']] ?? $locale['langDefault'] . '" />
     <meta name="twitter:title" content="' . $titleSeo. '" />
-    <meta name="twitter:description" content="' . htmlspecialchars($page['seo']['description']) . '" />
-    <meta name="twitter:image" content="' . htmlspecialchars($config['siteImageShare']) . '" />
+    <meta name="twitter:description" content="' . htmlspecialchars($page['seo']['description']) ?? htmlspecialchars($meta['description']) . '" />
+    <meta name="twitter:image" content="' . htmlspecialchars($page['seo']['siteImageShare']) ?? htmlspecialchars($meta['siteImageShare']) . '" />
     <meta name="twitter:url" content="' . $siteUrl . '" />';
     echo $balisesOgg;
     ?>
@@ -98,35 +116,34 @@ $assets['styles'] = array_unique($assets['styles']);
     <link rel="stylesheet" href="<?= $style ?>">
     <?php endforeach; ?>
     <link rel="stylesheet" href="assets/style.css?v=<?= filemtime('assets/style.css') ?>">
+    <!-- theme -->
+    <style>
+:root {
+<?php foreach ($config['theme'] as $key => $value) : ?>
+    --<?= $key ?>: <?= htmlspecialchars($value) ?>;
+<?php endforeach; ?>
+}
+</style>
 </head>
-<body data-baseurl="<?= $siteUrl ?? "" ?>" class="severin">
-   <?php
-        require_once "Components/".$config["fixedContent"][0]."/index.php";
-        $function = 'render' . $config["fixedContent"][0];
-        $function($config[ $config["fixedContent"][0] ]);
-    ?>
+<body data-baseurl="<?= $siteUrl ?? "" ?>" class="severin" data-lang="<?= htmlspecialchars($lang) ?>" data-route="<?= htmlspecialchars($route) ?>">
+    <?php fixedContent("header") ?>
     <main>
         <?php
         foreach ($page['components'] as $section) {
             $componentName = $section['component'];
             $componentPath = "Components/$componentName/index.php";
-
             if (file_exists($componentPath)) {
                 require_once $componentPath;
                 $function = 'render' . $componentName;
-
-                if (function_exists($function)) {
+                if (is_callable($function)) {
                     $function($section['data']);
                 }
             }
         }
         ?>
     </main>
-    <?php
-        require_once "Components/".$config["fixedContent"][1]."/index.php";
-        $function = 'render' . $config["fixedContent"][1];
-        $function($config[ $config["fixedContent"][1] ]);
-    ?>
+    <aside><?php fixedContent("aside"); ?></aside>
+    <?php fixedContent("footer"); ?>
     <?php foreach ($assets['scripts'] as $script) : ?>
     <script src="<?= $script ?>"></script>
     <?php endforeach; ?>
