@@ -1,7 +1,7 @@
 {
     "config": {
         "siteVersion": 1.0,
-        "siteUrl": "http://localhost/projets/lintermediaire/en%20cours/Severina/",
+        "siteUrl": "http://localhost/projets/lintermediaire/en_cours/Severina/",
         "siteUrlOnline": "https://lintermediaire.be/severin/",
         "defaultPage": "fr/bienvenue",
         "theme": {
@@ -396,7 +396,7 @@
                     "data": {
                         "anchor" : "",
                         "class": "timeline-default",
-                        "subtitle": "Notre parcours",
+                        "subtitle": "Notre par_",
                         "title": "Les grandes étapes du projet",
                         "text": "Découvrez les principales évolutions de notre architecture et les différentes étapes de développement du projet.",
                         "items": [

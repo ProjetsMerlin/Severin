@@ -1,3 +1,15 @@
 node_modules/
 admin/backup/
 notes.md
+
+# Ignorer tout WordPress
+/wordpress/*
+/wordpress/wp-content/**
+
+# Autoriser le chemin jusqu'au thème
+!/wordpress/wp-content/
+!/wordpress/wp-content/themes/
+!/wordpress/wp-content/themes/severin/
+
+# Autoriser tout le contenu du thème
+!/wordpress/wp-content/themes/severin/**

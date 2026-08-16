@@ -3,9 +3,14 @@
 function custom_error_handler($errno, $errstr, $errfile, $errline) { $error_message = "[" . date("Y-m-d H:i:s") . "] "; $error_message .= "Erreur : [$errno] $errstr - Fichier : $errfile - Ligne : $errline\n"; $log_file = __DIR__ . '/error_log.txt'; error_log($error_message, 3, $log_file); if (ini_get("display_errors")) { echo $error_message; } return false; } set_error_handler("custom_error_handler"); register_shutdown_function(function () { $error = error_get_last(); if ($error !== null && ($error['type'] === E_ERROR || $error['type'] === E_PARSE)) { custom_error_handler($error['type'], $error['message'], $error['file'], $error['line']); } }); error_reporting(E_ALL);
 /* SLUG FONCTION */
 function slugify($string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
+/* API WORDPRESS */
+$jsonFile = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http' . '://' . $_SERVER['HTTP_HOST'] . '/projets/lintermediaire/en_cours/Severina/wordpress/wp-json/severin/v1/severin';
+$response = file_get_contents($jsonFile);
+if ($response === false) : http_response_code(500); exit('API Severin inaccessible'); endif;
 /* READ DATA JSON */
-$jsonFile = __DIR__ . '/admin/data.json';
-if (!file_exists($jsonFile)) : http_response_code(500); exit('data.json introuvable'); endif;
+// $jsonFile = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http' . '://' . $_SERVER['HTTP_HOST'] . '/projets/lintermediaire/en_cours/Severina/admin/data.json';
+$data = json_decode($response, true);
+if (!is_array($data)) : http_response_code(500); exit('Réponse API Severin invalide'); endif;
 $data = json_decode(file_get_contents($jsonFile), true);
 $config = $data['config'];
 $locale = $data['locale'];
