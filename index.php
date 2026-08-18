@@ -4,14 +4,15 @@ function custom_error_handler($errno, $errstr, $errfile, $errline) { $error_mess
 /* SLUG FONCTION */
 function slugify($string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
 /* API WORDPRESS */
-$jsonFile = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http' . '://' . $_SERVER['HTTP_HOST'] . '/projets/lintermediaire/en_cours/Severina/wordpress/wp-json/severin/v1/severin';
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'];
+$apiEndpoint = '/projets/lintermediaire/en_cours/Severina/wordpress/wp-json/severin/v1/severin';
+$jsonFile = $protocol . '://' . $host . $apiEndpoint;
 $response = file_get_contents($jsonFile);
-if ($response === false) : http_response_code(500); exit('API Severin inaccessible'); endif;
+if ($response === false) :  http_response_code(500); exit('API Severin inaccessible'); endif;
 /* READ DATA JSON */
-// $jsonFile = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http' . '://' . $_SERVER['HTTP_HOST'] . '/projets/lintermediaire/en_cours/Severina/admin/data.json';
 $data = json_decode($response, true);
 if (!is_array($data)) : http_response_code(500); exit('Réponse API Severin invalide'); endif;
-$data = json_decode(file_get_contents($jsonFile), true);
 $config = $data['config'];
 $locale = $data['locale'];
 $meta = $data['meta'];
