@@ -60,8 +60,12 @@ add_action('rest_api_init', function () {
 });
 
 function severin_api(WP_REST_Request $request) {
-
     $langDefault = explode('_', get_locale())[0];
+    $menus = wp_get_nav_menus();
+    $headers = array();
+    foreach ($menus as $menu) :
+        $headers = array( $menu->taxonomy => $menu->slug .'_' . $langDefault );
+    endforeach;
 
     $config = [
         "siteVersion" => date('Ymd'),
@@ -78,7 +82,11 @@ function severin_api(WP_REST_Request $request) {
             "radius-lg" => get_theme_mod('severin_radius_lg', '18px'),
             "shadow-md" => get_theme_mod('severin_shadow_md', '0px 30px rgba(0,0,0,0.04)'),
             "transition-base" => get_theme_mod('severin_transition_base', '.3s')
-        ]
+        ],
+        "fixedContent" => [
+            $headers
+        ],
+        'nav_menu'
     ];
 
     // !! (wp-lang) - https://developer.wordpress.org/reference/functions/get_locale/

@@ -3,16 +3,26 @@
 function custom_error_handler($errno, $errstr, $errfile, $errline) { $error_message = "[" . date("Y-m-d H:i:s") . "] "; $error_message .= "Erreur : [$errno] $errstr - Fichier : $errfile - Ligne : $errline\n"; $log_file = __DIR__ . '/error_log.txt'; error_log($error_message, 3, $log_file); if (ini_get("display_errors")) { echo $error_message; } return false; } set_error_handler("custom_error_handler"); register_shutdown_function(function () { $error = error_get_last(); if ($error !== null && ($error['type'] === E_ERROR || $error['type'] === E_PARSE)) { custom_error_handler($error['type'], $error['message'], $error['file'], $error['line']); } }); error_reporting(E_ALL);
 /* SLUG FONCTION */
 function slugify($string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
-/* API WORDPRESS */
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-$host = $_SERVER['HTTP_HOST'];
-$apiEndpoint = '/projets/lintermediaire/en_cours/Severina/wordpress/wp-json/severin/v1/severin';
-$jsonFile = $protocol . '://' . $host . $apiEndpoint;
-$response = file_get_contents($jsonFile);
-if ($response === false) :  http_response_code(500); exit('API Severin inaccessible'); endif;
+/* SWitCH data.json - API WORDPRESS */
+define('WP_API', FALSE);
+if (true === WP_API) {
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    $host = $_SERVER['HTTP_HOST'];
+    $apiEndpoint = '/projets/lintermediaire/en_cours/Severina/wordpress/wp-json/severin/v1/severin';
+    $jsonFile = $protocol . '://' . $host . $apiEndpoint;
+    $response = file_get_contents($jsonFile);
+    if ($response === false) : http_response_code(500); exit('API Severin inaccessible'); endif;
+} else {
+    $jsonFile = __DIR__ . '/admin/data.json';
+    $response = file_get_contents($jsonFile);
+    if ($response === false) {
+        http_response_code(500);
+        exit('Fichier admin/data.json inaccessible');
+    }
+}
 /* READ DATA JSON */
 $data = json_decode($response, true);
-if (!is_array($data)) : http_response_code(500); exit('Réponse API Severin invalide'); endif;
+if (!is_array($data)) : http_response_code(500); exit('Réponse Severin invalide'); endif;
 $config = $data['config'];
 $locale = $data['locale'];
 $meta = $data['meta'];
@@ -75,13 +85,14 @@ $assets['styles'] = array_unique($assets['styles']);
 /* FIXED CONTENT */
 function fixedContent($name) {
     global $config, $lang;
-    $name = $name . "_" . $lang;
-    if ( empty($config['fixedContent'][$name])) {
+    $cpt = $name . "_" . $lang;
+    if ( empty($config['fixedContent'][$cpt])) {
         return;
     }
-    require_once "Components/".$config["fixedContent"][$name]."/index.php";
-    $function = 'render' . $config["fixedContent"][$name];
-    $function($config[ $config["fixedContent"][$name] ]);
+    $component = explode("_".$lang,$config['fixedContent'][$cpt])[0];
+    require_once "Components/".$component."/index.php";
+    $function = 'render' . $component;
+    $function( $config[$config['fixedContent'][$cpt]] );
 }
 ?>
 <!DOCTYPE html>

@@ -17,10 +17,10 @@
         },
         "fixedContent" : {
             "header_fr" : "Menu",
+            "header_nl" : "Menu_nl",
             "aside_fr" : "Newsletter",
-            "footer_fr" : "Footer",
-            "header_nl" : "Menu",
             "aside_nl" : "Newsletter",
+            "footer_fr" : "Footer",
             "footer_nl" : "Footer"
         },
         "Menu": {
@@ -60,6 +60,47 @@
                  {
                     "label": "nl",
                     "url": "nl/welkom",
+                    "target": "_self"
+                }
+            ]
+        },
+        "Menu_nl": {
+            "anchor" : "",
+            "class": "menu-default",
+            "logo": {
+                "image": "assets/images/favicon.ico",
+                "alt": "Logo",
+                "link": "fr/bienvenue"  
+            },
+            "links": [
+                {
+                    "label": "Welkom",
+                    "url": "nl/welkom",
+                    "target": "_self"
+                },
+                {
+                    "label": "Blog",
+                    "url": "nl/blog",
+                    "target": "_self"
+                },
+                {
+                    "label": "Composants",
+                    "url": "nl/composants",
+                    "target": "_self"
+                },
+                {
+                    "label": "Over ons",
+                    "url": "nl/over-ons",
+                    "target": "_self"
+                },
+                {
+                    "label": "Contact Ons",
+                    "url": "nl/contact",
+                    "target": "_self"
+                },
+                 {
+                    "label": "FR",
+                    "url": "fr/bienvenue",
                     "target": "_self"
                 }
             ]

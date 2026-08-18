@@ -81,7 +81,8 @@ Severin dispose d'une sécurité de base, principalement via le fichier `.htacce
 
 ### Mise en ligne
 
-1. Ajoutez vos composants, renseignez-les dans le fichier `/main.js`, et compilez le tout via la commande Vite : `npm run build`
+1. Ajoutez vos composants, renseignez-les dans le fichier `/main.js`, et compilez le tout via la commande Vite :
+`npm run build`
 
 2. Modifiez à votre guise le fichier `data.json` manuellement ou via l'admin `/admin`.
 Pour y accéder, le mot de passe se trouve dans le fichier `/admin/login.php` — **pensez à le changer une fois votre projet en ligne !**
@@ -140,3 +141,7 @@ Timeline ✔️
 On se retrouve avec un fichier `data.json` très long puisqu'il renferme à lui seul le routing, le contenu et la structure des pages.\
 Il est toutefois possible de l'éditer via l'admin du projet.\
 L'idée serait de partager ce type de fichier pour changer d'apparence, de contenu ou de structure d'un site à l'autre en partageant des fichiers .json ayant la même strucure.
+
+## Compatiblité Wordpress
+
+Je l'ai également rendu compatible à l'API Wordpress. Pour ce faire, il faut télécharger le thème du dossier /wordpressu du dépôt et de renseigner la constante "WP_API" de l'index.php à "TRUE". Vous pouvez ensuite éduter l'endpoint de l'API vers votre wordprress où le thème a été installé. Ainsi, il est possible de construire le site avec Wordpress et la célèbre extention "ACF". (en cours)
