@@ -3,6 +3,17 @@
 function custom_error_handler($errno, $errstr, $errfile, $errline) { $error_message = "[" . date("Y-m-d H:i:s") . "] "; $error_message .= "Erreur : [$errno] $errstr - Fichier : $errfile - Ligne : $errline\n"; $log_file = __DIR__ . '/error_log.txt'; error_log($error_message, 3, $log_file); if (ini_get("display_errors")) { echo $error_message; } return false; } set_error_handler("custom_error_handler"); register_shutdown_function(function () { $error = error_get_last(); if ($error !== null && ($error['type'] === E_ERROR || $error['type'] === E_PARSE)) { custom_error_handler($error['type'], $error['message'], $error['file'], $error['line']); } }); error_reporting(E_ALL);
 /* SLUG FONCTION */
 function slugify(String $string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
+/* FIXED CONTENT */
+function fixedContent(String $name) {
+    global $data, $lang;
+    $component = explode('_', $name)[0];
+    if( empty ( $data['fixedContent'][$name . "_" . $lang] ) ) {
+        return;
+    }
+    require_once "Components/".$component."/index.php";
+    $function = 'render' . $component;
+    $function( $data['fixedContent'][$name . "_" . $lang] );
+}
 /* SWitCH data.json - API WORDPRESS */
 define('WP_API', FALSE);
 if (true === WP_API) {
@@ -82,14 +93,6 @@ foreach ($page['components'] as $component) {
 }
 $assets['scripts'] = array_unique($assets['scripts']);
 $assets['styles'] = array_unique($assets['styles']);
-/* FIXED CONTENT */
-function fixedContent(String $name) {
-    global $data, $lang;
-    $component = explode('_', $name)[0];
-    require_once "Components/".$component."/index.php";
-    $function = 'render' . $component;
-    $function( $data['fixedContent'][$name . "_" . $lang] );
-}
 ?>
 <!DOCTYPE html>
 <html lang="<?= $locale['langCode'][$locale['langDefault']] ?? $locale['langDefault'] ?>">

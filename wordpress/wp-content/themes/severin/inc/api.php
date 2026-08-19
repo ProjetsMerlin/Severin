@@ -61,11 +61,6 @@ add_action('rest_api_init', function () {
 
 function severin_api(WP_REST_Request $request) {
     $langDefault = explode('_', get_locale())[0];
-    $menus = wp_get_nav_menus();
-    $headers = array();
-    foreach ($menus as $menu) :
-        $headers = array( $menu->taxonomy => $menu->slug .'_' . $langDefault );
-    endforeach;
 
     $config = [
         "siteVersion" => date('Ymd'),
@@ -83,11 +78,21 @@ function severin_api(WP_REST_Request $request) {
             "shadow-md" => get_theme_mod('severin_shadow_md', '0px 30px rgba(0,0,0,0.04)'),
             "transition-base" => get_theme_mod('severin_transition_base', '.3s')
         ],
-        "fixedContent" => [
-            $headers
-        ],
-        'nav_menu'
     ];
+    
+    $contenusFixe = get_posts([
+        'post_type' => ['fixedcontent'],
+        'post_status' => 'publish',
+        'numberposts' => -1
+    ]);
+    
+    $fixedContent = array();
+    foreach ($contenusFixe as $contenuFixe) {
+        $cpts = get_field('commponents', $contenuFixe->ID);
+        foreach ($cpts as $cpt) {
+            $fixedContent = array($contenuFixe->post_name => get_fields($cpt->ID));
+        }
+    }
 
     // !! (wp-lang) - https://developer.wordpress.org/reference/functions/get_locale/
     $locale = [
@@ -153,6 +158,7 @@ function severin_api(WP_REST_Request $request) {
 
     return rest_ensure_response([
         'config' => $config,
+        'fixedContent' => $fixedContent,
         'locale' => $locale,
         'meta' => $meta,
         'routes' => $routes
