@@ -1,5 +1,5 @@
 <?php
-function renderNewsletter($data) {
+function renderNewsletter(array $data) {
 ?>
 <section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="newsletter <?= $data['class'] ?? '' ?>">
     <div class="newsletter-container">

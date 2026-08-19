@@ -14,16 +14,10 @@
             "radius-lg" : "18px",
             "shadow-md" : "0px 30px rgba(0,0,0,0.04)",
             "transition-base" : ".3s"
-        },
-        "fixedContent" : {
-            "header_fr" : "Menu",
-            "header_nl" : "Menu_nl",
-            "aside_fr" : "Newsletter",
-            "aside_nl" : "Newsletter",
-            "footer_fr" : "Footer",
-            "footer_nl" : "Footer"
-        },
-        "Menu": {
+        }
+    },
+    "fixedContent" : {
+        "Menu_fr": {
             "anchor" : "",
             "class": "menu-default",
             "logo": {
@@ -57,7 +51,7 @@
                     "url": "fr/contact",
                     "target": "_self"
                 },
-                 {
+                {
                     "label": "nl",
                     "url": "nl/welkom",
                     "target": "_self"
@@ -98,14 +92,14 @@
                     "url": "nl/contact",
                     "target": "_self"
                 },
-                 {
+                {
                     "label": "FR",
                     "url": "fr/bienvenue",
                     "target": "_self"
                 }
             ]
         },
-        "Footer": {
+        "Footer_fr": {
             "anchor" : "",
             "class": "footer-default",
             "text": "© 2026 Severin — Tous droits réservés.",
@@ -132,7 +126,7 @@
                 }
             ]
         },
-        "Newsletter" : {
+        "Newsletter_fr" : {
             "anchor" : "",
             "class": "newsletter-default",
             "title" : "<span class='color_light'>Inscription à notre </span>Newsletter",
