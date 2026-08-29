@@ -6,7 +6,7 @@ function slugify(String $string){ $string = trim($string); $string = iconv( 'UTF
 /* FIXED CONTENT */
 function fixedContent(String $name) { global $data, $lang; $component = explode('_', $name)[0]; if( empty ( $data['fixedContent'][$name . "_" . $lang] ) ) { return; } require_once "Components/".$component."/index.php"; $function = 'render' . $component; $function( $data['fixedContent'][$name . "_" . $lang] ); }
 /* SWitCH data.json - API WORDPRESS */
-define('WP_API', false);
+define('WP_API', true);
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
 $host = $_SERVER['HTTP_HOST'];
 if (true === WP_API) {

@@ -61,6 +61,9 @@ add_action('customize_register', 'severin_customize_register');
 
 function severin_api(WP_REST_Request $request) {
     $langDefault = explode('_', get_locale())[0];
+    if (function_exists('pll_default_language')) {
+        $langDefault = pll_default_language('slug');
+    }
 
     $config = [
         "siteVersion" => wp_get_wp_version(),
@@ -94,14 +97,22 @@ function severin_api(WP_REST_Request $request) {
         }
     }
 
-    // !! (wp-lang) - https://developer.wordpress.org/reference/functions/get_locale/
+    $languages["slugs"] = array( str_replace( '_', '-', get_locale() ));
+    $languages["locales"] = array( explode('_', get_locale())[0] => str_replace( '_', '-', get_locale() ) );
+
+    if (function_exists('pll_the_languages')) {
+        $translations = pll_the_languages( array( 'raw' => 1 ) );
+        $languages = array();
+        foreach ($translations as $key => $translation) {
+            $languages["slugs"][] = $translation["slug"];
+            $languages["locales"][$key] = $translation["locale"];
+        }
+    }
+   
     $locale = [
-        "languages" => [$langDefault, "nl"],
+        "languages" => $languages["slugs"],
         "langDefault" => $langDefault,
-        "langCode" => [
-            "fr" => str_replace( '_', '-', get_locale() ),
-            "nl" => "nl-NL"
-        ]
+        "langCode" => $languages["locales"]
     ];
     
     $meta = [

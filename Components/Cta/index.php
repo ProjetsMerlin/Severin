@@ -1,5 +1,5 @@
 <?php
-function renderCta($data)
+function renderCta(Array $data)
     {
 ?>
 <section data-anchor="<?=  $data["anchor"] ? slugify($data["anchor"]) : ""; ?>" class="cta <?= $data['class'] ?? '' ?>">
