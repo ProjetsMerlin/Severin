@@ -1,5 +1,13 @@
 <?php
 
+add_action('rest_api_init', function () {
+    register_rest_route('severin/v1', '/severin', [
+        'methods' => 'GET',
+        'callback' => 'severin_api',
+        'permission_callback' => '__return_true'
+    ]);
+});
+
 function severin_customize_register(mixed $wp_customize) {
     $wp_customize->add_section('severin_settings', [
         'title' => 'Severin',
@@ -51,19 +59,11 @@ function severin_customize_register(mixed $wp_customize) {
 };
 add_action('customize_register', 'severin_customize_register');
 
-add_action('rest_api_init', function () {
-    register_rest_route('severin/v1', '/severin', [
-        'methods' => 'GET',
-        'callback' => 'severin_api',
-        'permission_callback' => '__return_true'
-    ]);
-});
-
 function severin_api(WP_REST_Request $request) {
     $langDefault = explode('_', get_locale())[0];
 
     $config = [
-        "siteVersion" => date('Ymd'),
+        "siteVersion" => wp_get_wp_version(),
         "siteUrl" => get_theme_mod('severin_site_url', site_url()),
         "siteUrlOnline" => get_theme_mod('severin_site_url_online', site_url()),
         "defaultPage" => $langDefault . '/' . get_post_field('post_name', get_option('page_on_front')),
@@ -90,7 +90,7 @@ function severin_api(WP_REST_Request $request) {
     foreach ($contenusFixe as $contenuFixe) {
         $cpts = get_field('commponents', $contenuFixe->ID);
         foreach ($cpts as $cpt) {
-            $fixedContent = array($contenuFixe->post_name => get_fields($cpt->ID));
+            $fixedContent = array($contenuFixe->post_title => get_fields($cpt->ID));
         }
     }
 

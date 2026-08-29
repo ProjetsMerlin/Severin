@@ -15,27 +15,27 @@ function renderCta($data)
             </h2>
         <?php endif; ?>
         <?php if (!empty($data['text'])): ?>
-            <p class="cta-text">
+            <div class="cta-text">
                 <?= $data['text'] ?>
-            </p>
+            </div>
         <?php endif; ?>
         <div class="cta-buttons">
-            <?php if (!empty($data['primaryButton'])): ?>
+            <?php if (!empty($data['primarybutton'])): ?>
                 <a
-                    target="<?php $data['primaryButton']['target'] !== "_self" ? print($data['primaryButton']['target']) : print("_self") ?>"
-                    href="<?= $data['primaryButton']['link'] ?>"
+                    target="<?php $data['primarybutton']['target'] !== "_self" ? print($data['primarybutton']['target']) : print("_self") ?>"
+                    href="<?= $data['primarybutton']['url'] ?>"
                     class="cta-button cta-button-primary"
                 >
-                    <?= $data['primaryButton']['label'] ?>
+                    <?= $data['primarybutton']['title'] ?>
                 </a>
             <?php endif; ?>
-            <?php if (!empty($data['secondaryButton'])): ?>
+            <?php if (!empty($data['secondarybutton'])): ?>
                 <a
-                    target="<?php $data['secondaryButton']['target'] !== "_self" ? print($data['secondaryButton']['target']) : print("_self") ?>"
-                    href="<?= $data['secondaryButton']['link'] ?>"
+                    target="<?php $data['secondarybutton']['target'] !== "_self" ? print($data['secondarybutton']['target']) : print("_self") ?>"
+                    href="<?= $data['secondarybutton']['url'] ?>"
                     class="cta-button cta-button-secondary"
                 >
-                    <?= $data['secondaryButton']['label'] ?>
+                    <?= $data['secondarybutton']['title'] ?>
                 </a>
             <?php endif; ?>
         </div>

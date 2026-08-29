@@ -4,27 +4,17 @@ function custom_error_handler($errno, $errstr, $errfile, $errline) { $error_mess
 /* SLUG FONCTION */
 function slugify(String $string){ $string = trim($string); $string = iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ); $string = strtolower($string); $string = preg_replace( '/[^a-z0-9]+/', '-', $string ); $string = trim($string, '-'); return $string; }
 /* FIXED CONTENT */
-function fixedContent(String $name) {
-    global $data, $lang;
-    $component = explode('_', $name)[0];
-    if( empty ( $data['fixedContent'][$name . "_" . $lang] ) ) {
-        return;
-    }
-    require_once "Components/".$component."/index.php";
-    $function = 'render' . $component;
-    $function( $data['fixedContent'][$name . "_" . $lang] );
-}
+function fixedContent(String $name) { global $data, $lang; $component = explode('_', $name)[0]; if( empty ( $data['fixedContent'][$name . "_" . $lang] ) ) { return; } require_once "Components/".$component."/index.php"; $function = 'render' . $component; $function( $data['fixedContent'][$name . "_" . $lang] ); }
 /* SWitCH data.json - API WORDPRESS */
-define('WP_API', FALSE);
+define('WP_API', false);
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'];
 if (true === WP_API) {
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-    $host = $_SERVER['HTTP_HOST'];
-    $apiEndpoint = '/projets/lintermediaire/en_cours/Severina/wordpress/wp-json/severin/v1/severin';
-    $jsonFile = $protocol . '://' . $host . $apiEndpoint;
+    $jsonFile = $protocol . '://' . $host . '/projets/lintermediaire/en_cours/Severina/wordpress/wp-json/severin/v1/severin';
     $response = file_get_contents($jsonFile);
     if ($response === false) : http_response_code(500); exit('API Severin inaccessible'); endif;
 } else {
-    $jsonFile = __DIR__ . '/admin/data.json';
+    $jsonFile = 'admin/data.json';
     $response = file_get_contents($jsonFile);
     if ($response === false) {
         http_response_code(500);

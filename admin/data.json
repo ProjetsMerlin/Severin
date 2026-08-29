@@ -1,6 +1,6 @@
 {
     "config": {
-        "siteVersion": 1.0,
+        "siteVersion": "1.0",
         "siteUrl": "http://localhost/projets/lintermediaire/en_cours/Severina/",
         "siteUrlOnline": "https://lintermediaire.be/severin/",
         "defaultPage": "fr/bienvenue",
@@ -17,6 +17,23 @@
         }
     },
     "fixedContent" : {
+        "Cta_fr" : {
+            "anchor" : "",
+            "class": "cta-default",
+            "subtitle": "Severin",
+            "title": "Une <b class='color_primary'>architecture moderne</b> et ultra <b class='color_primary'>performante</b>",
+            "text": "Construisez des sites performants grâce à une architecture component-based mêlant PHP, JSON, SCSS et Vite.",
+            "primarybutton": {
+                "title": "Découvrir",
+                "url": "#decouvrir",
+                "target": ""
+            },
+            "secondarybutton": {
+                "title": "Télécharger",
+                "url": "https://github.com/ProjetsMerlin/Severin",
+                "target": "_blank"
+            }
+        },
         "Menu_fr": {
             "anchor" : "",
             "class": "menu-default",
@@ -193,14 +210,14 @@
                         "subtitle": "Severin",
                         "title": "Une <b class='color_primary'>architecture moderne</b> et ultra <b class='color_primary'>performante</b>",
                         "text": "Construisez des sites performants grâce à une architecture component-based mêlant PHP, JSON, SCSS et Vite.",
-                        "primaryButton": {
-                            "label": "Découvrir",
-                            "link": "#decouvrir",
+                        "primarybutton": {
+                            "title": "Découvrir",
+                            "url": "#decouvrir",
                             "target": ""
                         },
-                        "secondaryButton": {
-                            "label": "Télécharger",
-                            "link": "https://github.com/ProjetsMerlin/Severin",
+                        "secondarybutton": {
+                            "title": "Télécharger",
+                            "url": "https://github.com/ProjetsMerlin/Severin",
                             "target": "_blank"
                         }
                     }
@@ -295,14 +312,14 @@
                         "subtitle": "Severin",
                         "title": "Een <b class='color_primary'>architectuur moderne</b> et ultra <b class='color_primary'>performante</b>",
                         "text": "Construisez des sites performants grâce à une architecture component-based mêlant PHP, JSON, SCSS et Vite.",
-                        "primaryButton": {
-                            "label": "Découvrir",
-                            "link": "#decouvrir",
+                        "primarybutton": {
+                            "title": "Découvrir",
+                            "url": "#decouvrir",
                             "target": ""
                         },
-                        "secondaryButton": {
-                            "label": "Télécharger",
-                            "link": "https://github.com/ProjetsMerlin/Severin",
+                        "secondarybutton": {
+                            "title": "Télécharger",
+                            "url": "https://github.com/ProjetsMerlin/Severin",
                             "target": "_blank"
                         }
                     }
@@ -666,9 +683,9 @@
                         "subtitle": "Merci !",
                         "title": "Votre message a été envoyé avec succès.",
                         "text": "Nous vous répondrons dans les plus brefs délais.",
-                        "primaryButton": {
-                            "label": "Retour à l'accueil",
-                            "link": "fr/bienvenue",
+                        "primarybutton": {
+                            "title": "Retour à l'accueil",
+                            "url": "fr/bienvenue",
                             "target": ""
                         }
                     }
