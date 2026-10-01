@@ -1,8 +1,8 @@
 # Severin
 
-Severin est un projet minimaliste voulant être le plus complet possible.
-Ce système est un CMS JSON component-based, tournant sous PHP natif et dont les assets sont compilés avec Vite.
-Référencé, sécurisé et très léger pour des sites vitrines performants.
+Severin est un projet minimaliste tout en étant le plus complet possible.
+Ce système est un CMS JSON component-based, tournant sous PHP natif, et dont les assets sont compilés avec Vite (React).
+Référencé, sécurisé et très léger, il conviendra pour des sites vitrines multilingues et performants.
 
 ## Objectifs
 
@@ -24,7 +24,7 @@ Le projet se compose comme suit :
 - SEO dynamique depuis le JSON et URLs propres
 - Sécurité de base via le `.htaccess` (avec PHP et sous Apache)
 
-Le système repose sur 5 piliers :
+## Le système repose sur 5 piliers
 
 ### 1. Le contenu
 
@@ -144,4 +144,14 @@ L'idée serait de partager ce type de fichier pour changer d'apparence, de conte
 
 ## Compatiblité Wordpress
 
-Je l'ai également rendu compatible à l'API Wordpress. Pour ce faire, il faut télécharger le thème du dossier /wordpressu du dépôt et de renseigner la constante "WP_API" de l'index.php à "TRUE". Vous pouvez ensuite éduter l'endpoint de l'API vers votre wordprress où le thème a été installé. Ainsi, il est possible de construire le site avec Wordpress et la célèbre extention "ACF". (en cours)
+J'ai également rendu compatible le projet à Wordpress.
+
+Pour ce faire, il faut télécharger le thème "Severin" situé dans le dossier /wordpress/wp-content/themes du dépôt, et de renseigner la constante "**WP_API**" de l'index.php à "**TRUE**".
+
+Vous pouvez ensuite éditer l'endpoint de l'API vers votre Wordprress et installer le thème. Une fois installé, le thème vous proposera d'installer des plugins utiles et non obligatoires mais dans le but de sécuriser votre Wordpress ou de faciliter la gestion de contenu. Parmi eux, un plugin est obligatoire pour la construction des composants dont le contenu sera dynamique via le dashboard de Wordpress. Ainsi, il est possible de construire un site avec Wordpress et la célèbre extention "**ACF**". Vous devez également installer le fichier **acf.json** pour installer les nouveaux types de posts et les composants d'exemples.
+
+Enfin, vous pouvez installer le plugin **Poly Lang** pour faire de votre projet, un site web **multilingue**.
+
+Une fois que tout est installé, vous allez pouvoir créer des pages. Les routes se créeront automatiquement. Vous pourrez ensuite associer les composants à chaque page.
+
+Chaque composants possèdent sa catégorie. Lorsque vous créez un nouveau composant, associé-le à une catégorie et les champs dynamiques apparaîtront pour en éditer le contenu.
